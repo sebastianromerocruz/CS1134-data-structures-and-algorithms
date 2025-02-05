@@ -18,6 +18,8 @@
     2. [**Addendum B**](#add2)
     3. [**Addendum C**](#add3)
 
+<p align=center><strong><em><a href="assets/Asymptotic Analysis.pdf">Handwritten Class Notes</a></em></strong></p>
+
 ---
 
 <a id="1"></a>
@@ -415,7 +417,7 @@ can also be used to describe the runtime of f(`n`) (i.e., if _f(`n`) = O(g(`n`))
 > 75 + 30 − 15 <= 100  
 > 90 <= 100  
 
-3. Confirm correctness. Since the inequality holds for all large `n`, f(`n`) has a worst-case runtime (an upper bound) of O(`n`<sup>2</sup>).
+3. Since the inequality holds for all large `n`, f(`n`) has a worst-case runtime (an upper bound) of O(`n`<sup>2</sup>). We've confirmed correctness!
 
 ![big-o](assets/big-o.png)  
 <sub>**Figure 1**: Here's how this upper bound might look, visually.</sub>
@@ -467,7 +469,7 @@ is a valid lower bound for f(`n`) (i.e., if _f(`n`) = Ω(g(`n`))_). Here’s how
 > 75 + 30 − 15 >= 62.5  
 > 90 >= 62.5  
 
-3. Confirm correctness. Since the inequality holds for all large `n`, f(`n`) has a best-case runtime (a lower bound) of Ω(`n`<sup>2</sup>).
+3. Since the inequality holds for all large `n`, f(`n`) has a best-case runtime (a lower bound) of Ω(`n`<sup>2</sup>). We've confirmed correctness!
 
 Big-Omega complements Big-O by showing not how slow an algorithm can grow in the worst-case, but how fast it’s guaranteed to grow in any case.
 
@@ -493,16 +495,14 @@ I'm gonna pick:
 - **`c`<sub>2</sub> = 9** for the worst-case scenario. This one's really just a guess—we'll find the actual value naturally.
 - **`n`<sub>0</sub> = 3** as the point where `n` becomes "really, really big".
 
-Thus, we must:
-
-1. Prove that 3`n`<sup>2</sup> <= f(`n`) <= 9`n`<sup>2</sup> for all `n` >= `n`<sub>0</sub>.
-2. Analyse f(`n`) = 3`n`<sup>2</sup> + 6`n` - 15. This function has three parts:
+Thus, we must prove that 3`n`<sup>2</sup> <= f(`n`) <= 9`n`<sup>2</sup> for all `n` >= `n`<sub>0</sub>. Here are the steps:
+1. Analyse f(`n`) = 3`n`<sup>2</sup> + 6`n` - 15. This function has three parts:
     1. **3`n`<sup>2</sup>**: The dominant term, growing the fastest as `n` → ∞,
     2. **6`n`**: A smaller term that grows linearly.
     3. **-15**: A constant that becomes insignificant for large `n`.
 
     As explained earlier, for big-theta, we only focus on the dominant n<sup>2</sup> term and show that the smaller terms don't significantly affect f(`n`)'s growth rate.
-3. **Set the lower bound**. We must prove f(`n`) >= 3`n`<sup>2</sup> for all `n` >= `n`<sub>0</sub>​...
+2. **Set the lower bound**. We must prove f(`n`) >= 3`n`<sup>2</sup> for all `n` >= `n`<sub>0</sub>​...
     - This means showing that the additional terms in f(`n`), namely 6`n` and -15, do not cause the function to dip below 3`n`<sup>2</sup> as `n` becomes large. Starting with:
 
        > f(`n`) = 3`n`<sup>2</sup> + 6`n` − 15
@@ -521,7 +521,7 @@ Thus, we must:
         > f(`n`) = 3`n`<sup>2</sup> + 6`n` - 15 **>= 3`n`<sup>2</sup>**
 
     - Thus, **the lower bound 3`n` <= f(`n`) holds for all `n` >= `n`<sub>0</sub> 3**.
-4. Now, **set the upper bound**:
+3. Now, **set the upper bound**:
     - We must prove f(`n`) <= 9`n`<sup>2</sup> for all `n` >= `n`<sub>0</sub>
     - We're going to combine all terms in f(`n`) (including 6`n` and -15) in a way that ensures f(`n`) grows _slower_ than 9`n`<sup>2</sup> (our upper bound).
         1. **Start with f(`n`)**:
@@ -543,7 +543,7 @@ Thus, we must:
             >
         5. Since 6`n` grows much slower than `n`<sup>2</sup>, its contribution becomes insignificant in the context of asymptotic analysis. This allows us to conclude:
             > f(n) ≤ 9n<sup>2</sup>
-5. Finally, we combine both bounds. For `n` >= `n`<sub>0</sup> = 3:
+4. Finally, we combine both bounds. For `n` >= `n`<sub>0</sup> = 3:
     > 3`n`<sup>2</sup> ≤ f(`n`) ≤ 9`n`<sup>2</sup>
     
     Which satisfied the definition of big-theta: **f(`n`) = Θ(`n`)**.
