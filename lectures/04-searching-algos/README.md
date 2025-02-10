@@ -2,7 +2,7 @@
 
 <h1 align=center>Searching Algorithms</h1>
 
-<p align=center><strong><em>Song of the day</strong>: <a href="https://youtu.be/IF2t2CeDhGg?si=mdggY3cwKEYKRcHG"><strong><u>Way Out</u></strong></a> by FKJ (2022).</em></p>
+<p align=center><strong><em>Song of the day</strong>: <a href="https://youtu.be/nIQxhSvSRnQ?si=BG4Tihj0xnD9ISNw"><strong><u>Bodysnatchers</u></strong></a> by Radiohead (2007).</em></p>
 
 ---
 

@@ -707,7 +707,7 @@ This piece of code computes the prefix averages of a list, where the prefix aver
 
 ```python
 def prefix_avg(lst):
-    n = len(lst)      # Θ(n)
+    n = len(lst)      # Θ(1)
     result = [0] * n  # Θ(n)
 
     # Θ(n)
@@ -732,6 +732,58 @@ Output:
 [10.0, 15.0, 20.0, 25.0, 30.0]
 ```
 
+The algorithm runs in **Θ(n²) time**, and here's why:
+
+---
+
+#### **Step-by-Step Breakdown of Complexity Analysis**
+Let's analyze the code line by line and determine the total runtime.
+
+##### **1. Setup Operations (Outside the Loop)**
+```python
+n = len(lst)      # Θ(1)
+result = [0] * n  # Θ(n)
+```
+- Getting the length of the list (`len(lst)`) is a constant-time operation: **Θ(1)**.
+- Creating the `result` list with `n` elements takes **Θ(n)** time.
+
+##### **2. Loop Iteration**
+```python
+for i in range(n):   # Runs `n` times → Θ(n)
+    curr_sum = sum(lst[0:i + 1])    # Θ(i)
+    curr_avg = curr_sum / (i + 1)   # Θ(1)
+    result[i] = curr_avg            # Θ(1)
+```
+- The loop runs **n** times, iterating over `i = 0, 1, 2, ..., n - 1`.
+- Within each iteration:
+  - **`sum(lst[0:i + 1])` takes Θ(i)**:  
+    - Slicing `lst[0:i+1]` takes **Θ(i)** time.
+    - Summing over this sublist also takes **Θ(i)** time.
+    - Since both are **Θ(i)**, this step overall is **Θ(i)**.
+  - **`curr_avg = curr_sum / (i + 1)`**: Division is a constant-time operation: **Θ(1)**.
+  - **`result[i] = curr_avg`**: Assigning a value to a list index is also **Θ(1)**.
+
+##### **3. Summing the Costs**
+The **total runtime** is determined by summing the cost of each loop iteration:
+```
+i = 0  →  sum(lst[0:1])    →  Θ(1)
+i = 1  →  sum(lst[0:2])    →  Θ(2)
+i = 2  →  sum(lst[0:3])    →  Θ(3)
+...
+i = n-1 →  sum(lst[0:n])   →  Θ(n)
+```
+The total work done across all iterations is:
+```
+Θ(1) + Θ(2) + Θ(3) + ... + Θ(n) = 1 + 2 + 3 + ... + n = Θ(n²)
+```
+(Since the sum of the first `n` natural numbers is `n(n+1)/2 = Θ(n²)`.)
+
+Adding up all components:
+- **Setup**: Θ(1) + Θ(n) = Θ(n)
+- **Loop execution**: Θ(n²) (from summing elements)
+- **Return statement**: Θ(1)
+
+Total complexity:
 > T<sub>3</sub>(`n`) = Θ(`n`) + Θ(`n`<sup>2</sup>) + Θ(1) = **Θ(`n`<sup>2</sup>)**
 
 ### Example 4
@@ -892,12 +944,6 @@ Thus, for n ≥ 20:
 
 This satisfies the definition of Θ(n<sup>3</sup>), so:  
 > f(n) = Θ(n<sup>3</sup>)
-
-#### **Key Takeaways**
-
-- The **dominant term** (4n<sup>3</sup>) determines the asymptotic growth.
-- Smaller terms (5n<sup>2</sup>, 10n, 20) become negligible as n grows large, but we still overestimate them to simplify the proof.
-- c<sub>1</sub> and c<sub>2</sub> are chosen based on the dominant term and a safe overestimation of smaller terms.
 
 <br>
 
