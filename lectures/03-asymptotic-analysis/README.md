@@ -736,7 +736,6 @@ The algorithm runs in **Θ(n²) time**, and here's why:
 
 ---
 
-#### **Step-by-Step Breakdown of Complexity Analysis**
 Let's analyze the code line by line and determine the total runtime.
 
 ##### **1. Setup Operations (Outside the Loop)**
