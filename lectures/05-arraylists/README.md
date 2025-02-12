@@ -19,6 +19,8 @@
 4. [**Addendum A: _Important Summations To Know_**](#4)
 5. [**Addendum B: _Dunder Methods_**](#5)
 
+<p align=center><strong><em><a href="assets/ArrayList I.pdf">Day 1 Handwritten Class Notes</a></em></strong></p>
+
 ---
 
 <a id="1"></a>
