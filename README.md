@@ -18,6 +18,7 @@ resource, send me an [**email**](mailto:src402@nyu.edu) about it with the subjec
 2. [**Iterators and Generators**](lectures/02-iterators-generators)
 3. [**Asymptotic Analysis**](lectures/03-asymptotic-analysis)
 4. [**Searching Algorithms**](lectures/04-searching-algos)
+5. [**`ArrayList`**](lectures/05-arraylists)
 
 ## Exercises
 
