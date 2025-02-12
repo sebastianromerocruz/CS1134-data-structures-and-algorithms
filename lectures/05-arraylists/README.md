@@ -2,7 +2,7 @@
 
 <h1 align=center><code>ArrayList</code></h1>
 
-<p align=center><strong><em>Song of the day</strong>: <a href="https://youtu.be/34ckxHVZqoI?si=sv6JNeU0GIMlmMzO"><strong><u>断气</u></strong></a> by 回春丹 (2022).</em></p>
+<p align=center><strong><em>Song of the day</strong>: <a href="https://youtu.be/34ckxHVZqoI?si=sv6JNeU0GIMlmMzO"><strong><u>断气</u></strong></a> by 回春丹 (2022), recommended by Xin Chen.</em></p>
 
 ---
 

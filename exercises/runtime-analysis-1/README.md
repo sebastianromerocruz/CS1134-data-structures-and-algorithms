@@ -1,6 +1,6 @@
 ## **Runtime Complexity Analysis**
 
-Analyze the runtime of three Python functions. For each function:
+Analyse the runtime of three Python functions. For each function:
 
 1. **Determine its overall asymptotic complexity (Θ notation).**
 2. **Break down the complexity of each operation.**
