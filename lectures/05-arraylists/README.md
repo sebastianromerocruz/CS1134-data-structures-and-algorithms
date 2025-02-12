@@ -1,8 +1,8 @@
-<h2 align=center>Week 04: <em>Day 2</em></h2>
+<h2 align=center>Week 04 and 05</h2>
 
 <h1 align=center><code>ArrayList</code></h1>
 
-<p align=center><strong><em>Song of the day</strong>: <a href="https://youtu.be/IF2t2CeDhGg?si=mdggY3cwKEYKRcHG"><strong><u>Way Out</u></strong></a> by FKJ (2022).</em></p>
+<p align=center><strong><em>Song of the day</strong>: <a href="https://youtu.be/34ckxHVZqoI?si=sv6JNeU0GIMlmMzO"><strong><u>断气</u></strong></a> by 回春丹 (2022).</em></p>
 
 ---
 

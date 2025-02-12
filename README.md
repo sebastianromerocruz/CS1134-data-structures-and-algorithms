@@ -19,4 +19,8 @@ resource, send me an [**email**](mailto:src402@nyu.edu) about it with the subjec
 3. [**Asymptotic Analysis**](lectures/03-asymptotic-analysis)
 4. [**Searching Algorithms**](lectures/04-searching-algos)
 
+## Exercises
+
+1. [**Runtime Complexity Analysis**](exercises/runtime-analysis-1)
+
 <sub>© Sebastián Romero Cruz 2025</sub>

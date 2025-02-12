@@ -13,6 +13,8 @@
     2. [**Sorted Search**](#1-2)
 2. [**Binary Search**](#2)
 
+<p align=center><strong><em><a href="assets/Search Algorithms.pdf">Handwritten Class Notes</a></em></strong></p>
+
 ---
 
 <a id="1"></a>
