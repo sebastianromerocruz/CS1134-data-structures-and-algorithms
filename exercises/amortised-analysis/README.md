@@ -1,7 +1,7 @@
-# **Amortized Runtime Analysis**
+# **Amortised Runtime Analysis**
 
 ## **Instructions**
-For each program, analyze the **worst-case**, **best-case**, and **amortized runtime** of the operations performed.
+For each program, analyse the **worst-case**, **best-case**, and **amortised runtime** of the operations performed.
 
 ---
 
@@ -19,7 +19,7 @@ def build_list(n):
 1. What is the **worst-case runtime** of a single `.append(i)`?
 2. What is the **best-case runtime** of a single `.append(i)`?
 3. What is the **total runtime** of the _loop_?
-4. What is the **amortized runtime** of each `.append(i)` call?
+4. What is the **amortised runtime** of each `.append(i)` call?
 
 ---
 
@@ -35,7 +35,7 @@ def remove_elements(lst):
 1. What is the **worst-case runtime** of a single `.pop()`?
 2. What is the **best-case runtime** of a single `.pop()`?
 3. What is the **total runtime** of the _loop_?
-4. What is the **amortized runtime** of each `.pop()` call?
+4. What is the **amortised runtime** of each `.pop()` call?
 
 ---
 
@@ -53,4 +53,4 @@ def concat_string(n):
 1. What is the **worst-case runtime** of `s += str(i)`?
 2. What is the **best-case runtime** of `s += str(i)`?
 3. What is the **total runtime** of the _loop_?
-4. What is the **amortized runtime** of each string concatenation?
+4. What is the **amortised runtime** of each string concatenation?
