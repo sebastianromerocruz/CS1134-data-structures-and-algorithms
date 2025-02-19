@@ -1,6 +1,6 @@
-<h2 align=center>Week 05</h2>
+<h2 align=center>Week 06 and 07</h2>
 
-<h1 align=center><code>ArrayList</code></h1>
+<h1 align=center><code>Recursion</code></h1>
 
 <p align=center><strong><em>Song of the day</strong>: <a href="https://youtu.be/IF2t2CeDhGg?si=mdggY3cwKEYKRcHG"><strong><u>Way Out</u></strong></a> by FKJ (2022).</em></p>
 
@@ -49,5 +49,58 @@ If there's more than one number to count, our recursive hypothesis is that “wh
 
 ### Recursion in Memory
 
-Mapping out recursion in memory is rather interesting. When you make a function call, that call is placed on something called the "call stack," which you can consider a sequential to-do list. Absolutely nothing else can happen in our program until that function is removed from the call stack (i.e. when the function is finished running).
+Mapping out recursion in memory is rather interesting. When you make a function call, that call is placed on something called the "call stack," which you can consider a sequential to-do list. If we have three tasks in our to-do list (say, tasks 1, 2, and 3) and we add a fourth (task 4), _we cannot take care of tasks 1-3 until we take care of task 4_. By the same token, we cannot take care of tasks 1 and 2 until we take care of task 3, and so on.
 
+
+The same thing applies with recursive function calls. Absolutely nothing else can happen in our program until that function is removed from the call stack (i.e. when the function is finished running):
+
+![call-stack-1](assets/call-stack-1.jpeg)
+![call-stack-2](assets/call-stack-2.jpg)
+
+<sub>**Figures 1 & 2**: The progression of the call stack after a function call `count_up(1, 4)`.</sub>
+
+![countup-1](assets/countup-1.gif)
+
+<sub>**Figure 3**: This same progression of the call stack as shown in our [**code visualiser**](https://pythontutor.com/).</sub>
+
+In figures 1 and 2, the first function call is denoted by the **`*`** character, while each recursive call after that is denoted by a **`**`**. As you can see (by reading the diagrams from left-to-right), the first function call does not get completely executed until the very last step, _after every recursive call has been, itself, called an executed._ In that sense, we're basically going down to the last possible recursion level (in our case, printing `1`) before even thinking of what follows a recursive call.
+
+A different version of this algorithm might look like this:
+
+```python
+# assumes start <= end
+# prints a sequence of
+# ascending values, one per line
+
+def count_up(start, end):
+	if start == end:
+		print(start)
+	else:
+		print(start)
+		count_up(start + 1, end)
+
+count_up(1, 4)
+```
+
+This version does something very similar, except that the lowest possible recursion level prints `5` instead, since we're incrementing the value of `start` instead of decrementing the value of `end`:
+
+![countup-2](assets/countup-2.gif)
+
+<sub>**Figure 4**: The progression of the call stack for the second version of our algorithm.</sub>
+
+Finally, we might envision a version of this code that does something similar to binary search and "splits" the counting "in half":
+
+```python
+# assumes start <= end
+# prints a sequence of ascending values, one per line
+
+def count_up(start, end):
+	if start == end:
+		print(start)
+	else:
+		mid = (start + end) // 2
+        count_up(start, mid)
+		count_up(mid+1, end)
+
+count_up(4)
+```

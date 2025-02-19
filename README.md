@@ -23,5 +23,6 @@ resource, send me an [**email**](mailto:src402@nyu.edu) about it with the subjec
 ## Exercises
 
 1. [**Runtime Complexity Analysis**](exercises/runtime-analysis-1)
+2. [**Amortised Analysis**](exercises/amortised-analysis)
 
 <sub>© Sebastián Romero Cruz 2025</sub>
