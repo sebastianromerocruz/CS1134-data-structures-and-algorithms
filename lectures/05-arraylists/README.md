@@ -195,7 +195,7 @@ Initially, the list starts with a small capacity—just enough to hold a single 
 
 <sub>**Figure 6**: The list's capacity doubles each time it runs out of space, resulting in three resizing operations here.</sub>
 
-This process isn't as straightforward as it seems. Python doesn't simply expand the existing memory; instead, it creates a completely new, larger array, copies the existing elements into it, and then appends the new element. A more accurate representation of this would look like this:
+As we now know, Python doesn't simply expand the existing memory; instead, it creates a completely new, larger array, copies the existing elements into it, and then appends the new element. A more accurate representation of this would look like this:
 
 ![arraylist-2](assets/arraylist-2.png)
 
@@ -221,8 +221,12 @@ class ArrayList:
         self.capacity = 1
         self.n = 0
 
-    def __len__(self):
-        return self.n
+    def resize(self, new_size):
+        new_array = make_array(new_size)
+        for i in range(self.n):
+            new_array[i] = self.data_arr[i]
+        self.data_arr = new_array
+        self.capacity = new_size
 
     def append(self, val):
         if (self.n == self.capacity):
@@ -230,12 +234,12 @@ class ArrayList:
         self.data_arr[self.n] = val
         self.n += 1
 
-    def resize(self, new_size):
-        new_array = make_array(new_size)
-        for i in range(self.n):
-            new_array[i] = self.data_arr[i]
-        self.data_arr = new_array
-        self.capacity = new_size
+    def extend(self, iter_collection):
+        for elem in iter_collection:
+            self.append(elem)
+
+    def __len__(self):
+        return self.n
 
     def __getitem__(self, ind):
         if (not (0 <= ind <= self.n - 1)):
@@ -250,10 +254,6 @@ class ArrayList:
     def __iter__(self):
         for i in range(len(self)):
             yield self.data_arr[i]  #could also yield self[i]
-
-    def extend(self, iter_collection):
-        for elem in iter_collection:
-            self.append(elem)
 ```
 
 In this implementation:
