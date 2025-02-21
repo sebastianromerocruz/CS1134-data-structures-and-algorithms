@@ -1,6 +1,6 @@
 <h2 align=center>Week 06 and 07</h2>
 
-<h1 align=center><code>Recursion</code></h1>
+<h1 align=center>Recursion</h1>
 
 <p align=center><strong><em>Song of the day</strong>: <a href="https://youtu.be/IF2t2CeDhGg?si=mdggY3cwKEYKRcHG"><strong><u>Way Out</u></strong></a> by FKJ (2022).</em></p>
 
@@ -8,7 +8,24 @@
 
 ## Sections
 
+1. [**Recursion Review**](#1)
+    1. [**Recursion In Memory**](1-1)
+    2. [**Counting Up In Different Ways**](1-2)
+    3. [**Counting Down**](1-3)
+    4. [**Counting Up And Down**](1-4)
+    5. [**Factorial**](1-5)
+2. [**Asymptotic Analysis for Recursive Functions**](#2)
+    1. [**Recursive Tree Structure**](#2-1)
+    2. [**Cost Per Node ("Leaf")**](#2-2)
+    3. [**Examples**](#2-3)
+        - [**Factorial**](#2-3-1)
+        - [**Counting The Occurrences Of A Number In A List**](#2-3-2)
+        - [**List Of Ascending Integers**](#2-3-3)
+        - [**Power**](#2-3-4)
+
 ---
+
+<a id="1"></a>
 
 ## Recursion Review
 
@@ -47,7 +64,9 @@ Here, our base case is when counting up becomes trivial: that is, when there's o
 
 If there's more than one number to count, our recursive hypothesis is that “when calling `count_up` with a smaller range, it will print the numbers in that range in an increasing order”. In other words, until the problem becomes trivial, keep decreasing the size of the input.
 
-### Recursion in Memory
+<a id="1-1"></a>
+
+### Recursion In Memory
 
 Mapping out recursion in memory is rather interesting. When you make a function call, that call is placed on something called the "call stack," which you can consider a sequential to-do list. If we have three tasks in our to-do list (say, tasks 1, 2, and 3) and we add a fourth (task 4), _we cannot take care of tasks 1-3 until we take care of task 4_. By the same token, we cannot take care of tasks 1 and 2 until we take care of task 3, and so on.
 
@@ -88,6 +107,10 @@ This version does something very similar, except that the lowest possible recurs
 
 <sub>**Figure 4**: The progression of the call stack for the second version of our algorithm.</sub>
 
+<a id="1-2"></a>
+
+### Counting Up In Different Ways
+
 Finally, we might envision a version of this code that does something similar to binary search and "splits" the counting "in half":
 
 ```python
@@ -104,3 +127,344 @@ def count_up(start, end):
 
 count_up(4)
 ```
+
+There's no reason why this shouldn't work—after all, we're simply cutting the range of counting with each call of `count_up`. We assuming that, when calling `count_up` with a smaller range, it would print the numbers in that range in an increasing order.
+
+![countup-3](assets/countup-3.gif)
+
+<sub>**Figure 5**: The progression of the call stack for the third version of our algorithm.</sub>
+
+In this particular case, this "cutting" of the range could be visualised the following way:
+
+<a id="countup-vis"></a>
+
+![countup-vis](assets/countup_vis.gif)
+
+<sub>**Figure 6**: As you can see, each call to `countup` reaches its deepest level before moving on to the next call.</sub>
+
+<br>
+
+In all three cases, we are covering the entire range of numbers to count, just in different "directions":
+
+![countup-ranges](assets/countup-ranges.png)
+
+<sub>**Figure 7**: We're covering the same ground with all three versions of counting.</sub>
+
+<a id="1-3"></a>
+
+### Counting Down
+
+What about counting down? For this algorithm, let's have the following:
+
+- **Base case**: If the range of numbers is 0 (i.e. it includes only 1 numbers), the we print that number.
+- **Assumption**: Assume that “when calling `count_down` with a smaller **range**, it would **print the numbers in that range in a decreasing order**”.
+
+```python
+# assumes start <= end
+
+def count_down(start, end):
+	if start == end:
+		print(start)
+	else:
+		count_down(start + 1, end)
+		print(start)
+```
+
+Using, say, `1` and `2` as parameters, we would see the following:
+
+```
+1 == 2 —> false
+so call count_down(2, 2)
+
+2 == 2 —> true
+so print 2
+go back to where count(2, 2) was called
+
+the line after count(2, 2) is print(start)
+so print 1
+```
+
+<a id="1-4"></a>
+
+### Counting Up And Down
+
+What would you say about counting up and down, then? That is, the following call:
+
+```python
+count_up_and_down(1, 4)
+```
+
+Outputs:
+
+```
+1
+2
+3
+4
+3
+2
+1
+```
+
+Let's the the base case of the range containing only one number, in which case we just print that number. We'll make the assumption that:
+
+> ...when calling `count_up_and_down` with a smaller range, it would **print the numbers of that range in an increasing followed by decreasing order**.
+
+```python
+# assumes start <= end
+
+def count_up_and_down(start, end):
+	if start == end:
+		print(start)
+	else:
+		print(start)
+		count_up_and_down(start + 1, end)
+		print(start)
+```
+
+Let's take the easy example of `count_up_and_down(1, 3)`:
+
+```
+1 == 3 —> false
+so print 1
+call count_up_and_down(2, 3)
+
+2 == 3 —> false
+so print 2
+call count_up_and_down(3, 3)
+
+3 == 3 —> true
+so print 3
+return to where count_up_and_down(3, 3) was called
+
+after count_up_and_down(3, 3), print start
+so print 2
+return to where count_up_and_down(2, 3) was called
+
+after count_up_and_down(2, 3), print start
+so print 1
+```
+
+<a id="1-5"></a>
+
+### Factorial
+
+What about something like a factorial? It's mathematical definition seems something literally designed for recursion:
+
+![factorial-def](assets/factorial-def.png)
+
+<sub>**Figure 8**: Factorials are defined as smaller definitions of themselves.</sub>
+
+Our base case is easy:
+
+- **Base case**: If `n` equals 1, then the factorial is 1.
+- **Assumption**: When calling `factorial` with a smaller `n`, it would return the factorial of that `n`, as if by magic.
+
+```python
+# n >= 1
+def factorial(n):
+	if n == 1:
+		return 1
+	else:
+		result = n * factorial(n - 1)
+		return result
+```
+
+For `factorial(3)`:
+
+```
+3 == 1 —> false
+so multiply 3 by whatever factorial(2) is
+
+2 == 1 –> false
+so multiply 2 by whatever factorial(1) is
+
+1 == 1 —> true
+so return 1 to wherever factorial(1) was called
+
+store 2 * 1 = 2 inside result
+return result to wherever factorial(2) was called
+
+store 3 * 2 = 6 inside result
+return result to wherever factorial(3) was called
+```
+
+<br>
+
+<a id="2"></a>
+
+## Asymptotic Analysis for Recursive Functions
+
+And now, for the question that you probably saw coming: how do we measure asymptotic behaviour for recursive operations? Life was relatively simple with loops. After all, we could look at each line of code and, as long as we knew exactly what that particular line was doing and how long it took to do it, we could add up all those steps to get our final answer. The problem with recursive algorithms is that some of the lines in them are calls to itself—and if we're not done figuring out the runtime of the algorithm in the first place, we're going to be stuck in circles. Right?
+
+...right? Well, no. Otherwise we wouldn't be bothering asking this question and this class wouldn't exist. There _is_ a way to measure the runtime of these algorithms—it simply works a little different. We instead measure them using something called a **recursive tree**, reminiscent of the one we had in [**figure 6**](#countup-vis).
+
+<a id="2-1"></a>
+
+### Recursive Tree Structure
+
+We build this tree structure representing each call to the function and the amount of work done at each level. The structure is as follows:
+
+1. Each recursive call is represented as a **node** (a "leaf") in the tree. Inside each node, we write the **size of the input** that this particular call was passed as an argument.
+2. If function call 'A' makes function call 'B', we draw an **edge** (a "branch") from node 'A' to node 'B'.
+
+<a id="2-2"></a>
+
+### Cost Per Node ("Leaf")
+
+Then, next to each node, we write the _local cost_ of that recursive call, which is the cost **without including the cost of the recursive calls it makes**. Once you are done drawing your tree, you add up the cost of all your local costs to obtain the total costs of your recursive algorithm.
+
+<a id="2-3"></a>
+
+### Examples
+
+<a id="2-3-1"></a>
+
+#### Factorial
+
+Take, for example, our factorial function:
+
+```python
+# n >= 1
+def factorial(n):
+	if n == 1:    # Θ(1)
+		return 1  # Θ(1)
+	else:
+		result = factorial(n - 1)
+		result *= n    # Θ(1)
+		return result  # Θ(1)
+```
+
+Our recursive tree in this case is super simple:
+
+![factorial-asym](assets/factorial-asym.png)
+
+<sub>**Figure 8**: The first call is the top node, whereas the last is the bottom node. Because the local cost of each call to `factorial` is Θ(1), we're just acting constant time `n`-number of times.</sub>
+
+<a id="2-3-2"></a>
+
+#### Counting The Occurrences Of A Number In A List
+
+Let's say we have a function that returns the number of times a given value occurs in a list of values. There are a few ways of writing this function recursively, but let's start with the most obvious one.
+
+> **Recursion Base Case**: When calling `count_occurrences` on an empty list, it would return `0`.
+> **Recursion Assumption**: When calling `count_occurrences` with a shorter list (the "tail" of the list), it would return the number of times a given value occurs in that list.
+
+The way it will do this is by:
+
+1. Recurse on smaller list (the "tail") to obtain its occurrences.
+2. Check the first element (the "head") of the list. If it's equal to our target value, return the count obtained from step 1, plus 1. If it is not, simply return the count obtained from step 1.
+
+```python
+def count_occurences_v1(lst, val):
+    if len(lst) == 0:  # Θ(1)
+        # base case
+        return 0       # Θ(1)
+    else:
+        head = lst[0]   # Θ(1)
+        tail = lst[1:]  # Θ(n - 1)
+        
+        # assumption
+        count_tail = count_occurences_v1(tail, val)
+        
+        if head == val:            # Θ(1)
+            return count_tail + 1  # Θ(1)
+        else:
+            return count_tail      # Θ(1)
+```
+
+For the most part, the local cost of this function is constant _except_ for the creation of our shorter list (`tail`) through slicing, which is Θ(`n` - 1), or simply Θ(`n`). Since we repeat this process an `n` number of times, our total runtime is **Θ(`n`<sup>2</sup>)**:
+
+![count-occ-asym](assets/count-occ-v1.png)
+
+<sub>**Figure 9**: The first call is the top node, whereas the last is the bottom node. Because the local cost of each call to `factorial` is Θ(`n`), we're acting linear time `n`-number of times, resulting in quadratic behaviour.</sub>
+
+---
+
+Can we do better? By this point, you've heard of a problem-solving strategy called the _two-pointer solution_. Say that, instead of creating a list each time we call our function recursively, we just ask it consider **a range starting from a lower limit `low` and ending at an upper limit `high`** (similar to how we did with binary search).
+
+![2-point-occ](assets/2-point-occ.png)
+
+<sub>**Figure 10**: This way, there's no need to create a new list each time, which is both time and memory intensive.</sub>
+
+This is a little difficult to do if the user doesn't pass in the start and the end values as additional parameters, since recursive functions depend on successive calls to themselves. For that reason, we can define a little "helper" function _inside_ of our function definition.
+
+Our assumption takes a slightly different form: "when calling count occurrences with a smaller range within the same list, it would return the number of times a given value occurs in that list."
+
+```python
+def count_occurrences_v2(lst, val):
+    def count_appearances_helper(lst, low, high, val):
+        # base case
+        if low == high:
+            # if the only value in the list equals to the target
+            if lst[low] == val:
+                return 1 # return 1
+            else:
+                return 0 # otherwise, return 0
+        else:
+            # recursive case
+            # assume that that this count will do its job by calling it
+            # on a smaller range
+            count_head = count_appearances_helper(lst, low + 1, high, val)
+
+            # after that count is done
+            # check if the low element is the target value
+            if lst[low] == val:
+                # if it is, then return the count of the smaller ranger + 1
+                return count_rest + 1
+            else:
+                # otherwise, just return the count of the smaller range
+                return count_rest
+
+    # we only do this if the list is not empty, anyway
+    if len(lst) == 0:
+        return 0
+    else:
+        return count_appearances_helper(lst, 0, len(lst) - 1, val)
+```
+
+All of these steps are Θ(1), so our total runtime is **Θ(`n`)**!
+
+<a id="2-3-3"></a>
+
+#### List Of Ascending Integers
+
+Say we wanted to generate a list of `n` integers from 1 to `n`:
+
+```python
+print(pos_ints_list(5))
+print(pos_ints_list(1))
+```
+
+Output:
+
+```
+[1, 2, 3, 4, 5]
+[1]
+```
+
+Our base case, as always, is simple:
+
+- **Base case**: If `n` is 1, then return a list with the integer `1`.
+
+Our assumption is specific to this problem, but should sound fairly familiar by now:
+
+- **Assumption**: When calling `pos_ints_list` with a smaller value, it would return a list with all the positive integers from `1` up to that value in an increasing order.
+
+```python
+def pos_ints_list(n):
+    if n == 1:      # Θ(1)
+        return [1]  # Θ(1)
+    else:
+        smaller_list = pos_ints_list(n - 1)
+        smaller_list.append(n)  # Θ(1), amortised
+        return smaller_list     # Θ(1)
+```
+
+![pos-ints-list-runtime](assets/pos-ints-list-runtime.png)
+
+<sub>**Figure 11**: Again, running Θ(1) `n` times results in `n` * Θ(1) = **Θ(`n`)**.</sub>
+
+<a id="2-3-4"></a>
+
+#### Power
