@@ -471,9 +471,9 @@ def pos_ints_list(n):
 
 As a final example, let's look at something that can be optimised quite a bit, though maybe not as obviously as the others. The mathematical definition of calculating a value's power also ties in very neatly to a recursive paradigm:
 
-![]()
+![power-def-1](power-def-1.png)
 
-<sub>****:.</sub>
+<sub>**Figure 12**: The power function is almost identical to the factorial function.</sub>
 
 So:
 - **Base case**: If `n`, the value of the exponent of `a`, equals 1, then the result is `a`.
@@ -490,158 +490,85 @@ def power(a, n):
         return a * rest  # Θ(1)
 ```
 
-The runtime of this algorithm is **Θ(`n`)**, as we are performing Θ(1) operations an `n` amount of times. Θ(`n`) is not _bad_, but by now we should be pretty cognizant that, if there is a way we can cut the amount of iterations in any way, shape, or form, we definitely should.
-
-The idea is here is that instead of multiplying `a` by itself `n` times, we can **break the problem into smaller subproblems** and reuse computations to reduce the number of multiplications. Exponentiation is defined as:
-
-\[
-a^n = \underbrace{a \times a \times a \times \dots \times a}_{\text{n times}}
-\]
+The runtime of this algorithm is **Θ(`n`)**, as we are performing Θ(1) operations an `n` amount of times. Θ(`n`) is not _bad_, but by now we should be pretty cognizant that, if there is a way we can cut the amount of iterations in any way, shape, or form, we definitely should. Consider the following examples:
 
 For example:
-- \( 2^5 = 2 \times 2 \times 2 \times 2 \times 2 = 32 \)
-- \( 3^4 = 3 \times 3 \times 3 \times 3 = 81 \)
+- 2<sup>5</sup> = 2 * 2 * 2 * 2 * 2 = 32
+- 3<sup>4</sup> = 3 * 3 * 3 * 3 = 81
 
-If we were to compute \( a^n \) **directly** using a loop, it would take **O(n) time**, because we are performing \( n \) multiplications.
+Is this too slow? Well, if `n` is very large (say 10<sup>100</sup>), then performing 10<sup>100</sup> multiplications is probably infeasible. Instead, we should look for some way to reduce the number of multiplications in a significant way. The idea here is that instead of multiplying `a` by itself `n` times, we can **break the problem into smaller subproblems** and reuse computations to reduce the number of multiplications.
 
----
+Let's take advantage of the following mathematical property:
 
-## **2. Why is O(n) Too Slow?**
-If \( n \) is very large (say \( 10^9 \)), then performing \( 10^9 \) multiplications is infeasible. Instead, we look for a method that reduces the number of multiplications significantly.
+![power-def-2](power-def-2.png)
 
----
+<sub>**Figure 13**: The power function can be divided into two smaller versions of itself.</sub>
 
-## **3. Breaking the Problem Into Smaller Parts**
-We take advantage of the mathematical property:
+This means that instead of computing `a`<sup>`n`</sup> directly, we:
+1. **First compute** `a`<sup>`n`/2</sup>
+2. **Then square it** to get `a`<sup>`n`</sup>
 
-\[
-a^n = a^{n/2} \times a^{n/2} \quad \text{if } n \text{ is even}
-\]
-
-This means that instead of computing \( a^n \) directly, we:
-1. **First compute** \( a^{n/2} \)
-2. **Then square it** to get \( a^n \)
-
-By reusing \( a^{n/2} \), we avoid unnecessary work and reduce the number of operations.
-
----
-
-## **4. The Recursive Formula**
-The function definition follows this logic:
+By reusing `a`<sup>`n`/2</sup>, we avoid unnecessary work and reduce the number of operations. The logic of the function definition is as follows:
 
 1. **Base Case**:  
-   If \( n = 1 \), we simply return \( a \), since:
+   If `n` = 1, we simply return `a`, since:
 
-   \[
-   a^1 = a
-   \]
+    `a`<sup>1</sup> = `a`
 
-2. **Case 1: \( n \) is even**  
-   If \( n \) is even, we break it into two equal halves:
+2. **Recursive Case 1: `n` is even**  
+   If `n` is even, we break it into two equal halves:
 
-   \[
-   a^n = a^{n/2} \times a^{n/2}
-   \]
+   `a`<sup>`n` = `a`<sup>`n`/2</sup> * `a`<sup>`n`/2</sup>
 
-   Instead of computing \( a^n \) directly, we compute \( a^{n/2} \) **once** and reuse it.
+   Instead of computing `a`<sup>`n`</sup> directly, we compute `a`<sup>`n`/2</sup> **once** and reuse it.
 
-3. **Case 2: \( n \) is odd**  
-   If \( n \) is odd, we split it as follows:
+3. **Recursive Case 2: `n` is odd**  
+   If `n` is odd, we split it as follows:
 
-   \[
-   a^n = a \times a^{(n-1)/2} \times a^{(n-1)/2}
-   \]
+   `a`<sup>`n`</sup> = `a` * `a`<sup>(`n` - 1)/2</sup> * `a`<sup>(`n` - 1)/2</sup>
 
-   This ensures that we still reduce the problem size at each step.
+   To avoid dividing odd numbers, since `n`<sub><em>odd</em></sub> - 1 will be even. This gives us two equal parts, though it only adds up to `n` − 1, not `n`. To compensate, we multiply by an additional `a` to ensure the total exponent remains correct.
 
----
+Thus, we get the following definition:
 
-## **5. Working Through Examples**
-Let’s go through a few examples to see this in action.
+![power-def-3](power-def-3.png)
 
-### **Example 1: Compute \( 2^8 \)**
-Using the recursive definition:
+<sub>**Figure 14**: The complete definition of the power function along with its base case.</sub>
 
-1. \( 2^8 = 2^4 \times 2^4 \)  
-2. \( 2^4 = 2^2 \times 2^2 \)  
-3. \( 2^2 = 2^1 \times 2^1 \)  
-4. \( 2^1 = 2 \) (Base case)
+For example, for 2<sup>8</sup>, using the recursive definition:
+
+1. 2<sup>8</sup> = 2<sup>4</sup> * 2<sup>4</sup>  
+2. 2<sup>4</sup> = 2<sup>2</sup> * 2<sup>2</sup>  
+3. 2<sup>2</sup> = 2<sup>1</sup> * 2<sup>1</sup>  
+4. 2<sup>1</sup> (Base case)
 
 Now, working backwards:
 
-\[
-2^2 = 2 \times 2 = 4
-\]
+1. 2<sup>2</sup> = 2 * 2 = 4
+2. 2<sup>4</sup> = 4 * 4 = 16
+3. 2<sup>8</sup> = 16 * 16 = 256
 
-\[
-2^4 = 4 \times 4 = 16
-\]
+Instead of performing 8 multiplications, we only did **3 recursive calls**. Each time, we cut `n` **in half**. Thankfully, in Python, the whole-number division operator saves us the trouble of odd number fractiona values, so we don't need to use `- 1`, since it basically does it by itself:
 
-\[
-2^8 = 16 \times 16 = 256
-\]
+```python
+def fast_power(a, n):
+    if n == 1:    # Θ(1)
+        return a  # Θ(1)
+    else:
+        part = fast_power(a, n // 2)
+        if n % 2 == 0:              # Θ(1)
+            return part * part      # Θ(1)
+        else: # n is odd
+            return a * part * part  # Θ(1)
 
-Instead of performing 8 multiplications, we only did **3 recursive calls**.
+```
 
----
+This means the number of recursive calls follows a logarithmic pattern:
 
-### **Example 2: Compute \( 3^9 \)**
-Since 9 is **odd**, we use the odd case:
+> T(`n`) = T(`n`/2) + O(1)
 
-1. \( 3^9 = 3 \times 3^4 \times 3^4 \)  
-2. \( 3^4 = 3^2 \times 3^2 \)  
-3. \( 3^2 = 3^1 \times 3^1 \)  
-4. \( 3^1 = 3 \) (Base case)
+Since the depth of recursion is **log₂(`n`)**, the total runtime is **O(log(`n`))**, which is a huge improvement over O(`n`)!
 
-Now, working backwards:
+![power-runtime-analysis](assets/power-runtime-analysis.png)
 
-\[
-3^2 = 3 \times 3 = 9
-\]
-
-\[
-3^4 = 9 \times 9 = 81
-\]
-
-\[
-3^9 = 3 \times 81 \times 81 = 3 \times 6561 = 19683
-\]
-
-Instead of performing 9 multiplications, we **reduced the number of operations significantly**.
-
----
-
-## **6. Why Is This Efficient?**
-Each time, we cut \( n \) **in half**. This means the number of recursive calls follows a logarithmic pattern:
-
-\[
-T(n) = T(n/2) + O(1)
-\]
-
-Since the depth of recursion is **log₂(n)**, the total runtime is:
-
-\[
-O(\log n)
-\]
-
-This is a huge improvement over **O(n)**!
-
----
-
-## **7. Summary**
-1. **Base case**: \( a^1 = a \).
-2. **Even \( n \)**: Compute \( a^{n/2} \) once, then square it.
-3. **Odd \( n \)**: Compute \( a^{(n-1)/2} \), square it, and multiply by \( a \).
-4. **Number of recursive calls is \( O(\log n) \)**, which is much faster than \( O(n) \).
-
-This method, called **Exponentiation by Squaring**, is widely used in algorithms such as:
-- **Fast modular exponentiation** (e.g., cryptography)
-- **Matrix exponentiation** (e.g., Fibonacci computations)
-- **General power computations** in large-scale applications.
-
----
-
-### **Final Thoughts**
-This approach is one of the most fundamental **divide-and-conquer** strategies in mathematics and computer science. By **halving** the problem size at each step, we drastically reduce the number of operations, making exponentiation extremely efficient.
-
-Let me know if you’d like any further clarifications! 🚀
+<sub>**Figure 15**: The best improvement a programmer could ask for, believe me.</sub>
