@@ -468,3 +468,180 @@ def pos_ints_list(n):
 <a id="2-3-4"></a>
 
 #### Power
+
+As a final example, let's look at something that can be optimised quite a bit, though maybe not as obviously as the others. The mathematical definition of calculating a value's power also ties in very neatly to a recursive paradigm:
+
+![]()
+
+<sub>****:.</sub>
+
+So:
+- **Base case**: If `n`, the value of the exponent of `a`, equals 1, then the result is `a`.
+- **Assumption**: When calling `power` with a smaller exponent, it would return the value of raising the base (`a`) by that exponent (`n - 1`).
+
+Here's perhaps the simplest way of doing this:
+
+```python
+def power(a, n):
+    if(n == 1):   # Θ(1)
+        return a  # Θ(1)
+    else:
+        rest = power(a, n - 1)
+        return a * rest  # Θ(1)
+```
+
+The runtime of this algorithm is **Θ(`n`)**, as we are performing Θ(1) operations an `n` amount of times. Θ(`n`) is not _bad_, but by now we should be pretty cognizant that, if there is a way we can cut the amount of iterations in any way, shape, or form, we definitely should.
+
+The idea is here is that instead of multiplying `a` by itself `n` times, we can **break the problem into smaller subproblems** and reuse computations to reduce the number of multiplications. Exponentiation is defined as:
+
+\[
+a^n = \underbrace{a \times a \times a \times \dots \times a}_{\text{n times}}
+\]
+
+For example:
+- \( 2^5 = 2 \times 2 \times 2 \times 2 \times 2 = 32 \)
+- \( 3^4 = 3 \times 3 \times 3 \times 3 = 81 \)
+
+If we were to compute \( a^n \) **directly** using a loop, it would take **O(n) time**, because we are performing \( n \) multiplications.
+
+---
+
+## **2. Why is O(n) Too Slow?**
+If \( n \) is very large (say \( 10^9 \)), then performing \( 10^9 \) multiplications is infeasible. Instead, we look for a method that reduces the number of multiplications significantly.
+
+---
+
+## **3. Breaking the Problem Into Smaller Parts**
+We take advantage of the mathematical property:
+
+\[
+a^n = a^{n/2} \times a^{n/2} \quad \text{if } n \text{ is even}
+\]
+
+This means that instead of computing \( a^n \) directly, we:
+1. **First compute** \( a^{n/2} \)
+2. **Then square it** to get \( a^n \)
+
+By reusing \( a^{n/2} \), we avoid unnecessary work and reduce the number of operations.
+
+---
+
+## **4. The Recursive Formula**
+The function definition follows this logic:
+
+1. **Base Case**:  
+   If \( n = 1 \), we simply return \( a \), since:
+
+   \[
+   a^1 = a
+   \]
+
+2. **Case 1: \( n \) is even**  
+   If \( n \) is even, we break it into two equal halves:
+
+   \[
+   a^n = a^{n/2} \times a^{n/2}
+   \]
+
+   Instead of computing \( a^n \) directly, we compute \( a^{n/2} \) **once** and reuse it.
+
+3. **Case 2: \( n \) is odd**  
+   If \( n \) is odd, we split it as follows:
+
+   \[
+   a^n = a \times a^{(n-1)/2} \times a^{(n-1)/2}
+   \]
+
+   This ensures that we still reduce the problem size at each step.
+
+---
+
+## **5. Working Through Examples**
+Let’s go through a few examples to see this in action.
+
+### **Example 1: Compute \( 2^8 \)**
+Using the recursive definition:
+
+1. \( 2^8 = 2^4 \times 2^4 \)  
+2. \( 2^4 = 2^2 \times 2^2 \)  
+3. \( 2^2 = 2^1 \times 2^1 \)  
+4. \( 2^1 = 2 \) (Base case)
+
+Now, working backwards:
+
+\[
+2^2 = 2 \times 2 = 4
+\]
+
+\[
+2^4 = 4 \times 4 = 16
+\]
+
+\[
+2^8 = 16 \times 16 = 256
+\]
+
+Instead of performing 8 multiplications, we only did **3 recursive calls**.
+
+---
+
+### **Example 2: Compute \( 3^9 \)**
+Since 9 is **odd**, we use the odd case:
+
+1. \( 3^9 = 3 \times 3^4 \times 3^4 \)  
+2. \( 3^4 = 3^2 \times 3^2 \)  
+3. \( 3^2 = 3^1 \times 3^1 \)  
+4. \( 3^1 = 3 \) (Base case)
+
+Now, working backwards:
+
+\[
+3^2 = 3 \times 3 = 9
+\]
+
+\[
+3^4 = 9 \times 9 = 81
+\]
+
+\[
+3^9 = 3 \times 81 \times 81 = 3 \times 6561 = 19683
+\]
+
+Instead of performing 9 multiplications, we **reduced the number of operations significantly**.
+
+---
+
+## **6. Why Is This Efficient?**
+Each time, we cut \( n \) **in half**. This means the number of recursive calls follows a logarithmic pattern:
+
+\[
+T(n) = T(n/2) + O(1)
+\]
+
+Since the depth of recursion is **log₂(n)**, the total runtime is:
+
+\[
+O(\log n)
+\]
+
+This is a huge improvement over **O(n)**!
+
+---
+
+## **7. Summary**
+1. **Base case**: \( a^1 = a \).
+2. **Even \( n \)**: Compute \( a^{n/2} \) once, then square it.
+3. **Odd \( n \)**: Compute \( a^{(n-1)/2} \), square it, and multiply by \( a \).
+4. **Number of recursive calls is \( O(\log n) \)**, which is much faster than \( O(n) \).
+
+This method, called **Exponentiation by Squaring**, is widely used in algorithms such as:
+- **Fast modular exponentiation** (e.g., cryptography)
+- **Matrix exponentiation** (e.g., Fibonacci computations)
+- **General power computations** in large-scale applications.
+
+---
+
+### **Final Thoughts**
+This approach is one of the most fundamental **divide-and-conquer** strategies in mathematics and computer science. By **halving** the problem size at each step, we drastically reduce the number of operations, making exponentiation extremely efficient.
+
+Let me know if you’d like any further clarifications! 🚀
