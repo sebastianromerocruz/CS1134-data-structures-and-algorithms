@@ -92,11 +92,11 @@ A different version of this algorithm might look like this:
 # ascending values, one per line
 
 def count_up(start, end):
-	if start == end:
-		print(start)
-	else:
-		print(start)
-		count_up(start + 1, end)
+    if start == end:
+        print(start)
+    else:
+        print(start)
+        count_up(start + 1, end)
 
 count_up(1, 4)
 ```
@@ -118,12 +118,12 @@ Finally, we might envision a version of this code that does something similar to
 # prints a sequence of ascending values, one per line
 
 def count_up(start, end):
-	if start == end:
-		print(start)
-	else:
-		mid = (start + end) // 2
+    if start == end:
+        print(start)
+    else:
+        mid = (start + end) // 2
         count_up(start, mid)
-		count_up(mid+1, end)
+        count_up(mid+1, end)
 
 count_up(4)
 ```
@@ -163,11 +163,11 @@ What about counting down? For this algorithm, let's have the following:
 # assumes start <= end
 
 def count_down(start, end):
-	if start == end:
-		print(start)
-	else:
-		count_down(start + 1, end)
-		print(start)
+    if start == end:
+        print(start)
+    else:
+        count_down(start + 1, end)
+        print(start)
 ```
 
 Using, say, `1` and `2` as parameters, we would see the following:
@@ -215,11 +215,11 @@ Let's the the base case of the range containing only one number, in which case w
 
 def count_up_and_down(start, end):
 	if start == end:
-		print(start)
-	else:
-		print(start)
-		count_up_and_down(start + 1, end)
-		print(start)
+        print(start)
+    else:
+        print(start)
+        count_up_and_down(start + 1, end)
+        print(start)
 ```
 
 Let's take the easy example of `count_up_and_down(1, 3)`:
@@ -263,11 +263,11 @@ Our base case is easy:
 ```python
 # n >= 1
 def factorial(n):
-	if n == 1:
-		return 1
-	else:
-		result = n * factorial(n - 1)
-		return result
+    if n == 1:
+        return 1
+    else:
+        result = n * factorial(n - 1)
+        return result
 ```
 
 For `factorial(3)`:
