@@ -2,7 +2,7 @@
 
 <h1 align=center>Recursion</h1>
 
-<p align=center><strong><em>Song of the day</strong>: <a href="https://youtu.be/IF2t2CeDhGg?si=mdggY3cwKEYKRcHG"><strong><u>Way Out</u></strong></a> by FKJ (2022).</em></p>
+<p align=center><strong><em>Song of the day</strong></em>: <em><a href="https://youtu.be/KrIsavBhgp8?si=lF59PqrJ-7EGw0ML"><strong>Nahuhulog Na Sa'yo (Live at The Cozy Cove)</a></strong> by Noah Alejandre (2024)</em></p>
 
 ---
 
