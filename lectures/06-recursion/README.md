@@ -23,6 +23,9 @@
         - [**List Of Ascending Integers**](#2-3-3)
         - [**Power**](#2-3-4)
 
+<p align=center><strong><em><a href="assets/Recursion.pdf">Handwritten Class Notes</a></em></strong></p>
+
+
 ---
 
 <a id="1"></a>
@@ -327,12 +330,12 @@ Take, for example, our factorial function:
 ```python
 # n >= 1
 def factorial(n):
-	if n == 1:    # Θ(1)
-		return 1  # Θ(1)
-	else:
-		result = factorial(n - 1)
-		result *= n    # Θ(1)
-		return result  # Θ(1)
+    if n == 1:    # Θ(1)
+        return 1  # Θ(1)
+    else:
+        result = factorial(n - 1)
+        result *= n    # Θ(1)
+        return result  # Θ(1)
 ```
 
 Our recursive tree in this case is super simple:
