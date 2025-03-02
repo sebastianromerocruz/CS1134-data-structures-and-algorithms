@@ -280,7 +280,7 @@ In this implementation:
 
 4.
 
-> 1 + 2 + 4 + 8 + 16 + ... + 2<sup>`n`</sup> = 2<sup>`n` - 1</sup> - 1 = **Θ(`n`<sup>2</sup>)**
+> 1 + 2 + 4 + 8 + 16 + ... + 2<sup>`n`</sup> = 2<sup>`n` - 1</sup> - 1 = **Θ(2<sup>`n`</sup>)**
 
 5.
 

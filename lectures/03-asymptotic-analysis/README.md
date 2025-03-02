@@ -332,15 +332,15 @@ def is_prime_naive(num):
 
 Note the comments above, denoting that `divisor_count` takes a constant runtime of 4 (I completely made up this number. As long as it's constant, it works). Say that the inside of the `for`-loop takes a constant runtime of 5, and `return divisor_count == 2` takes a runtime of, say, 2. We can thus define this hypothetical runtime (`T(n)`) as follows:
 
-> T<sub>naïve</sub>(n) = 4 + (5 + 5 + 5 + ... + 5)<sub>n</sub> + 2 = **5n + 6**
+> T<sub>naïve</sub>(n) = 4 + (Σ(`i` = 1 to `n`) 5) + 2 = **5n + 6**
 
 For our `num / 2` algorithm, the runtime formula would instead be:
 
-> T<sub>half</sub>(n) = 4 + (5 + 5 + 5 + ... + 5)<sub>(n / 2)</sub> + = 5(n / 2) + 6 = **5n / 2 + 6**
+> T<sub>half</sub>(n) = 4 + (Σ(`i` = 1 to `n` / 1) 5) + = 5(n / 2) + 6 = **5n / 2 + 6**
 
 And for our `√num` algorithm, the runtime formula would be:
 
-> T<sub>sqrt</sub>(n) = 4 + (5 + 5 + 5 + ... + 5)<sub>(√n)</sub> + = **5√n + 6**
+> T<sub>sqrt</sub>(n) = 4 + (Σ(`i` = 1 to √`n`) 5) + 2 = **5√n + 6**
 
 Make sense? So, for asymptotic analysis, we're interested in finding how the runtime (`T(n)`) grows as `n` gets really really large. Say that `n`, for example, equalled 1,000, 1,000,000, and 1,000,000,000:
 
@@ -412,9 +412,13 @@ can also be used to describe the runtime of f(`n`) (i.e., if _f(`n`) = O(g(`n`))
 
 > 3`n`<sup>2</sup> + 6`n` − 15 <= 4`n`<sup>2</sup>  
 >
+>
 > For `n` = 5:  
+>
 > 3(5)<sup>2</sup> + 6(5) − 15 <= 4(5)<sup>2</sup>  
+>
 > 75 + 30 − 15 <= 100  
+>
 > 90 <= 100  
 
 3. Since the inequality holds for all large `n`, f(`n`) has a worst-case runtime (an upper bound) of O(`n`<sup>2</sup>). We've confirmed correctness!
@@ -464,9 +468,13 @@ is a valid lower bound for f(`n`) (i.e., if _f(`n`) = Ω(g(`n`))_). Here’s how
 
 > 3`n`<sup>2</sup> + 6`n` − 15 >= 2.5`n`<sup>2</sup>  
 >
+>
 > For `n` = 5:  
+>
 > 3(5)<sup>2</sup> + 6(5) − 15 >= 2.5(5)<sup>2</sup>  
+>
 > 75 + 30 − 15 >= 62.5  
+>
 > 90 >= 62.5  
 
 3. Since the inequality holds for all large `n`, f(`n`) has a best-case runtime (a lower bound) of Ω(`n`<sup>2</sup>). We've confirmed correctness!
