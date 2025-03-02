@@ -2,7 +2,7 @@
 
 <h1 align=center>Algorithms</h1>
 
-<p align=center><strong><em>Song of the day</strong></em>: <em><a href="https://youtu.be/KrIsavBhgp8?si=lF59PqrJ-7EGw0ML"><strong>Nahuhulog Na Sa'yo (Live at The Cozy Cove)</a></strong> by Noah Alejandre (2024)</em></p>
+<p align=center><strong><em>Song of the day</strong>: <a href="https://youtu.be/Oz6MHPIhZEg?si=tvCMFcHSRpyjf04I"><strong><u>Day Tripper (BBC Sessions)</u></strong></a> by The Jimi Hendrix Experience (1967)</em></p>
 
 ---
 
@@ -373,7 +373,7 @@ Oh well, we tried. Let's keep going.
 
 Insertion Sort builds the sorted list one element at a time by inserting each new element into its correct position.
 
-### **Generic Steps for Insertion Sort**
+### **Steps for Insertion Sort**
 Insertion Sort builds the sorted list one element at a time by inserting each new element into its correct position.
 
 1. **Start with a partially sorted list**  
