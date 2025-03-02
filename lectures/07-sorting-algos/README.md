@@ -144,7 +144,9 @@ In other words:
 
 Using our list from above, we can trace the way this swapping takes place the following way:
 
-![bubble-sort](assets/bubble_ sort.gif)
+![bubble-sort](assets/bubble_sort.gif)
+
+<sub>**Figure 2**: A simple animation of bubble sort. The steps involved are listed below.</sub>
 
 ```
 STARTING LIST:
