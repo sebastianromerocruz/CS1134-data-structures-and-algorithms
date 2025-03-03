@@ -27,5 +27,6 @@ resource, send me an [**email**](mailto:src402@nyu.edu) about it with the subjec
 1. [**Runtime Complexity Analysis**](exercises/runtime-analysis-1)
 2. [**Amortised Analysis**](exercises/amortised-analysis)
 3. [**Recursion I**](exercises/factorial-recursion)
+4. [**Recursion II**](exercises/power-recursion)
 
 <sub>© Sebastián Romero Cruz 2025</sub>

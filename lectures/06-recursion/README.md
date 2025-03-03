@@ -574,7 +574,9 @@ To find the total runtime here, we sum the work done across all levels:
 > 
 > T(`n`) = Θ(`n`)
 
-That literally didn't help at all! Let's instead simply:
+That literally didn't help at all! Can we fix this? Well, yes. These two sides are identical, so why calculate them twice in one call?
+
+Let's instead simply:
 1. **First compute** `a`<sup>`n`/2</sup>
 2. **Then square it** to get `a`<sup>`n`</sup>
 

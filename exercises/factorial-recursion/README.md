@@ -1,4 +1,4 @@
-# **Recursion I**
+# **Recursion I**: _Factorial_
 
 ## **Instructions**
 
