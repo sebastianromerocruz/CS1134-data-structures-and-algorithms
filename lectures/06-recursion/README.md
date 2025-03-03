@@ -474,7 +474,7 @@ def pos_ints_list(n):
 
 As a final example, let's look at something that can be optimised quite a bit, though maybe not as obviously as the others. The mathematical definition of calculating a value's power also ties in very neatly to a recursive paradigm:
 
-![power-def-1](power-def-1.png)
+![power-def-1](assets/power-def-1.png)
 
 <sub>**Figure 12**: The power function is almost identical to the factorial function.</sub>
 
@@ -503,15 +503,82 @@ Is this too slow? Well, if `n` is very large (say 10<sup>100</sup>), then perfor
 
 Let's take advantage of the following mathematical property:
 
-![power-def-2](power-def-2.png)
+![power-def-2](assets/power-def-2.png)
 
 <sub>**Figure 13**: The power function can be divided into two smaller versions of itself.</sub>
 
-This means that instead of computing `a`<sup>`n`</sup> directly, we:
+Something like this, perhaps:
+
+```python
+def power(a, n): 
+    if n == 1:    # Θ(1)
+        return a  # Θ(1)
+    else:
+        part_1 = power(a, n // 2)
+        part_2 = power(a, n // 2)
+
+        if (n % 2 == 0):                # Θ(1)
+            return part_1 * part_2      # Θ(1)
+        else: # n is odd
+            return a * part_1 * part_2  # Θ(1)
+```
+
+Does this help our runtime? Well, interestingly, it doesn't. Let's draw our recursive tree to find out why:
+
+![power-fast-but-not-really](assets/power-fast-but-not-really.png)
+
+| Level #       | # of calls in level | Size of each call in level | Local cost of each call in level | Total cost of level |
+|--------------|--------------------|---------------------------|--------------------------------|---------------------|
+| 0            | 1                  | n                         | 1                              | 1                   |
+| 1            | 2                  | n/2                       | 1                              | 2                   |
+| 2            | 4                  | n/4                       | 1                              | 4                   |
+| 3            | 8                  | n/8                       | 1                              | 8                   |
+| ...          | ...                | ...                       | ...                            | ...                 |
+| `k`          | 2<sup>`k`</sup>    | `n` / 2<sup>`k`</sup>     | 1                              | 2<sup>`k`</sup>     |
+| ...          | ...                | ...                       | ...                            | ...                 |
+| log₂(`n`)    | `n`                | 1                         | 1                              | `n`                 |
+
+<sub>**Figure 14**: Since we're making two recursive calls every recursive call, the number of calls on the stacks gets a little crazy.</sub>
+
+In other words:
+
+1. Level 1 (Root Call):
+    - We start with `n` as input.
+    - Number of calls: 1
+    - Size of each call: `n`
+    - Total cost: 1
+2. Level 2:
+    - The function makes two recursive calls, each with input `n` / 2.
+    - Number of calls: 2
+    - Size of each call: `n` / 2
+    - Total cost: 2
+3. Level 3:
+    - Each of the previous calls makes two more calls.
+    - Number of calls: 4
+    - Size of each call: `n` / 4
+    - Total cost: 4
+4. Step `k`
+    - At level `k`, the number of calls is 2<sup>`k`</sup>.
+    - The size of each input is `n` / 2<sup>`k`</sup>.
+    - The total cost of that level is 2<sup>`k`</sup>.
+4. Step `n` (Base Case):
+    - The recursion stops when `n` /  2<sup>`k`</sup> = 1, meaning `k` = log₂(`n`).
+    - At this level, there are `n` calls (since 2<sup>log₂(`n`)</sup> = `n`).
+    - Total cost of this level: `n`.
+
+To find the total runtime here, we sum the work done across all levels:
+
+> T(`n`) = 1 + 2 + 4 + 8 + ... + `n` (a.k.a. the [**geometric series**](https://github.com/sebastianromerocruz/CS1134-data-structures-and-algorithms/tree/main/lectures/05-arraylists#4))
+>
+> T(`n`) = 2 * `n` − 1
+> 
+> T(`n`) = Θ(`n`)
+
+That literally didn't help at all! Let's instead simply:
 1. **First compute** `a`<sup>`n`/2</sup>
 2. **Then square it** to get `a`<sup>`n`</sup>
 
-By reusing `a`<sup>`n`/2</sup>, we avoid unnecessary work and reduce the number of operations. The logic of the function definition is as follows:
+By reusing `a`<sup>`n` / 2</sup>, we avoid all this unnecessary work and reduce the number of operations. The logic of the function definition is as follows:
 
 1. **Base Case**:  
    If `n` = 1, we simply return `a`, since:
@@ -536,7 +603,7 @@ Thus, we get the following definition:
 
 ![power-def-3](power-def-3.png)
 
-<sub>**Figure 14**: The complete definition of the power function along with its base case.</sub>
+<sub>**Figure 15**: The complete definition of the power function along with its base case.</sub>
 
 For example, for 2<sup>8</sup>, using the recursive definition:
 
@@ -574,4 +641,4 @@ Since the depth of recursion is **log₂(`n`)**, the total runtime is **O(log(`n
 
 ![power-runtime-analysis](assets/power-runtime-analysis.png)
 
-<sub>**Figure 15**: The best improvement a programmer could ask for, believe me.</sub>
+<sub>**Figure 16**: The best improvement a programmer could ask for, believe me.</sub>

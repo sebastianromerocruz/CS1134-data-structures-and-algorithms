@@ -1,6 +1,6 @@
 <h2 align=center>Weeks 07 and 08</h2>
 
-<h1 align=center>Algorithms</h1>
+<h1 align=center>Sorting Algorithms</h1>
 
 <p align=center><strong><em>Song of the day</strong>: <a href="https://youtu.be/Oz6MHPIhZEg?si=tvCMFcHSRpyjf04I"><strong><u>Day Tripper (BBC Sessions)</u></strong></a> by The Jimi Hendrix Experience (1967)</em></p>
 
