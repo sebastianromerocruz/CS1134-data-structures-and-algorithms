@@ -50,7 +50,3 @@
 | **Θ(`n`)** | `count_evens()` | Iterates over `n` elements, each taking Θ(1) work. |
 | **Θ(`n`²)** | `unique_append()` | Each `.append()` involves an increasing `.find()` cost. |
 | **Θ(log `n`)** | `reduce_by_half()` | Cuts `n` in half each iteration. |
-
----
-
-[***Solutions***](SOLUTIONS.md)

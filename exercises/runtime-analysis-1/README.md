@@ -55,3 +55,7 @@ def reduce_by_half(lst):
 
     return count
 ```
+
+---
+
+[***Solutions***](SOLUTIONS.md)

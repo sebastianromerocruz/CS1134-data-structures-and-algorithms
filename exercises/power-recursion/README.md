@@ -19,3 +19,7 @@ Keeping this in mind:
 - Draw a simple [**recursive tree**](https://github.com/sebastianromerocruz/CS1134-data-structures-and-algorithms/tree/main/lectures/06-recursion#examples) demonstrating the runtime of your recursive function.
 
 <sub>**Note**: There are various optimisations for calculating the result of `n` raised to the `a`th power. Simply aiming for Θ(`n`) is totally fine here.</sub>
+
+---
+
+[***Solutions (last two pages)**](https://github.com/sebastianromerocruz/CS1134-data-structures-and-algorithms/blob/main/lectures/06-recursion/assets/Recursion.pdf)
