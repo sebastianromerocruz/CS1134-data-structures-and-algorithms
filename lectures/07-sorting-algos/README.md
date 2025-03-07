@@ -783,7 +783,7 @@ def merge(srt_lst1, srt_lst2):
     return merged_list                           # Θ(1)
 ```
 
-Following the given code, Merge Sort proceeds as:
+Following the given code, merge sort proceeds as:
 
 1. **Check if the list is already sorted** (base case):
    - If `lst` has **0 or 1 elements**, return immediately.
