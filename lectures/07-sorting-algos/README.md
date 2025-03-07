@@ -20,6 +20,8 @@
     2. [**Time Complexity**](#4-2)
 5. [**Correctness & Loop Invariants**](#5)
 6. [**Merge Sort**](#6)
+    1. [**Implementation**](#6-1)
+    2. [**Time Complexity**](#6-2)
 
 
 ---
@@ -639,7 +641,7 @@ That's all there is to it. Of course, proving the correctness of an algorithm go
 
 <a id="6"></a>
 
-## [*Merge Sort**](https://www.sortvisualizer.com/mergesort/)
+## [**Merge Sort**](https://www.sortvisualizer.com/mergesort/)
 
 Merge Sort follows a **divide-and-conquer** approach, where the problem is recursively broken down into smaller sub-problems and then merged back together in sorted order.
 
@@ -730,12 +732,10 @@ FINAL LIST:
  - [0, 1, 2, 3, 5, 6, 8, 9]
 ```
 
-### **Steps**
-1. Divide the list into two halves.
-2. Recursively sort each half.
-3. Merge the sorted halves together.
+<a id="6-1"></a>
 
-### **Code**
+### [**Implementation**](code/merge_sort.py)
+
 ```python
 def merge_sort(lst):
     if len(lst) == 0:     # Θ(1)
@@ -820,6 +820,8 @@ Following the given code, merge sort proceeds as:
 
 6. **Copy merged values back into the original list**:
    - Iterate over `merged` and update `lst[i]` accordingly.
+
+<a id="6-2"></a>
 
 ### **Time Complexity**
 
