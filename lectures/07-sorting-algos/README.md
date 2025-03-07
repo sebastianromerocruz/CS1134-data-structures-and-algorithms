@@ -19,9 +19,8 @@
     1. [**Implementation**](#4-1)
     2. [**Time Complexity**](#4-2)
 5. [**Correctness & Loop Invariants**](#5)
-<!-- 5. [**Merge Sort**](#5)
-6. [**Quick Sort**](#6)
--->
+6. [**Merge Sort**](#6)
+
 
 ---
 
@@ -636,12 +635,100 @@ def insertion_sort(lst):
 
 That's all there is to it. Of course, proving the correctness of an algorithm goes into much more depth than this, but you can worry about that in a couple of semesters. Let's move on to more efficient sorting algorithms.
 
+<br>
 
-<!-- ## **5. Merge Sort**
+<a id="6"></a>
 
-### **How It Works**
+## [*Merge Sort**](https://www.sortvisualizer.com/mergesort/)
 
-Merge Sort is a **divide-and-conquer** algorithm that splits the list into smaller parts, sorts them recursively, and merges them back together in order.
+Merge Sort follows a **divide-and-conquer** approach, where the problem is recursively broken down into smaller sub-problems and then merged back together in sorted order.
+
+1. **Base Case**: If the list has _0 or 1 elements_, it is already sorted. Simply return.
+2. **Divide**: Split the list into _two halves_ (left and right).
+3. **Conquer**: Recursively call Merge Sort on both halves to sort them.
+4. **Combine**: Merge the two sorted halves back together using the _merge_ function.
+5. **Copy Back**: Replace the original list with the merged, sorted version.
+
+```
+STARTING LIST:
+- [5, 8, 6, 1, 9, 3, 0, 2]
+
+SPLITTING [5, 8, 6, 1, 9, 3, 0, 2] INTO:
+ -> left_side: [5, 8, 6, 1]
+ -> right_side: [9, 3, 0, 2]
+
+SPLITTING [5, 8, 6, 1] INTO:
+ -> left_side: [5, 8]
+ -> right_side: [6, 1]
+
+SPLITTING [5, 8] INTO:
+ -> left_side: [5]
+ -> right_side: [8]
+
+MERGING [5] AND [8]...
+ - Adding left_side[0] -> 5
+ - Adding right_side[0] -> 8
+Merged list: [5, 8]
+
+SPLITTING [6, 1] INTO:
+ -> left_side: [6]
+ -> right_side: [1]
+
+MERGING [6] AND [1]...
+ - Adding right_side[0] -> 1
+ - Adding left_side[0] -> 6
+Merged list: [1, 6]
+
+MERGING [5, 8] AND [1, 6]...
+ - Adding right_side[0] -> 1
+ - Adding left_side[0] -> 5
+ - Adding right_side[1] -> 6
+ - Adding left_side[1] -> 8
+Merged list: [1, 5, 6, 8]
+
+SPLITTING [9, 3, 0, 2] INTO:
+ -> left_side: [9, 3]
+ -> right_side: [0, 2]
+
+SPLITTING [9, 3] INTO:
+ -> left_side: [9]
+ -> right_side: [3]
+
+MERGING [9] AND [3]...
+ - Adding right_side[0] -> 3
+ - Adding left_side[0] -> 9
+Merged list: [3, 9]
+
+SPLITTING [0, 2] INTO:
+ -> left_side: [0]
+ -> right_side: [2]
+
+MERGING [0] AND [2]...
+ - Adding left_side[0] -> 0
+ - Adding right_side[0] -> 2
+Merged list: [0, 2]
+
+MERGING [3, 9] AND [0, 2]...
+ - Adding right_side[0] -> 0
+ - Adding right_side[1] -> 2
+ - Adding left_side[0] -> 3
+ - Adding left_side[1] -> 9
+Merged list: [0, 2, 3, 9]
+
+MERGING [1, 5, 6, 8] AND [0, 2, 3, 9]...
+ - Adding right_side[0] -> 0
+ - Adding left_side[0] -> 1
+ - Adding right_side[1] -> 2
+ - Adding right_side[2] -> 3
+ - Adding left_side[1] -> 5
+ - Adding left_side[2] -> 6
+ - Adding left_side[3] -> 8
+ - Adding right_side[3] -> 9
+Merged list: [0, 1, 2, 3, 5, 6, 8, 9]
+
+FINAL LIST:
+ - [0, 1, 2, 3, 5, 6, 8, 9]
+```
 
 ### **Steps**
 1. Divide the list into two halves.
@@ -651,127 +738,113 @@ Merge Sort is a **divide-and-conquer** algorithm that splits the list into small
 ### **Code**
 ```python
 def merge_sort(lst):
-    if len(lst) <= 1:
-        return lst
-    mid = len(lst) // 2
-    left = merge_sort(lst[:mid])
-    right = merge_sort(lst[mid:])
-    return merge(left, right)
+    if len(lst) == 0:     # Θ(1)
+        return            # Θ(1)
+    elif len(lst) == 1:   # Θ(1)
+        return            # Θ(1)
+    else:
+        mid = len(lst) // 2      # Θ(1)
+        left_lst = lst[ : mid]   # Θ(n)
+        right_lst = lst[mid : ]  # Θ(n)
+        
+        merge_sort(left_lst)
+        merge_sort(right_lst)
+        
+        merged = merge(left_lst, right_lst)  # Θ(n)
+        
+        for i in range(len(merged)):
+            lst[i] = merged[i]   # Θ(n)
 
-def merge(left, right):
-    result = []
-    i, j = 0, 0
-    while i < len(left) and j < len(right):
-        if left[i] < right[j]:
-            result.append(left[i])
-            i += 1
+
+def merge(srt_lst1, srt_lst2):
+    merged_list = []  # Θ(1)
+    idx_1 = 0         # Θ(1)
+    idx_2 = 0         # Θ(1)
+    
+    # Θ(n)
+    while idx_1 < len(srt_lst1) and idx_2 < len(srt_lst2):
+        if srt_lst1[idx_1] < srt_lst2[idx_2]:    # Θ(1)
+            merged_list.append(srt_lst1[idx_1])  # Θ(1)
+            idx_1 += 1                           # Θ(1)
         else:
-            result.append(right[j])
-            j += 1
-    result.extend(left[i:])
-    result.extend(right[j:])
-    return result
+            merged_list.append(srt_lst2[idx_2])  # Θ(1)
+            idx_2 += 1                           # Θ(1)
+
+    # Θ(n)  
+    while idx_1 < len(srt_lst1):                 # Θ(1)
+        merged_list.append(srt_lst1[idx_1])      # Θ(1)
+        idx_1 += 1                               # Θ(1)
+
+    # Θ(n)  
+    while idx_2 < len(srt_lst2):                 # Θ(1)
+        merged_list.append(srt_lst2[idx_2])      # Θ(1)
+        idx_2 += 1                               # Θ(1)
+        
+    return merged_list                           # Θ(1)
 ```
 
-### **Visualization**
+Following the given code, Merge Sort proceeds as:
 
-TODO:
-- Draw a tree-like diagram illustrating the recursive breakdown of the list.
-- Label each split into sublists until they reach a base case.
-- Show a merging step, where two sorted lists are combined.
+1. **Check if the list is already sorted** (base case):
+   - If `lst` has **0 or 1 elements**, return immediately.
+
+2. **Find the middle index** of `lst`:
+   - `mid = len(lst) // 2`
+
+3. **Split the list into two halves**:
+   - `left_lst = lst[:mid]` → first half
+   - `right_lst = lst[mid:]` → second half
+
+4. **Recursively apply Merge Sort** to both halves:
+   - `merge_sort(left_lst)`
+   - `merge_sort(right_lst)`
+
+5. **Merge the sorted halves**:
+   - `merged = merge(left_lst, right_lst)`
+   - The `merge` function itself does the following:
+        1. **Initialize empty merged list** and two index pointers:
+            - `merged_list = []`
+            - `idx_1 = 0` (tracks position in `srt_lst1`)
+            - `idx_2 = 0` (tracks position in `srt_lst2`)
+
+        2. **Iterate while both lists have elements left**:
+            - Compare `srt_lst1[idx_1]` and `srt_lst2[idx_2]`
+            - Append the smaller element to `merged_list`
+            - Move the corresponding pointer forward
+
+        3. **Copy any remaining elements**:
+            - If `srt_lst1` has leftover elements, append them.
+            - If `srt_lst2` has leftover elements, append them.
+
+        4. **Return the merged, sorted list**.
+
+6. **Copy merged values back into the original list**:
+   - Iterate over `merged` and update `lst[i]` accordingly.
 
 ### **Time Complexity**
 
-- **T(n) = 2T(n/2) + O(n) = O(n log n) = Θ(n log n)**
+- **Splitting the list**: Θ(`n`) (each level)
+- **Merge function**: Θ(`n`) (each level)
+- **Number of levels**: log₂(`n`) (since we halve the list each time)
+
+The total cost at each level is therefore:
+
+> T(`n`) = Θ(`n`) + Θ(`n`) + Θ(`n`) + ... (log₂(`n`) times)
+>
+> T(`n`) = Θ(`n` log`⁡n`)
+
+Therefore...
+
+> T(`n`) = 2 * T(`n` / 2) + O(`n`) = O(`n` log`n`) = **Θ(`n` log`n`)**
 
 - **Best Case:** O(n log n)
 - **Worst Case:** O(n log n)
 - **Average Case:** O(n log n)
 
-Merge Sort is efficient but requires additional memory for merging. -->
+Now, a common optimization strategy in in this class is to avoid list slicing, replacing it with two pointers (low and high indices). However, this would actually not improve the overall runtime, asymptotically. Here’s why:
+    - List slicing takes Θ(`n`) per level due to memory allocation for new lists.
+    - Instead of `left_lst = lst[:mid]`, we could pass index ranges to avoid copying. This would eliminate the Θ(n) copy cost, but...
+    - Merging still takes Θ(`n`) at each level, and
+    - Recursive calls still go down log₂(`n`) levels.
 
-<!-- ---
-
-## **6. Quick Sort**
-
-### **How It Works**
-
-Quick Sort follows a **divide-and-conquer** approach, selecting a pivot element and partitioning the list into smaller and larger elements.
-
-### **Steps**
-1. Choose a pivot element.
-2. Partition the list into elements smaller and larger than the pivot.
-3. Recursively sort both partitions.
-
-### **Code**
-```python
-def quick_sort(lst):
-    if len(lst) <= 1:
-        return lst
-    pivot  = lst[len(lst) // 2]
-    left   = [x for x in lst if x < pivot]
-    middle = [x for x in lst if x == pivot]
-    right  = [x for x in lst if x > pivot]
-    return quick_sort(left) + middle + quick_sort(right)
-```
-
-### **Visualization**
-
-TODO:
-- Draw a partitioning diagram, showing how elements are divided based on the pivot.
-- Highlight recursion, showing smaller partitions being sorted independently.
-- Show the final concatenation into a single sorted list.
-
-### **Time Complexity**
-
-- **T(n) = T(k) + T(n-k-1) + O(n) = O(n log n) in average case, O(n²) in worst case**
-
-- **Best Case:** O(n log n)
-- **Worst Case:** O(n²) (if bad pivots are chosen)
-- **Average Case:** O(n log n)
-
-Quick Sort is often the fastest in practice.
-
----
-
-## **7. Correctness & Loop Invariants**
-
-### **What is a Loop Invariant?**
-A **loop invariant** is a condition that is true **before and after every iteration** of a loop. It provides a structured way to prove that an algorithm works correctly.
-
-### **Why Are Loop Invariants Important?**
-When reasoning about an algorithm, we need to show that:
-1. **Initialization** – The invariant is true **before the loop starts**.
-2. **Maintenance** – If the invariant is true before an iteration, it **remains true** after the iteration.
-3. **Termination** – When the loop ends, the invariant ensures the desired result has been achieved.
-
-### **Example: Insertion Sort**
-In **Insertion Sort**, the **loop invariant** is:
-> "At the start of each iteration `i`, the first `i` elements of the list are sorted."
-
-#### **Loop Invariant Proof for Insertion Sort**
-1. **Initialization:** Before the loop starts, the first element `lst[0]` is trivially sorted.
-2. **Maintenance:** At iteration `i`, the sublist `lst[:i]` is sorted. The algorithm inserts `lst[i]` into its correct position, ensuring that `lst[:i+1]` remains sorted.
-3. **Termination:** When `i = n`, we have `lst[:n]`, meaning the entire list is sorted.
-
-### **Code with Loop Invariant in Mind**
-```python
-def insertion_sort(lst):
-    for i in range(1, len(lst)):
-        key = lst[i]
-        j = i - 1
-        while j >= 0 and lst[j] > key:
-            lst[j + 1] = lst[j]  # Shift elements right
-            j -= 1
-        lst[j + 1] = key  # Insert element in correct place
-```
-
-### **Visualization**
-
-
-Loop invariants provide a structured way to prove correctness and help us build more reliable sorting algorithms.
-
----
-
-This document follows your **Recursion** notes style. Let me know if you'd like any refinements!
- -->
+Thus, while reducing slicing can reduce constant factors, the overall complexity remains Θ(`n` log`n`).
