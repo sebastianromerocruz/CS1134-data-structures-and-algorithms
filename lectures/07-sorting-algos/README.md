@@ -23,6 +23,7 @@
     1. [**Implementation**](#6-1)
     2. [**Time Complexity**](#6-2)
 
+<p align=center><strong><em><a href="assets/Sorting Algorithms.pdf">Handwritten Class Notes</a></em></strong></p>
 
 ---
 
