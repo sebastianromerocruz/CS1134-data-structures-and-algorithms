@@ -21,6 +21,7 @@ resource, send me an [**email**](mailto:src402@nyu.edu) about it with the subjec
 5. [**`ArrayList`**](lectures/05-arraylists)
 6. [**Recursion**](lectures/06-recursion)
 7. [**Sorting Algorithms**](lectures/07-sorting-algos)
+8. [**Stacks**](lectures/08-stacks)
 
 ## Exercises
 
