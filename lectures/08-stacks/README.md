@@ -18,6 +18,8 @@
     1. [**Reversing A String**](#3-1)
     2. [**Evaluating Polish Notation**](#3-2)
 
+<p align=center><strong><em><a href="assets/Stacks.pdf">Handwritten Class Notes</a></em></strong></p>
+
 ---
 
 <a id="1"></a>

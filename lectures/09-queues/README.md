@@ -179,7 +179,7 @@ We could also this in the following way, creating a gap between the front of the
 
 ![queue-resize-1](assets/queue-resize-1.png)
 
-<sub>**Figure 10**: A "common-sense" approach.</sub>
+<sub>**Figure 10**: A "proper order" approach.</sub>
 
 The second approach might seem wasteful compared to just appending more space after the end of the queue—after all, we do want to avoid that Θ(`n`) left-shift that it involves, but it turns out that it doesn't really matter. Remember that resizing doesn't happen very often at all compared to the amount of times that we enqueue and dequeue, so the amortised runtime would be Θ(1) anyway.
 
