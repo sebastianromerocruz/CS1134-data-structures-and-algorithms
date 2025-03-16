@@ -22,6 +22,7 @@ resource, send me an [**email**](mailto:src402@nyu.edu) about it with the subjec
 6. [**Recursion**](lectures/06-recursion)
 7. [**Sorting Algorithms**](lectures/07-sorting-algos)
 8. [**Stacks**](lectures/08-stacks)
+9. [**Queues**](lectures/09-queues)
 
 ## Exercises
 
@@ -29,5 +30,7 @@ resource, send me an [**email**](mailto:src402@nyu.edu) about it with the subjec
 2. [**Amortised Analysis**](exercises/amortised-analysis)
 3. [**Recursion I**](exercises/factorial-recursion)
 4. [**Recursion II**](exercises/power-recursion)
+
+---
 
 <sub>© Sebastián Romero Cruz 2025</sub>
