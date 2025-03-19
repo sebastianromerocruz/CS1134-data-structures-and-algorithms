@@ -18,6 +18,8 @@
     - [**Traversal**](#3-2)
     - [**Changing The Head Of A Linked List**](#3-3)
 
+<p align=center><strong><em><a href="assets/Linked List.pdf">Handwritten Class Notes</a></em></strong></p>
+
 ---
 
 <a id="1"></a>

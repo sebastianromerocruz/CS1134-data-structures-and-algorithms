@@ -18,6 +18,8 @@
    1. [**Static**](#4-1)
    2. [**Dynamic**](#4-2)
 
+<p align=center><strong><em><a href="assets/Queues.pdf">Handwritten Class Notes</a></em></strong></p>
+
 ---
 
 <a id="1"></a>

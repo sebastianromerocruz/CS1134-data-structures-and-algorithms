@@ -8,7 +8,7 @@ This repository contains Prof. [**Sebastián Romero Cruz**](#https://github.com/
 
 **Note**: Use and/or distribution of this material outside of this class is legally restricted by [**university
 policy**](https://guides.nyu.edu/copyright/nyupermissions). If you want to use it for any reason other than as a study
-resource, send me an [**email**](mailto:src402@nyu.edu) about it with the subject line `CS1134 Repo Use Request`.
+resource, send me an [**email**](mailto:sebastian.romerocruz@nyu.edu) about it with the subject line `CS1134 Repo Use Request`.
 
 ## Lectures
 
@@ -23,6 +23,7 @@ resource, send me an [**email**](mailto:src402@nyu.edu) about it with the subjec
 7. [**Sorting Algorithms**](lectures/07-sorting-algos)
 8. [**Stacks**](lectures/08-stacks)
 9. [**Queues**](lectures/09-queues)
+10. [**Linked Lists**](lectures/10-linked-lists)
 
 ## Exercises
 
