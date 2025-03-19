@@ -189,7 +189,7 @@ Let's check out the Python implementations for both the static and dynamic queue
 
 <a id="4"></a>
 
-## Python Implementation
+## [**Python Implementation**](code/ArrayQueue.py)
 
 <a id="4-1"></a>
 
