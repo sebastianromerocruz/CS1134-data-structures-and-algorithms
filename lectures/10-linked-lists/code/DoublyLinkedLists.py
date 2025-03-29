@@ -18,9 +18,6 @@ class DoublyLinkedList:
         self.trailer.prev = self.header
         self.n = 0
 
-    def __len__(self):
-        return self.n
-
     def is_empty(self):
         return len(self) == 0
 
@@ -71,16 +68,8 @@ class DoublyLinkedList:
     def delete_last(self):
         if self.is_empty():
             raise Exception("List is empty")
+        
         return self.delete_node(self.trailer.prev)
-
-    def __iter__(self):
-        cursor = self.header.next
-        while cursor is not self.trailer:
-            yield cursor.data
-            cursor = cursor.next
-
-    def __repr__(self):
-        return '[' + " <--> ".join([str(elem) for elem in self]) + ']'
 
     def remove_all(self, elem):
         cursor = self.header.next
@@ -93,3 +82,14 @@ class DoublyLinkedList:
             else:
                 cursor = cursor.next
 
+    def __len__(self):
+        return self.n
+    
+    def __iter__(self):
+        cursor = self.header.next
+        while cursor is not self.trailer:
+            yield cursor.data
+            cursor = cursor.next
+
+    def __repr__(self):
+        return '[' + " <--> ".join([str(elem) for elem in self]) + ']'

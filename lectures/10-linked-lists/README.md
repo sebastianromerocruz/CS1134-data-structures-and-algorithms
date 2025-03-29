@@ -17,6 +17,13 @@
     - [**The `Node` Class**](#3-1)
     - [**Traversal**](#3-2)
     - [**Changing The Head Of A Linked List**](#3-3)
+4. [**Doubly-Linked Lists**](#4)
+    - [**Evolution Of The Linked List**](#4-1)
+    - [**Doubly-Linked List Implementation Basics**](#4-2)
+    - [**Inserting A New Node**](#4-3)
+    - [**Deleting A Node**](#4-4)
+    - [**Traversal**](#4-5)
+    - [**Complete Implementation**](#4-6)
 
 <p align=center><strong><em><a href="assets/Linked List.pdf">Handwritten Class Notes</a></em></strong></p>
 
@@ -231,4 +238,346 @@ If we traversed the list once more, we would now see the following as output:
 
 ```
 0 -> 1 -> 2 -> 3 -> 4 -> 
+```
+
+<br>
+
+<a id="4"></a>
+
+## [**Doubly-Linked Lists**](code/DoublyLinkedLists.py)
+
+<a id="4-1"></a>
+
+### Evolution Of The Linked List
+
+Thus far, the linked-lists that we have been looking at are what are called _singly-linked lists_. That is, they links connecting all nodes do so in a single direction; one cannot traverse the list in the opposite direction.
+
+As you can imagine, this is not the most efficient organisation of data, for traversal would have to reset from the head node every single time we'd want to do any operation. Fixing this is not necessarily difficult; we simply need to tell our nodes to not only keep a pointer of the node after us, but also of the node before us.
+
+This is what is known as a ***doubly-linked list (DLL)***:
+
+![evolution-of-linked-lists](assets/evolution-of-linked-lists.png)
+
+<sub>**Figure 6**: From top to bottom, an array, a singly-linked list, and a doubly-linked list. Note the two-way connections between nodes.</sub>
+
+Let's analyse the implementation more closely, starting with its nodes.
+
+<a id="4-2"></a>
+
+### Doubly-Linked List Implementation Basics
+
+A DLL node simply has one attribute: a reference/pointer to its previous counterpart. Thus, our implementation will look pretty familiar:
+
+```python
+class Node:
+    def __init__(self, data=None):
+        self.data = data
+        self.next = None
+        self.prev = None
+```
+
+Now that the structure is getting a little more complex, we will also create a class to represent our DLL. An one would thus look like this:
+
+![dll-empty-node](assets/dll-empty-node.png)
+
+<sub>**Figure 7**: An empty doubly-linked list.</sub>
+
+To add a new node to the head of the list, we must:
+
+1. Create a DLL `Node` object.
+2. Set the `head` pointer to this new node.
+3. Set the `tail` pointer to this new node as well.
+4. Set the size of the list to 1.
+
+Now, a popular strategy with doubly linked lists is to _add empty header and trailer nodes_ that “guard” the list on both sides. Sometimes, these are known as _sentinel nodes_.
+
+This design choice means the "real data" nodes always lie between these two end nodes, so we never end up with `None` pointers when dealing with the first or last element. Instead, the header and trailer are always there—they don’t store meaningful data, but they ensure that every _insertion_, _removal_, or _traversal_ can follow the same set of steps, without separate rules for an empty list or a one-element list. 
+
+Essentially, these “placeholder” end nodes simplify the code and make edge cases a lot less troublesome:
+
+![dll-empty-list](assets/dll-empty-list.png)
+
+<sub>**Figure 7**: An empty doubly-linked list with these "sentinel" header and trailer nodes.</sub>
+
+In code, this might look as follows:
+
+```python
+class DoublyLinkedList:
+    # we can make the Node class belong to
+    # our DLL only by making an inner class
+    class Node:
+        def __init__(self, data=None):
+            self.data = data
+            self.next = None
+            self.prev = None
+
+    def __init__(self):
+        # create sentinel end nodes...
+        self.header = DoublyLinkedList.Node()
+        self.trailer = DoublyLinkedList.Node()
+
+        # ...and connect them to each other
+        self.header.next = self.trailer
+        self.trailer.prev = self.header
+        self.n = 0
+```
+
+Alrighty, let's get into the three most common DLL operations.
+
+<a id="4-3"></a>
+
+### Inserting A New Node
+
+Inserting a new node is fairly simple as well. Say we have a DLL that looks like this:
+
+```
+[1 <--> 3]
+```
+
+and we wanted to insert a node containing the number 2 between them:
+
+```
+[1 <--> 2 <--> 3]
+```
+
+The steps are as follows:
+
+1. **Break the old link from `1` to `3`**: That is, set the `next` pointer of the node holding `1` so it no longer points to `3`.
+2. **Break the old link from `3` to `1`**: That is, set the `prev` pointer of the node holding `3` so it no longer points to `1`.
+3. **Link `1` → `2`**: Set the `next` pointer of the node holding `1` to the new node holding `2`.
+4. **Link `3` → `2`**: Set the `prev` pointer of the node holding `3` to the new node holding `2`.
+5. **Link `2` → `3`**: Set the `next` pointer of the new node (`2`) so it points to the node holding `3`.
+6. **Link `2` → `1`**: Set the `prev` pointer of the new node (`2`) so it points back to the node holding `1`.
+7. **Increment the DLL size**: Since you’ve added one more node, be sure to update the length count of your list.
+
+![dll-insert](assets/dll-insert.png)
+
+<sub>**Figure 8**: Inserting a new node (`2`) into a DLL. Note our sentinel end nodes.</sub>
+
+In this case, we are **adding node `2` _after_ node `1`. In our implementation, we'll call this method `add_after`:
+
+```python
+class DoublyLinkedList:
+    def add_after(self, node, val):
+        new_node = DoublyLinkedList.Node(val)
+        
+        prev_node = node
+        next_node = node.next
+        
+        prev_node.next = new_node  # step 3
+        new_node.prev = prev_node  # step 4
+        new_node.next = next_node  # step 5
+        next_node.prev = new_node  # step 6
+        
+        self.n += 1                # step 7
+        
+        return new_node            # pointer to this new location
+```
+
+What's nice about this method is that, because of our sentinel `header` nodes can act as the `node` parameter. So we don't have to create any special condition to handle the edge cases (the first and last node).
+
+```python
+class DoublyLinkedList:
+    def add_first(self, val):
+        return self.add_after(self.header, val)
+    
+    def add_last(self, val):
+        return self.add_after(self.trailer.prev, val)
+
+    def add_before(self, node, val):
+        return self.add_after(node.prev, val)
+```
+
+<a id="4-4"></a>
+
+### Deleting A Node
+
+For deleting a node involves completely disconnecting it from the rest of the list. For that reason, we will add another simple method to our `Node` inner class:
+
+```python
+class DoublyLinkedList:
+    class Node:
+        def disconnect(self):
+            self.data = None
+            self.next = None
+            self.prev = None
+```
+
+The steps are as follows. We assume the node to be deleted is already in the list:
+
+1. **Link the node’s previous and next neighbors**: Set `node.prev.next` to `node.next`.
+2. **Link the node’s next neighbor back to the previous neighbor**: Set `node.next.prev` to `node.prev`.
+3. **Disconnect the node itself**: Call `node.disconnect()` so its `prev`, `next`, and `data` are all set to `None`.
+4. **Update the list size**: Decrement the DLL’s size count by one.
+
+![dll-insert](assets/dll-remove.png)
+
+<sub>**Figure 9**: Removing node `2` from our DLL from earlier.</sub>
+
+And the implementation:
+
+```python
+class DoublyLinkedList:
+    def delete_node(self, node):
+        data = node.data
+        
+        prev_node = node.prev
+        next_node = node.next
+        
+        prev_node.next = next_node  # step 1
+        next_node.prev = prev_node  # step 2
+        node.disconnect()           # step 3
+
+        self.n -= 1                 # step 4
+        
+        return data
+
+    def delete_last(self):
+        if self.is_empty():
+            raise Exception("List is empty")
+
+        return self.delete_node(self.trailer.prev)
+
+    def delete_first(self):
+        if self.is_empty():
+            raise Exception("List is empty")
+        
+        return self.delete_node(self.header.next)
+```
+
+<a id="4-5"></a>
+
+### Traversal
+
+Traversal works much the same way as it does for [**singly-linked lists**](#2-3):
+
+1. **Initialize a pointer**
+   - Let’s call it `current` and set it to point to `header`. 
+   - Remember, `header` is the **always-present** node at the front (which doesn’t hold real data).
+2. **Walk through the list**  
+   - While `current` does **not** point to `trailer` (the always-present node at the end):
+     - Move `current` to `current.next` in each iteration.
+     - (Optionally) process or print the data stored in `current` if `current` is a real data node.
+3. **Stop at `trailer`**: Once `current` reaches `trailer`, we have **visited every real node** in the list.
+
+![dll-traverse](assets/dll-traverse.png)
+
+<sub>**Figure 10**: Traversing our DLL.</sub>
+
+We can use this method to, say, remove all elements from a DLL with a specific value:
+
+```python
+class DoublyLinkedList:
+    def remove_all(self, elem):
+        cursor = self.header.next
+        
+        while cursor is self.trailer:
+            if cursor.data == elem:
+                next_node = cursor.next
+                self.delete_node(cursor)
+                cursor = next_node
+            else:
+                cursor = cursor.next
+```
+
+<a id="4-6"></a>
+
+### Complete Implementation
+
+```python
+class DoublyLinkedList:
+    class Node:
+        def __init__(self, data=None):
+            self.data = data
+            self.next = None
+            self.prev = None
+
+        def disconnect(self):
+            self.data = None
+            self.next = None
+            self.prev = None
+
+
+    def __init__(self):
+        self.header = DoublyLinkedList.Node()
+        self.trailer = DoublyLinkedList.Node()
+        self.header.next = self.trailer
+        self.trailer.prev = self.header
+        self.n = 0
+
+    def is_empty(self):
+        return len(self) == 0
+
+    def add_after(self, node, val):
+        new_node = DoublyLinkedList.Node(val)
+        
+        prev_node = node
+        next_node = node.next
+        
+        prev_node.next = new_node
+        new_node.prev = prev_node
+        new_node.next = next_node
+        next_node.prev = new_node
+        
+        self.n += 1
+        
+        return new_node
+
+    def add_first(self, val):
+        return self.add_after(self.header, val)
+
+    def add_last(self, val):
+        return self.add_after(self.trailer.prev, val)
+
+    def add_before(self, node, val):
+        return self.add_after(node.prev, val)
+
+    def delete_node(self, node):
+        data = node.data
+        
+        prev_node = node.prev
+        next_node = node.next
+        
+        prev_node.next = next_node
+        next_node.prev = prev_node
+        
+        self.n -= 1
+        node.disconnect()
+        
+        return data
+
+    def delete_first(self):
+        if self.is_empty():
+            raise Exception("List is empty")
+        
+        return self.delete_node(self.header.next)
+
+    def delete_last(self):
+        if self.is_empty():
+            raise Exception("List is empty")
+        
+        return self.delete_node(self.trailer.prev)
+
+    def remove_all(self, elem):
+        cursor = self.header.next
+        
+        while cursor is self.trailer:
+            if cursor.data == elem:
+                next_node = cursor.next
+                self.delete_node(cursor)
+                cursor = next_node
+            else:
+                cursor = cursor.next
+
+    def __len__(self):
+        return self.n
+    
+    def __iter__(self):
+        cursor = self.header.next
+        while cursor is not self.trailer:
+            yield cursor.data
+            cursor = cursor.next
+
+    def __repr__(self):
+        return '[' + " <--> ".join([str(elem) for elem in self]) + ']'
 ```
