@@ -3,7 +3,7 @@
 
 <h1 align=center>Abstract Data Types: <em>Linked Lists</em></h1>
 
-<p align=center><strong><em>Song of the day</strong></em>: <em><a href="https://youtu.be/7Tln_B11HgQ?si=QIAzJd2zFSMHg8Ms"><strong><u>Lesson Learnt (Live at COLORS)</u></strong></a> by Aaron Taylor (2017)</em></p>
+<p align=center><strong><em>Song of the day</strong></em>: <em><a href="https://www.youtube.com/watch?v=lJ0OmBVoTJ4"><strong><u>Far Away</u></strong></a> by Little Simz (2025)</em></p>
 
 ---
 
