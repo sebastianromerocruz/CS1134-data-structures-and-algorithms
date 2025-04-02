@@ -1,4 +1,3 @@
-
 <h2 align=center>Week 10</h2>
 
 <h1 align=center>Abstract Data Types: <em>Linked Lists</em></h1>
