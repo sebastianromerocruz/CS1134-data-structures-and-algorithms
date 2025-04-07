@@ -24,6 +24,7 @@ resource, send me an [**email**](mailto:sebastian.romerocruz@nyu.edu) about it w
 8. [**Stacks**](lectures/08-stacks)
 9. [**Queues**](lectures/09-queues)
 10. [**Linked Lists**](lectures/10-linked-lists)
+11. [**Trees**](lectures/11-trees) 
 
 ## Exercises
 

@@ -25,7 +25,7 @@ class LinkedBinaryTree:
             if root is None:
                 return 0
             else:
-                left_count = subtree_count(root.left)
+                left_count  = subtree_count(root.left)
                 right_count = subtree_count(root.right)
                 
                 return left_count + right_count + 1
@@ -40,12 +40,12 @@ class LinkedBinaryTree:
             if root is None:
                 return 0
             else:
-                left_sum = subtree_sum(root.left)
+                left_sum  = subtree_sum(root.left)
                 right_sum = subtree_sum(root.right)
+                
                 return left_sum + right_sum + root.data
 
         return subtree_sum(self.root)
-
 
     def height(self):
         def subtree_height(root):
@@ -60,7 +60,7 @@ class LinkedBinaryTree:
                 
                 return 1 + right_height
             else:                   # both subtrees are not None
-                left_height = subtree_height(root.left)
+                left_height  = subtree_height(root.left)
                 right_height = subtree_height(root.right)
                 
                 return 1 + max(left_height, right_height)
@@ -69,7 +69,6 @@ class LinkedBinaryTree:
             raise Exception("Tree is empty")
         
         return subtree_height(self.root)
-
 
     def preorder(self):
         def subtree_preorder(root):
@@ -82,7 +81,6 @@ class LinkedBinaryTree:
 
         yield from subtree_preorder(self.root)
 
-
     def inorder(self):
         def subtree_inorder(root):
             if root is None:
@@ -94,7 +92,6 @@ class LinkedBinaryTree:
 
         yield from subtree_inorder(self.root)
 
-
     def postorder(self):
         def subtree_postorder(root):
             if root is None:
@@ -105,7 +102,6 @@ class LinkedBinaryTree:
                 yield root
 
         yield from subtree_postorder(self.root)
-
 
     def breadth_first(self):
         if self.is_empty():
