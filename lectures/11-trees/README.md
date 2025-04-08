@@ -603,7 +603,7 @@ front → [7] ← back
 
 **After dequeueing `7`:**
 ```
-(7 is processed/printed)
+(7 is yielded)
 
 Enqueue children (3, 6):
 
@@ -620,7 +620,7 @@ front → [3, 6] ← back
 
 **After dequeueing `3`:**
 ```
-(3 is processed)
+(3 is yielded)
 
 Enqueue children (8, 5):
 
@@ -637,7 +637,7 @@ front → [6, 8, 5] ← back
 
 **After dequeueing `6`:**
 ```
-(6 is processed)
+(6 is yielded)
 
 Enqueue children (1, 4):
 
@@ -654,7 +654,7 @@ front → [8, 5, 1, 4] ← back
 
 **After dequeueing `8`:**
 ```
-(8 is processed)
+(8 is yielded)
 
 No children to enqueue:
 
@@ -671,7 +671,7 @@ front → [5, 1, 4] ← back
 
 **After dequeueing `5`:**
 ```
-(5 is processed)
+(5 is yielded)
 
 No children to enqueue:
 
@@ -688,7 +688,7 @@ front → [1, 4] ← back
 
 **After dequeueing `1`:**
 ```
-(1 is processed)
+(1 is yielded)
 
 Enqueue children (9, 11):
 
@@ -705,7 +705,7 @@ front → [4, 9, 11] ← back
 
 **After dequeueing `4`:**
 ```
-(4 is processed)
+(4 is yielded)
 
 No children to enqueue:
 
@@ -722,7 +722,7 @@ front → [9, 11] ← back
 
 **After dequeueing `9`:**
 ```
-(9 is processed)
+(9 is yielded)
 
 No children:
 
@@ -739,7 +739,7 @@ front → [11] ← back
 
 **After dequeueing `11`:**
 ```
-(11 is processed)
+(11 is yielded)
 
 No children:
 
