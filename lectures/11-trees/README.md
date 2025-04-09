@@ -28,6 +28,8 @@
     - [**Inorder**](#5-3)
     - [**Breadth-First**](#5-4)
 
+<p align=center><strong><em><a href="assets/Trees.pdf">Handwritten Class Notes</a></em></strong></p>
+
 ---
 
 <a id="1"></a>
