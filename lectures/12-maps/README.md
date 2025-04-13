@@ -261,7 +261,6 @@ we do the following:
 
 If we tried using other familiar data structures—like a linked list—for our map, we’d still face similar **linear runtimes** overall. Sorting the elements could help for faster lookups, but **insert** and **delete** would remain **O(n)**, since shifting or relinking is always involved. Here’s how that stacks up:
 
-```markdown
 | **Map Implementation**     | **Find**    | **Insert**   | **Delete**   |
 |----------------------------|-------------|-------------|-------------|
 | **UnsortedArrayMap**       | Θ(n)        | Θ(n)        | Θ(n)        |
@@ -269,7 +268,6 @@ If we tried using other familiar data structures—like a linked list—for our 
 | **SortedArrayMap**         | Θ(log(n))   | Θ(n)        | Θ(n)        |
 | **SortedLinkedListMap**    | Θ(n)        | Θ(n)        | Θ(n)        |
 | **BinarySearchTreeMap**    | *(Coming soon!)* | *(Coming soon!)* | *(Coming soon!)* |
-```
 
 <sub>**Figure 3**: Data Structures for Map ADT.</sub>
 

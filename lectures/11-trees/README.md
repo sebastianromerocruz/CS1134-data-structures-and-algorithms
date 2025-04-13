@@ -27,6 +27,7 @@
     - [**Postorder**](#5-2)
     - [**Inorder**](#5-3)
     - [**Breadth-First**](#5-4)
+6. [**Using `LinkedBinaryTree` for Expression Trees**](#6)
 
 <p align=center><strong><em><a href="assets/Trees.pdf">Handwritten Class Notes</a></em></strong></p>
 
@@ -747,3 +748,117 @@ No children:
 
 (front → []) <-- the queue is empty now
 ```
+
+<br>
+
+<a id="6"></a>
+
+## Using `LinkedBinaryTree` for Expression Trees
+
+<a id="6-1"></a>
+
+### Expression Trees: Overview
+An **expression tree** is a binary tree in which:
+- **Internal nodes** represent operators (like `+`, `-`, `*`, `/`).
+- **Leaf nodes** represent numeric values.
+
+For instance, an expression like **(3 + 4) * (2 - 1)** might be stored in a tree:
+
+```
+          (*)
+         /   \
+       (+)   (-)
+       / \   / \
+     (3) (4)(2)(1)
+```
+
+In this tree:
+- The root is `(*)`, indicating multiplication of two sub-expressions.
+- The left subtree (`(+)`) stores `3 + 4`.
+- The right subtree (`(-)`) stores `2 - 1`.
+
+<a id="6-2"></a>
+
+### Building an Expression Tree
+You can build such a tree by creating nodes for operators and leaves for values, then linking them accordingly. Here’s a quick example using our `Node` inner class:
+
+```python
+from LinkedBinaryTree import LinkedBinaryTree
+
+# Build an expression for (3 + 4) * 5
+tree = LinkedBinaryTree()
+
+# Create nodes for numbers
+n3 = LinkedBinaryTree.Node(3)
+n4 = LinkedBinaryTree.Node(4)
+n5 = LinkedBinaryTree.Node(5)
+
+# Create node for operator '+'
+plus = LinkedBinaryTree.Node("+", n3, n4)
+
+# Create node for operator '*'
+times = LinkedBinaryTree.Node("*", plus, n5)
+
+# Assign tree.root
+tree.root = times
+tree.size = tree.count_nodes()
+```
+
+1. **Leaf Nodes**: `n3`, `n4`, and `n5` hold integer data.
+2. **Operator Node** for `+`: has `n3` as the left child and `n4` as the right child.
+3. **Operator Node** for `*`: has `plus` node as the left child and `n5` as the right child.
+4. **Set** the root of `tree` to `times`.
+
+<a id="6-3"></a>
+
+### **Writing a Recursive Evaluation Function**
+Now we want to **traverse** the tree and compute its value. We'll assume each **internal node** is a string (`"+", "-", "*", "/"`) and each **leaf** is an integer or float. We’ll write a function, `evaluate_expression_tree(tree)`, for this.
+
+```python
+def evaluate_expression_tree(tree):
+    def subtree_eval(root):
+        # 1) Base Case: If this is a leaf node, just return its data
+        if root.left is None and root.right is None:
+            return root.data
+
+        # 2) Recursive Case: Evaluate children first
+        left_val = subtree_eval(root.left)    # Evaluate left subtree
+        right_val = subtree_eval(root.right)  # Evaluate right subtree
+
+        # 3) Apply the operator at the current node
+        if root.data == "+":
+            return left_val + right_val
+        elif root.data == "-":
+            return left_val - right_val
+        elif root.data == "*":
+            return left_val * right_val
+        elif root.data == "/":
+            return left_val / right_val
+        else:
+            raise ValueError(f"Unknown operator {root.data}")
+
+    if tree.root is None:
+        raise Exception("Cannot evaluate an empty tree")
+
+    return subtree_eval(tree.root)
+```
+
+The steps are as follows:
+
+1. **subtree_eval** is a helper function that:
+   - **Returns** `root.data` immediately if `root` is a leaf (no children).
+   - Otherwise, **recursively** evaluates `root.left` and `root.right`.
+   - Then **applies** `root.data` (the operator) to those two results.
+
+2. **evaluate_expression_tree** calls `subtree_eval(tree.root)` to begin.
+
+---
+
+After building `(3 + 4) * 5` as above:
+
+```python
+val = evaluate_expression_tree(tree)
+print(val)  # -> 35
+```
+
+The function sees `*` at the root, so it evaluates `(3 + 4)` first (which is `7`), then multiplies by `5` → `35`.
