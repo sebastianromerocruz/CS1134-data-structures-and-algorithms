@@ -26,6 +26,7 @@ resource, send me an [**email**](mailto:sebastian.romerocruz@nyu.edu) about it w
 10. [**Linked Lists**](lectures/10-linked-lists)
 11. [**Trees**](lectures/11-trees) 
 12. [**Maps**](lectures/12-maps)
+13. [**Binary Search Trees**](lectures/13-binary-search-trees)
 
 ## Exercises
 

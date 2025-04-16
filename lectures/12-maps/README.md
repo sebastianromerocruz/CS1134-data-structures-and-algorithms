@@ -17,6 +17,7 @@
 3. [**Addendum: _Map ADT Dunder Methods_**](#3)
     - [**Arithmetic and Bitwise**](#3-1)
     - [**Comparisons, Membership, Indexing, and More**](#3-2)
+    
 ---
 
 <a id="1"></a>
@@ -263,10 +264,10 @@ If we tried using other familiar data structures—like a linked list—for our 
 
 | **Map Implementation**     | **Find**    | **Insert**   | **Delete**   |
 |----------------------------|-------------|-------------|-------------|
-| **UnsortedArrayMap**       | Θ(n)        | Θ(n)        | Θ(n)        |
-| **UnsortedLinkedListMap**  | Θ(n)        | Θ(n)        | Θ(n)        |
-| **SortedArrayMap**         | Θ(log(n))   | Θ(n)        | Θ(n)        |
-| **SortedLinkedListMap**    | Θ(n)        | Θ(n)        | Θ(n)        |
+| **UnsortedArrayMap**       | Θ(`n`)        | Θ(`n`)        | Θ(`n`)        |
+| **UnsortedLinkedListMap**  | Θ(`n`)        | Θ(`n`)        | Θ(`n`)        |
+| **SortedArrayMap**         | Θ(log(`n`))   | Θ(`n`)        | Θ(`n`)        |
+| **SortedLinkedListMap**    | Θ(`n`)        | Θ(`n`)        | Θ(`n`)        |
 | **BinarySearchTreeMap**    | *(Coming soon!)* | *(Coming soon!)* | *(Coming soon!)* |
 
 <sub>**Figure 3**: Data Structures for Map ADT.</sub>
