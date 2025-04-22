@@ -28,6 +28,7 @@ resource, send me an [**email**](mailto:sebastian.romerocruz@nyu.edu) about it w
 12. [**Maps**](lectures/12-maps)
 13. [**Binary Search Trees**](lectures/13-binary-search-trees)
     - [**_Slides_: AVL Trees**](lectures/13-binary-search-trees/assets/avl-trees.pdf)
+14. [**Hash Tables**](lectures/14-hash-tables)
 
 ## Exercises
 

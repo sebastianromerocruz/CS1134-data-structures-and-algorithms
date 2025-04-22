@@ -2,7 +2,7 @@
 
 <h1 align=center>Abstract Data Types: <em>Maps</em></h1>
 
-<p align=center><strong><em>Song of the day</strong></em>: <em><a href="https://youtu.be/ZeylQF-5OSE?si=KGiamrO-RRsGBD-B"><strong><u>Something To Hold (Live at Glasshaus)</u></strong></a> by Bilal [feat. Questlove, Common, Robert Glasper, & Burniss Travis] (2024)</em></p>
+<p align=center><strong><em>Song of the day</strong></em>: <em><a href="https://youtu.be/mZOf5_rIfK4?si=G9eNqaO7YXGh0s9M"><strong><u>Rearrange My World</u></strong></a> by Daniel Caesar, Rex Orange County (2025)</em></p>
 
 ---
 
