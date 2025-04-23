@@ -19,6 +19,8 @@
     - [**Component Sum**](#3-2)
     - [**Polynomial Accumulation**](#3-3)
 4. [**Compression Functions**](#4)
+    - [**The Division Method**](#4-1)
+    - [**The Multiplication-Add-Divide (MAD) Method**](#4-2)
 
 ---
 
@@ -124,6 +126,8 @@ A **uniform hashing function** is formally defined as:
 > A function that when given a randomly chosen key, it will be equally likely mapped to any of the `N` slots of `T`, independently of where any other key has hashed to.
 
 Typically, we say that there are two portions to the hashing process (`h`):
+
+<a id="hashing-parts"></a>
 
 1. **A coding function (`h`<sub>1</sub>)**: a (constant-time) process that transforms a key (like a string, number, or object) into an integer. Its goal is to take any kind of input and give you a (possibly large) number that represents it uniquely and consistently.
     Python has a function called `hash` that does this for you (although we'll be creating our own later):
@@ -329,3 +333,132 @@ Polynomial accumulation gives _each character a position-based weight_. That’s
 <a id="4"></a>
 
 ## Compression Functions
+
+Moving on to the next part of our hashing process: the compression function, as we [**mentioned earlier**](#hashing-parts), takes the 64-bit integer produced by the coding functions and reduces them to an acceptable index within our table (`h`[`0`...`N`-1]). We'll start with very simple ones and slowly work our way up to the one we want to use.
+
+<a id="4-1"></a>
+
+### The Division Method
+
+Possibly the most obvious of these is the division method, through which we take the 64-bit number and _mod it by `N` (the size of the table). In other words:
+
+> **`h`<sub>2</sub>(`k`) = `k` mod `N`**
+
+Say, for example, that our table was of size `N=1000`. If we took our earlier key of `"cat"`, from which we got the hash `111128`, and mod it by `N`:
+
+> **`index` = `111128 % 1000` = _128_**
+
+Meaning that `"cat"` would be placed in the 128th bucket of our array.
+
+Now, this compression function is very common because it's easy to implement and, in fact, works pretty uniformly **if the keys are unbiased**. What does this mean? Well, consider the situation where we have an `N=10` and the following keys:
+
+```python
+{0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55}
+```
+
+Using the division method would yield the following results:
+
+![div-method-col](assets/div-method-col.png)
+
+<sub>**Figure 6**: Oh no, so many collisions!</sub>
+
+In this situation, the keys are biased in the sense that they have similar properties (i.e. divisible by the size of the table, and/or by half of the size of a table), so this results on long chains and bad performance. Ideally, we'd like even keys like this to be able to be distributed evenly, so this might not be ideal in all cases.
+
+If you're set on using the division method, one common heuristic is to **choose `N` (the size of the table) to be a prime number**. This guarantees that divisibility will not be a common issue when distributing your keys across the bucket array:
+
+![div-method-prime](assets/div-method-prime.png)
+
+<sub>**Figure 7**: Oh hey, not so many collisions!</sub>
+
+<a id="4-2"></a>
+
+### The Multiplication-Add-Divide (MAD) Method
+
+The compression method that we'll be using in our implementation is a little more involved, and is known as the **multiplication-add-divide, or MAD, method**. The formal definition goes as follows:
+
+> Let `p` be a prime number such that `p` > |`U`| (i.e. the size of `U`).
+> Let `a` be a random number from `1` to `p - 1`.
+> Let `b` be a random number from `0` to `p - 1`.
+> We thus define: **`h`<sub>2</sub>(`k`) = [(`a` * `k` + `b`) mod `p`] mod `N`**
+
+For example, if |`U`| = `60` and the keys are:
+
+```python
+{0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55}
+```
+
+Let's choose `p = 101`, `a = 31`, and `b = 6` for a table size of `N = 10`. Thus, our hashing function becomes:
+
+> **`h`<sub>2</sub>(`k`) = [(`31` * `k` + `6`) mod `101l`] mod `10`**
+
+![mad](assets/mad.png)
+
+<sub>**Figure 8**: Oh yay, even less collisions!</sub>
+
+Pretty nice, right? Since all of these operations are constant, and indexing is also constant, we've achieved the legendary constant runtime we've been looking for. In the next section, we'll do a proper analysis to prove this.
+
+<br>
+
+<a id="5"></a>
+
+## Runtime Analysis
+
+When we use a hash table, the general idea is simple: apply a hash function to a key, and it tells us which bucket—or slot—in the table to check. If two keys happen to hash to the same slot (a collision), we store both in a **chain**, like a list or linked list, at that bucket.
+
+So what does it actually take to **find** a key?
+
+1. First, compute the hash to figure out which slot to look in.
+2. Then, search through the chain in that slot until we find the key (or determine it’s not there).
+
+Now, let’s talk about the **worst case**. Imagine if **every key** hashed to the exact same slot. That would mean one long chain with all `n` elements in it—and searching becomes a linear scan through the entire table. In that case, `find` takes **Θ(`n`)** time, completely negating the advantages of hashing.
+
+But in practice, with a **good hash function**—one that distributes keys uniformly across the table—we expect the keys to be spread out more evenly. This means most chains stay short, and we get much better performance.
+
+To describe this more precisely, we introduce the **load factor**, denoted by `α`:
+
+```
+α = n / N
+```
+
+Where:
+- `n` is the number of keys in the table
+- `N` is the number of buckets
+
+So `α` is the **average number of elements per chain**. If we have 100 keys and 100 buckets, then `α = 1`, meaning we expect one key per chain on average.
+
+With this in mind, the expected time to `find` a key breaks down like this:
+
+1. **O(1)**: Compute the hash and jump directly to the correct slot.
+2. **O(α)**: Scan through the chain in that slot.
+
+This gives us a total expected time of:
+
+```
+O(1 + α)
+```
+
+Now, here’s the good news: as long as we **maintain `α` ≤ 1**—by resizing the table when it gets too full—we keep the chains short, and the runtime stays close to constant:
+
+```
+O(1 + α) → O(1 + 1) → O(2) → Θ(1)
+```
+
+That’s why **dynamic resizing** is so critical in a hash table: it keeps the number of buckets proportional to the number of elements, which in turn keeps our operations efficient. When done right, finding a key in a hash table is—on average—**constant time**.
+
+---
+
+Of course! Here's a more fluid, narrative-style version of the slide—perfect for reading aloud or including in a speaking script:
+
+---
+
+Let’s wrap up with a few important implementation details when building our hash table.
+
+- **When it comes to generating the hash, we’ll lean on Python’s built-in `hash()` function**. It’s fast, flexible, and works on all sorts of key types—strings, numbers, even tuples. But remember: the number it gives us might be huge (or even negative), and our goal is to map that value into a much smaller, non-negative range—the indices of our array.
+
+- That’s where the **compression function** comes in. Specifically, we will use the **MAD method**. The idea is to scramble the output of `hash()` a bit further before finally taking modulo `N` to land somewhere within our table. This extra step helps spread things out more evenly and avoids some of the patterns and clustering you can get if you just use a basic modulo.
+
+- Now of course, collisions are inevitable. At some point, two different keys will end up in the same slot. When that happens, we don’t overwrite—we **chain**. That means each slot of our table isn’t just a single value; it’s actually a tiny map of its own, where we can store multiple entries. For this secondary structure, **we use an `UnsortedArrayMap`**. It’s lightweight, simple, and works great when the number of items per bucket is small—as it should be.
+
+- To keep our performance solid, we need to manage the table’s **load factor**, which is just the ratio of the number of stored items `n` to the total number of slots `N`. As long as we make sure `n` doesn’t exceed `N`—and ideally stays comfortably below—we’re in good shape. Chains stay short, and our lookups, inserts, and deletes stay fast.
+
+That’s the key to a good hash table: a solid hashing process, smart collision handling, and careful attention to load.
