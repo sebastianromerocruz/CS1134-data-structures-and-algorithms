@@ -389,7 +389,7 @@ For example, if |`U`| = `60` and the keys are:
 
 Let's choose `p = 101`, `a = 31`, and `b = 6` for a table size of `N = 10`. Thus, our hashing function becomes:
 
-> **`h`<sub>2</sub>(`k`) = [(`31` * `k` + `6`) mod `101l`] mod `10`**
+> **`h`<sub>2</sub>(`k`) = [(`31` * `k` + `6`) mod `101`] mod `10`**
 
 ![mad](assets/mad.png)
 
