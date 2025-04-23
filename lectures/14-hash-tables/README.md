@@ -447,10 +447,6 @@ That’s why **dynamic resizing** is so critical in a hash table: it keeps the n
 
 ---
 
-Of course! Here's a more fluid, narrative-style version of the slide—perfect for reading aloud or including in a speaking script:
-
----
-
 Let’s wrap up with a few important implementation details when building our hash table.
 
 - **When it comes to generating the hash, we’ll lean on Python’s built-in `hash()` function**. It’s fast, flexible, and works on all sorts of key types—strings, numbers, even tuples. But remember: the number it gives us might be huge (or even negative), and our goal is to map that value into a much smaller, non-negative range—the indices of our array.

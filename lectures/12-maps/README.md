@@ -46,7 +46,7 @@ The next ADT that we will cover is called a **map**, and it's one that you are a
 
     <sub>**Figure 1**: Classic operations belonging to a Map.</sub>
 
-    This might looks as follows in Python script using example of the only k-pop group that matters:
+    This might look as follows in Python using as an example of the only k-pop group that matters:
 
     1. Creating an empty map:
 
