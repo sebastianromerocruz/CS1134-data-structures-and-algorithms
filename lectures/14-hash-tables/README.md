@@ -22,6 +22,8 @@
     - [**The Division Method**](#4-1)
     - [**The Multiplication-Add-Divide (MAD) Method**](#4-2)
 
+<p align=center><strong><em><a href="assets/Hash Tables.pdf">Handwritten Class Notes</a></em></strong></p>
+
 ---
 
 <a id="1"></a>

@@ -17,6 +17,8 @@
 	- [**Initialising Our `ArrayMinHeap`**](#3-4)
 4. [**Runtime Analysis and Comparisons**](#4)
 
+<p align=center><strong><em><a href="assets/Priority Queues 2.pdf">Handwritten Class Notes</a></em></strong></p>
+
 ---
 
 <a id="1"></a>

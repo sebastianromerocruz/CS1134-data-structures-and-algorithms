@@ -20,6 +20,8 @@
     - [**`BinarySearchTreeMap.Node`**](#4-2)
     - [**`subtree_max`**](#4-4)
 
+<p align=center><strong><em><a href="assets/Binary Search Trees.pdf">Handwritten Class Notes</a></em></strong></p>
+
 ---
 
 <a id="1"></a>

@@ -18,6 +18,8 @@
     - [**Arithmetic and Bitwise**](#3-1)
     - [**Comparisons, Membership, Indexing, and More**](#3-2)
     
+<p align=center><strong><em><a href="assets/Maps.pdf">Handwritten Class Notes</a></em></strong></p>
+
 ---
 
 <a id="1"></a>
