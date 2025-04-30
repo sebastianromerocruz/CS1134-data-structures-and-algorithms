@@ -251,18 +251,18 @@ Now `curr_ind = 0`, which is the root, so we stop. **Each level we move up**, we
 
 ```Python
 def fix_up(self, j):
-        curr_ind = j
-        keep_going = True
+	curr_ind = j
+	keep_going = True
 
-        while keep_going == True and curr_ind > 1:
-			
-            parent_ind = self.parent(curr_ind)
+	while keep_going == True and curr_ind > 1:
+		
+		parent_ind = self.parent(curr_ind)
 
-            if self.data[parent_ind] <= self.data[curr_ind]:
-                keep_going = False
-            else:
-                self.swap(curr_ind, parent_ind)
-                curr_ind = parent_ind
+		if self.data[parent_ind] <= self.data[curr_ind]:
+			keep_going = False
+		else:
+			self.swap(curr_ind, parent_ind)
+			curr_ind = parent_ind
 
 def swap(self, i, j):
 	self.data[i], self.data[j] = self.data[j], self.data[i]
