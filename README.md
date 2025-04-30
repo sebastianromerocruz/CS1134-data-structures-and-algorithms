@@ -29,6 +29,7 @@ resource, send me an [**email**](mailto:sebastian.romerocruz@nyu.edu) about it w
 13. [**Binary Search Trees**](lectures/13-binary-search-trees)
     - [**_Slides_: AVL Trees**](lectures/13-binary-search-trees/assets/avl-trees.pdf)
 14. [**Hash Tables**](lectures/14-hash-tables)
+15. [**Priority Queues (Heaps)**](lectures/15-priority-queues)
 
 ## Exercises
 
