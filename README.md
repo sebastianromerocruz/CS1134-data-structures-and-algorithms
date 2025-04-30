@@ -36,6 +36,7 @@ resource, send me an [**email**](mailto:sebastian.romerocruz@nyu.edu) about it w
 2. [**Amortised Analysis**](exercises/amortised-analysis)
 3. [**Recursion I**](exercises/factorial-recursion)
 4. [**Recursion II**](exercises/power-recursion)
+5. [**Hash Tables**](exercises/exercises/hash-tables)
 
 ---
 
