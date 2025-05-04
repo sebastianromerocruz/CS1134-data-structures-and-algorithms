@@ -38,6 +38,7 @@ resource, send me an [**email**](mailto:sebastian.romerocruz@nyu.edu) about it w
 3. [**Recursion I**](exercises/factorial-recursion)
 4. [**Recursion II**](exercises/power-recursion)
 5. [**Hash Tables**](exercises/exercises/hash-tables)
+6. [**Priority Queues**](exercises/exercises/priority-queues)
 
 ---
 

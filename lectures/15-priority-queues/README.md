@@ -102,25 +102,25 @@ Would correspond to the following array:
 
 Why? Well, we know that since the tree is a priority queue, we know that it is a [**complete binary tree**](https://github.com/sebastianromerocruz/CS1134-data-structures-and-algorithms/tree/main/lectures/11-trees#binary-trees). Because of its uniform structure, this allows for some pretty nifty math. In particular, when represented by an array, any node at index `j`...
 
-- Has a **left child** is at `2j`
+- Has a **left child** is at `2j - 1`
 	```Python
 	def left(self, j):
 		return 2 * j
 	```
-- Has a **right child** is at `2j + 1`
+- Has a **right child** is at `2j + 2`
 	```Python
 	def right(self, j):
         return 2 * j + 1
 	```
-- Has a **parent** is at `(j) // 2`
+- Has a **parent** is at `(j - 1) // 2`
 	```Python
 	def parent(self, j):
         return j // 2
 	```
 
-Pretty cool, right? This also eradicates an important issue with trees: their runtime. Granted, logarithmic runtimes are excellent, but making something into an array that one can simply index in constant time is even better. It's super efficient—no need for pointers, and everything stays tight in memory.
+Pretty cool, right? (The reason why the `- 1` is not in the implementation will be explained later) Making something into an array that one can simply index in constant time is super efficient—no need for pointers, and everything stays tight in memory.
 
-We can also use this anciliary methods to check whether or not any given node has a left and/or right child:
+We can also use these ancillary methods to check whether or not any given node has a left and/or right child:
 
 ```Python
 def has_left(self, j):
