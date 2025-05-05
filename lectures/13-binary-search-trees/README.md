@@ -78,7 +78,7 @@ bst = BinarySearchTree()
 lst = [14, 18, 22, 24]
 
 for number for lst:
-    lst.insert(number)
+    bst.insert(number)
 ```
 
 Because the numbers in `lst` are already sorted, our BST would end up looking highly skewed to the right:
