@@ -470,7 +470,7 @@ class DoublyLinkedList:
     def remove_all(self, elem):
         cursor = self.header.next
         
-        while cursor is self.trailer:
+        while cursor is not self.trailer:
             if cursor.data == elem:
                 next_node = cursor.next
                 self.delete_node(cursor)
