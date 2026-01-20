@@ -15,7 +15,7 @@ resource, send me an [**email**](mailto:sebastian.romerocruz@nyu.edu) about it w
 <sub>To be released every Monday and Wednesday before lecture.</sub>
 
 1. [**Mutations v. Construction**](lectures/01-mutations)
-2. [**Iterators and Generators**](lectures/02-iterators-generators)
+<!-- 2. [**Iterators and Generators**](lectures/02-iterators-generators)
 3. [**Asymptotic Analysis**](lectures/03-asymptotic-analysis)
 4. [**Searching Algorithms**](lectures/04-searching-algos)
 5. [**`ArrayList`**](lectures/05-arraylists)
@@ -29,17 +29,17 @@ resource, send me an [**email**](mailto:sebastian.romerocruz@nyu.edu) about it w
 13. [**Binary Search Trees**](lectures/13-binary-search-trees)
     - [**_Slides_: AVL Trees**](lectures/13-binary-search-trees/assets/avl-trees.pdf)
 14. [**Hash Tables**](lectures/14-hash-tables)
-15. [**Priority Queues (Heaps)**](lectures/15-priority-queues)
+15. [**Priority Queues (Heaps)**](lectures/15-priority-queues) -->
 
 ## Exercises
 
-1. [**Runtime Complexity Analysis**](exercises/runtime-analysis-1)
+<!-- 1. [**Runtime Complexity Analysis**](exercises/runtime-analysis-1)
 2. [**Amortised Analysis**](exercises/amortised-analysis)
 3. [**Recursion I**](exercises/factorial-recursion)
 4. [**Recursion II**](exercises/power-recursion)
 5. [**Hash Tables**](exercises/exercises/hash-tables)
-6. [**Priority Queues**](exercises/exercises/priority-queues)
+6. [**Priority Queues**](exercises/exercises/priority-queues) -->
 
 ---
 
-<sub>© Sebastián Romero Cruz 2025</sub>
+<sub>© Sebastián Romero Cruz 2026</sub>

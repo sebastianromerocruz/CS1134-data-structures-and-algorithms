@@ -2,7 +2,7 @@
 
 <h1 align=center>Mutations v. Construction</h1>
 
-<p align=center><strong><em>Song of the day</strong>: <a href="https://youtu.be/IF2t2CeDhGg?si=mdggY3cwKEYKRcHG"><strong><u>Way Out</u></strong></a> by FKJ (2022).</em></p>
+<p align=center><strong><em>Song of the day</strong>: <a href="https://youtu.be/0qUtT6k83Go?si=c-pKA-WsWJ57CQjp"><strong><u>Fior di Latte</u></strong></a> by Phoenix (2017).</em></p>
 
 ---
 
@@ -12,10 +12,6 @@
 2. [**Mutating An Object v. Creating A New One**](#2)
     1. [**Mutating A List**](#2-1)
     2. [**Creating A New List**](#2-2)
-
-<p align=center><strong><em><a href="assets/Memory Maps I.pdf">Day 1 Handwritten Class Notes</a></em></strong></p>
-<p align=center><strong><em><a href="assets/Memory Maps II.pdf">Day 2 Handwritten Class Notes</a></em></strong></p>
-<p align=center><strong><em><a href="assets/Memory Maps III.pdf">Day 3 Handwritten Class Notes</a></em></strong></p>
 
 ---
 
