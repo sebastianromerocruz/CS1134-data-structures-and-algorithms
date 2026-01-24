@@ -14,7 +14,8 @@ resource, send me an [**email**](mailto:sebastian.romerocruz@nyu.edu) about it w
 
 <sub>To be released every Monday and Wednesday before lecture.</sub>
 
-1. [**Mutations v. Construction**](lectures/01-mutations)
+1. [**Python In Memoriam**](lectures/01-memory-lst-str)
+    - [**Intro Slideshow**](lectures/01-memory-lst-str/assets/intro.pdf)
 <!-- 2. [**Iterators and Generators**](lectures/02-iterators-generators)
 3. [**Asymptotic Analysis**](lectures/03-asymptotic-analysis)
 4. [**Searching Algorithms**](lectures/04-searching-algos)
