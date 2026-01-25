@@ -278,7 +278,7 @@ What do you suppose the output of our `print` statement will look like?
     </sub>
 </p>
 
-Hm, interesting. What's happening here? On the surface, the creation of the variable `lst2` (i.e. its assignment of the value `lst1`) _might_ look like we're creating a completely separate object—after all, the names `lst1` and `lst2` _are_ technically created in separate spaces within RAM. However, what Python is actually doing is **creating an alias to the list created when we defined lst1**.
+Hm, interesting. What's happening here? On the surface, the creation of the variable `lst2` (i.e. its assignment of the value `lst1`) _might_ look like we're creating a completely separate object—after all, the names `lst1` and `lst2` _are_ technically created in separate spaces within RAM. However, what Python is actually doing is **creating an alias to the list created when we defined `lst1`**.
 
 An analogy of this goes as follows: there is only one campus for NYU Tandon, whose address is (generally) given at 6 MetroTech Center. However, different people might refer to 6 MetroTech using different names. I might call it "my workplace," you might call it "school," and your parents might simply call it "NYU". The three names are different, but they are all referring to the same thing. That's what aliasing is.
 
@@ -409,7 +409,7 @@ Let's first see what we get for output when we run it:
 
 <p align=center>
     <sub>
-        <strong>Figure XIX</strong>: The thing to note here is that the <code>main</code> function's <code>lst</code> <em>changed</em> after a call to <code>func</code>, but the value of <code>s</code> <em>didn't</em>, even though "changed" both of them inside of <code>func</code>.
+        <strong>Figure XIX</strong>: The thing to note here is that the <code>main</code> function's <code>lst</code> <em>changed</em> after a call to <code>func</code>, but the value of <code>s</code> <em>didn't</em>, even though we "changed" both of them inside of <code>func</code>.
     </sub>
 </p>
 
@@ -421,7 +421,7 @@ This is confusing: why does `lst` reflect the changes done by `func` in `main` b
 >
 > When _immutable_ objects get passed as arguments into a function, the corresponding parameter makes a **copy** of the original object.
 
-In other words, the both the `lst` variable in `main` and the `lst` parameter in `func` are the _exact same object in memory. The `s` parameter in `func`, on the other hand, is a _copy_ of the `s` variable in `main`.
+In other words, both the `lst` variable in `main` and the `lst` parameter in `func` are the _exact same object in memory_. The `s` parameter in `func`, on the other hand, is a _copy_ of the `s` variable in `main`.
 
 Let's check out the memory diagrams for this process:
 
@@ -441,6 +441,6 @@ Let's check out the memory diagrams for this process:
 
 <p align=center>
     <sub>
-        <strong>Figures XX - XXI</strong>: Note that <code>func</code>'s namespace also includes something called a "return address". This is simply a reference to the location to <em>where the function (<code>func</code>) was called</em>. Function need this so that, whenever they are finished execution, they know where in memory to go back to so that the program can continue.
+        <strong>Figures XX - XXI</strong>: Note that <code>func</code>'s namespace also includes something called a "return address". This is simply a reference to the location to <em>where the function (<code>func</code>) was called</em>. Functions need this so that, whenever they are finished executing, they know where in memory to go back to so that the program can continue.
     </sub>
 </p>
