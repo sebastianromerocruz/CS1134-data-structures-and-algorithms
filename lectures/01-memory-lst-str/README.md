@@ -1,6 +1,6 @@
 <h2 align=center>Week I</h2>
 
-<h1 align=center>Python In Memoriam: <em>Lists and String</em></h1>
+<h1 align=center>Python In Memoriam: <em>Lists and Strings</em></h1>
 
 <p align=center><strong><em>Song of the day</strong>: <a href="https://youtu.be/0qUtT6k83Go?si=c-pKA-WsWJ57CQjp"><strong><u>Fior di Latte</u></strong></a> by Phoenix (2017).</em></p>
 
