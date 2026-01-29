@@ -2,7 +2,7 @@
 
 <h1 align=center>Python In Memoriam: <em>Copying</em></h1>
 
-<p align=center><strong><em>Song of the day</strong>: <a href="https://youtu.be/0qUtT6k83Go?si=c-pKA-WsWJ57CQjp"><strong><u>Fior di Latte</u></strong></a> by Phoenix (2017).</em></p>
+<p align=center><strong><em>Song of the day</strong>: <a href="https://youtu.be/Q02RoRVJOVs?si=MUWENoPDiEak0N-K"><strong><u>Iced Coffee</u></strong></a> by Red Velvet (2022)</em></p>
 
 ---
 
@@ -12,10 +12,10 @@
     1. [**Shallow Copying**](#1-1)
     2. [**Deep Copying**](#1-2)
 2. [**List Addition & Mutation**](#2)
-<!-- 3. [**Lists of User-Defined Objects**](#3)
+3. [**Lists of User-Defined Objects**](#3)
     1. [**List Comprehension**](#3-1)
     2. [**List Multiplication**](#3-2)
-4. [**List Extension vs Concatenation**](#4) -->
+4. [**List Extension vs Concatenation**](#4)
 
 <p align=center><strong><em><a href="assets/memory-maps.pdf">Notes From Zoom Lecture</a></em></strong></p>
 
@@ -256,3 +256,36 @@ And, if we make a small change to `lst2`...
         <strong>Figure XIX</strong>: The change is reflected both in <code>lst2</code> and <code>lst3</code>.
     </sub>
 </p>
+
+<a id="3"></a>
+
+## _Lists of User-Defined Objects_
+
+There a couple more ways of creating lists, and to illustrate them we'll create a small, simple class that we can readily modify to test our theories:
+
+```python
+class Counter:
+    def __init__(self):
+        self.value = 0
+    
+    def inc(self):
+        self.value += 1
+    
+    def __repr__(self):
+        return str(self.value)
+```
+
+For example:
+
+```python
+c = Counter()
+c.inc()
+c.inc()
+
+print(c)
+```
+
+...would print a value of **`2`**. Keep this in mind as we go on.
+
+<a id="3-1"></a>
+
