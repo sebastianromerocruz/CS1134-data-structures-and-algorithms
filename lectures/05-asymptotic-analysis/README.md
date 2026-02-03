@@ -189,14 +189,14 @@ What g(`n`) can we pick here? You can do the following:
 2. Ask yourself: how can I make it into a slightly smaller expression while still guaranteeing that `c`<sub>1</sub> `n`² ≤ f(`n`)?
     > 3`n`² + 6`n` - 15 ≥ 3`n`² + 6`n` - 15
 
-    1. Let's first remove the + 6`n` linear term. Why? Because we are subtracting a positive value from the left‑hand side. Subtracting something positibe can only decrease the value, never increase it. Therefore the right‑hand side remains less than or equal to the original expression.
+    1. Let's first remove the + 6`n` linear term. Why? Because we are subtracting a positive value from the left‑hand side. Subtracting something positive can only decrease the value, never increase it. Therefore the right‑hand side remains less than or equal to the original expression.
     2. Keep the - 15 constant. Why? The constant is negative, so it makes the expression _smaller_. When we are looking for a lower bound, we want the right‑hand side to be as large as possible while still being ≤ f(`n`). Dropping a negative term would increase the right‑hand side, which could break the inequality.
 3. Look at your resulting inequality using your new g(`n`):
     > f(`n`) ≥ g(`n`) = 3`n`² - 15
 
 Perfect! Now, we're ready to find a suitable `n`<sub>0</sub>. Let's choose `c`<sub>1</sub> as 2, since it needs to be a little smaller than 3.
 
-> 3`n`<sup>2</sub> − 15 ≥ 2`n`²
+> 3`n`<sup>2</sup> − 15 ≥ 2`n`²
 > 
 > `n`² ≥ 15
 > 
@@ -451,11 +451,11 @@ for i in range(n):   # Runs `n` times, so Θ(n)
 ```
 - The loop runs `n` times, iterating over `i = 0, 1, 2, ..., n - 1`.
 - Within each iteration:
-  - `sum(lst[0:i + 1])` takes Θ(i):  
-    - Slicing `lst[0:i+1]` takes Θ(i) time.
-    - Summing over this sublist also takes Θ(i) time.
-    - Since both are Θ(i), this step overall is **Θ(i)**.
-  - `curr_avg = curr_sum / (i + 1) is a constant-time operation, Θ(1).
+  - `sum(lst[0:i + 1])` takes Θ(`i`):  
+    - Slicing `lst[0:i+1]` takes Θ(`i`) time.
+    - Summing over this sublist also takes Θ(`i`) time.
+    - Since both are Θ(i), this step overall is **Θ(`i`)**.
+  - `curr_avg = curr_sum / (i + 1) is a constant-time operation, Θ(`1`).
   - `result[i] = curr_avg`: Assigning a value to a list index is also Θ(1).
 
 ##### Summing the Costs
@@ -523,31 +523,31 @@ Phew—that was a lot to take in. Feeling confused or uncertain? You’re not al
 
 We are summing:  
 
-S = 1 + 2 + 3 + ... + `n`  
+> S = 1 + 2 + 3 + ... + `n`  
 
 Our goal is to find a formula that directly calculates this sum without adding all the numbers individually. Imagine writing the numbers forward and backward:  
 
 ```
-S = 1 + 2 + 3 + ... + `n`
-S = `n` + (`n`-1) + (`n`-2) + ... + 1
+S = 1 + 2 + 3 + ... + n
+S = n + (n-1) + (n-2) + ... + 1
 ```
 
 Now, _add_ these two equations together, pairing each number from the start and end:  
 
 ```
-S + S = (1 + `n`) + (2 + (`n`-1)) + (3 + (`n`-2)) + ... + (`n` + 1)
+S + S = (1 +`n) + (2 + (n-1)) + (3 + (n-2)) + ... + (n + 1)
 ```
 
 Each pair sums to (`n` + 1), and there are `n` such pairs. So:  
 
 ```
-2S = `n`(`n` + 1)
+2S = n(n + 1)
 ```
 
 Divide both sides by 2 to isolate S:  
 
 ```
-S = `n`(`n` + 1) / 2
+S = n(n + 1) / 2
 ```
 
 Let’s apply this to `n` = 5:  
