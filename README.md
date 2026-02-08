@@ -21,6 +21,7 @@ resource, send me an [**email**](mailto:sebastian.romerocruz@nyu.edu) about it w
 3. [**Iterators and Generators**](lectures/03-iterators-generators)
 4. [**Algorithm Correctness**](lectures/04-algo-correctness)
 5. [**Asymptotic Analysis**](lectures/05-asymptotic-analysis)
+6. [**Searching Algorithms**](lectures/06-searching-algos)
 
 <!--
 4. [**Searching Algorithms**](lectures/04-searching-algos)

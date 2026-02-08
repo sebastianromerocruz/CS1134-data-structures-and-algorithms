@@ -1,4 +1,4 @@
-<h2 align=center>Week 03: <em>Day 2</em></h2>
+<h2 align=center>Week 03: <em>Day 2</em> & Week 04: <em>Day 1</em></h2>
 
 <h1 align=center>Asymptotic Analysis</h1>
 
