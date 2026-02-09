@@ -390,7 +390,7 @@ Does this really hold when we have really large values of `n`, though? That is, 
 
 > T<sub>2</sub>(`n`) = 1 + 2 + 3 + 4 + ... + `n`
 
-We can rewrite this sum as follows ([**why?**](#add3)):
+We can rewrite this sum as follows ([**why?**](#3)):
 
 > T<sub>2</sub>(`n`) = 1 + 2 + 3 + 4 + ... + `n` = `n`(`n` + 1) / 2
 >
@@ -438,23 +438,22 @@ n = len(lst)      # Θ(1)
 result = [0] * n  # Θ(n)
 ```
 
-- Getting the length of the list (`len(lst)`) is a constant-time operation: Θ(1).
-- Creating the `result` list with `n` elements takes Θ(`n`) time.
+Getting the length of the list (`len(lst)`) is a constant-time operation: Θ(1). Also, creating the `result` list with `n` elements takes Θ(`n`) time.
 
 ##### Loop Iteration
 
 ```python
-for i in range(n):   # Runs `n` times, so Θ(n)
+for i in range(n):                  # Runs n times, so Θ(n)
     curr_sum = sum(lst[0:i + 1])    # Θ(i)
     curr_avg = curr_sum / (i + 1)   # Θ(1)
     result[i] = curr_avg            # Θ(1)
 ```
-- The loop runs `n` times, iterating over `i = 0, 1, 2, ..., n - 1`.
-- Within each iteration:
-  - `sum(lst[0:i + 1])` takes Θ(`i`):  
+
+The loop runs `n` times, iterating over `i = 0, 1, 2, ..., n - 1`. Within each iteration, we:
+1. `sum(lst[0:i + 1])` takes Θ(`i`) because:  
     - Slicing `lst[0:i+1]` takes Θ(`i`) time.
     - Summing over this sublist also takes Θ(`i`) time.
-    - Since both are Θ(i), this step overall is **Θ(`i`)**.
+    - Since both are Θ(i), this step overall is Θ(i) + Θ(i) = 2Θ(i) = **Θ(`i`)**.
   - `curr_avg = curr_sum / (i + 1) is a constant-time operation, Θ(`1`).
   - `result[i] = curr_avg`: Assigning a value to a list index is also Θ(1).
 
@@ -470,7 +469,9 @@ i = n-1 →  sum(lst[0:n])   →  Θ(n)
 ```
 The total work done across all iterations is:
 ```
-Θ(1) + Θ(2) + Θ(3) + ... + Θ(n) = 1 + 2 + 3 + ... + n = Θ(n²)
+Θ(1) + Θ(2) + Θ(3) + ... + Θ(n) = 1 + 2 + 3 + ... + n 
+                                = 2(n + 1) / 2
+                                = Θ(n²)
 ```
 
 (Since the sum of the first `n` natural numbers is `n(n+1)/2 = Θ(n²)`.)
@@ -484,7 +485,7 @@ Now, not all algorithms involving a `for`-loop end up having a quadratic runtime
 
 ```python
 def prefix_avg(lst):
-    n = len(lst)      # Θ(n)
+    n = len(lst)      # Θ(1)
     result = [0] * n  # Θ(n)
     curr_sum = 0      # Θ(1)
 
@@ -492,7 +493,7 @@ def prefix_avg(lst):
     for i in range(n):
         curr_sum += lst[i]              # Θ(1)
         curr_avg  = curr_sum / (i + 1)  # Θ(1)
-        result[i] = curr_avg            # Θ(i)
+        result[i] = curr_avg            # Θ(1)
         
     return result  # Θ(1)
 
@@ -535,7 +536,7 @@ S = n + (n-1) + (n-2) + ... + 1
 Now, _add_ these two equations together, pairing each number from the start and end:  
 
 ```
-S + S = (1 +`n) + (2 + (n-1)) + (3 + (n-2)) + ... + (n + 1)
+S + S = (1 + n) + (2 + (n-1)) + (3 + (n-2)) + ... + (n + 1)
 ```
 
 Each pair sums to (`n` + 1), and there are `n` such pairs. So:  
@@ -559,4 +560,4 @@ S = 5(5 + 1) / 2 = (5 * 6) / 2 = 15
 Manually adding the numbers:  
 1 + 2 + 3 + 4 + 5 = 15  
 
-Both results match, confirming the formula works!
+Both results match.
