@@ -14,18 +14,15 @@ resource, send me an [**email**](mailto:sebastian.romerocruz@nyu.edu) about it w
 
 <sub>To be released every Monday and Wednesday before lecture.</sub>
 
-1. [**Python In Memoriam: _Lists and Strings_**](lectures/01-memory-lst-str)
-    - [**Intro Slideshow**](lectures/01-memory-lst-str/assets/intro.pdf)
-2. [**Python In Memoriam: _Copying_**](lectures/02-memory-copy-ops)
-    - [**Zoom Lecture Notes**](lectures/02-memory-copy-ops/assets/memory-maps.pdf)
+1. [**Python In Memoriam: _Lists and Strings_**](lectures/01-memory-lst-str) ([**Intro Slideshow**](lectures/01-memory-lst-str/assets/intro.pdf))
+2. [**Python In Memoriam: _Copying_**](lectures/02-memory-copy-ops) ([**Zoom Lecture Notes**](lectures/02-memory-copy-ops/assets/memory-maps.pdf))
 3. [**Iterators and Generators**](lectures/03-iterators-generators)
 4. [**Algorithm Correctness**](lectures/04-algo-correctness)
 5. [**Asymptotic Analysis**](lectures/05-asymptotic-analysis)
 6. [**Searching Algorithms**](lectures/06-searching-algos)
+7. [**Amortised Analysis & `ArrayList`**](lectures/07-amort-arraylists)
 
 <!--
-4. [**Searching Algorithms**](lectures/04-searching-algos)
-5. [**`ArrayList`**](lectures/05-arraylists)
 6. [**Recursion**](lectures/06-recursion)
 7. [**Sorting Algorithms**](lectures/07-sorting-algos)
 8. [**Stacks**](lectures/08-stacks)

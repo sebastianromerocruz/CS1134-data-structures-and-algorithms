@@ -1,4 +1,4 @@
-<h2 align=center>Week 04: <em>Day 1</em></h2>
+<h2 align=center>Week IV</h2>
 
 <h1 align=center>Searching Algorithms</h1>
 
@@ -160,7 +160,9 @@ These are the powers of two, right? We can thus generalise the runtime here to t
 
 <sub>**Figure 7**: As the number of iterations (`k`) approaches infinity, the size of the search range becomes 1 (when we find the target). The reason for `k` - 1 instead of `k` is because we consider the finding of the first middle value as our first iteration, and because finding the middle value is an Θ(1) operation.</sub>
 
-If we try to solve for `k` in the following formula, we can find the relationship between the number of iterations and the size of the data set:
+At this point, we want to try to solve for `k` when the size of the search range is 1 (i.e. when we have found the number), as that will lead us to find the relationship between the number of iterations and the size of the data set:
+
+Thus, if `k` is equal to `n` / 2<sup>`k` - 1</sup>, and `n` / 2<sup>`k` - 1</sup> is equal to 1 when we have found the number...
 
 > `n` / 2<sup>`k` - 1</sup> = 1
 >

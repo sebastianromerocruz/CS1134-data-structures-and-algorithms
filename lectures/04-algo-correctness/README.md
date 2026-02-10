@@ -1,4 +1,4 @@
-<h2 align=center>Week 03: <em>Day 1</em></h2>
+<h2 align=center>Week III: <em>Day 1</em></h2>
 
 <h1 align=center>Algorithm Correctness</h1>
 

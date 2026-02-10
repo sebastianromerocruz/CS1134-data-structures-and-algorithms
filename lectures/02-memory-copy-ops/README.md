@@ -1,4 +1,4 @@
-<h2 align=center>Week II: <em>Day 1</em>zw</h2>
+<h2 align=center>Week II: <em>Day 1</em></h2>
 
 <h1 align=center>Python In Memoriam: <em>Copying</em></h1>
 
