@@ -1,6 +1,6 @@
-<h2 align=center>Week IV: <em>Day 1</em> and Week V</h2>
+<h2 align=center>Week V: <em>Day 1</em></h2>
 
-<h1 align=center><code>ArrayList</code></h1>
+<h1 align=center>Amortised Analysis</h1>
 
 <p align=center><strong><em>Song of the day</strong>: <a href="https://youtu.be/34ckxHVZqoI?si=sv6JNeU0GIMlmMzO"><strong><u>断气</u></strong></a> by 回春丹 (2022), recommended by Xin Chen.</em></p>
 
@@ -18,8 +18,6 @@
     2. [**The Python Implementation**](#3-2)
 4. [**Addendum A: _Important Summations To Know_**](#4)
 5. [**Addendum B: _Dunder Methods_**](#5) -->
-
-<p align=center><strong><em><a href="assets/ArrayList I.pdf">Day 1 Handwritten Class Notes</a></em></strong></p>
 
 ---
 

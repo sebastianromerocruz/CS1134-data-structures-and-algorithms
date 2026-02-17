@@ -20,7 +20,8 @@ resource, send me an [**email**](mailto:sebastian.romerocruz@nyu.edu) about it w
 4. [**Algorithm Correctness**](lectures/04-algo-correctness)
 5. [**Asymptotic Analysis**](lectures/05-asymptotic-analysis)
 6. [**Searching Algorithms**](lectures/06-searching-algos)
-7. [**Amortised Analysis & `ArrayList`**](lectures/07-amort-arraylists)
+7. [**Amortised Analysis**](lectures/07-amortised)
+8. [**`ArrayList`**](lectures/08-array-lists)
 
 <!--
 6. [**Recursion**](lectures/06-recursion)
