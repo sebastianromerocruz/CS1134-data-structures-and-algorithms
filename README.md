@@ -22,9 +22,9 @@ resource, send me an [**email**](mailto:sebastian.romerocruz@nyu.edu) about it w
 6. [**Searching Algorithms**](lectures/06-searching-algos)
 7. [**Amortised Analysis**](lectures/07-amortised)
 8. [**`ArrayList`**](lectures/08-array-lists)
+9. [**Recursion**](lectures/09-recursion)
 
 <!--
-6. [**Recursion**](lectures/06-recursion)
 7. [**Sorting Algorithms**](lectures/07-sorting-algos)
 8. [**Stacks**](lectures/08-stacks)
 9. [**Queues**](lectures/09-queues)
