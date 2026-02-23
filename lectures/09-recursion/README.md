@@ -2,7 +2,7 @@
 
 <h1 align=center>Recursion</h1>
 
-<p align=center><strong><em>Song of the day</strong>: <a href="https://youtu.be/IesJKhEGpw8?si=Ru36RdRGaJ1zAAuT"><strong><u>Grand Theft Autumn (Where Is Your Boy)</u></strong></a> by Fall Out Boy (2003)</em></p>
+<p align=center><strong><em>Song of the day</strong>: <a href="https://iqu-music.bandcamp.com/album/chotto-matte-a-moment-klp085"><strong><u>Flower and Moon</u></strong></a> by IQU (1998)</em></p>
 
 ---
 
