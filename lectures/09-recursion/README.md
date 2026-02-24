@@ -14,14 +14,14 @@
     3. [**Counting Down**](1-3)
     4. [**Counting Up And Down**](1-4)
     5. [**Factorial**](1-5)
-<!-- 2. [**Asymptotic Analysis for Recursive Functions**](#2)
+2. [**Asymptotic Analysis for Recursive Functions**](#2)
     1. [**Recursive Tree Structure**](#2-1)
     2. [**Cost Per Node ("Leaf")**](#2-2)
     3. [**Examples**](#2-3)
         - [**Factorial**](#2-3-1)
         - [**Counting The Occurrences Of A Number In A List**](#2-3-2)
         - [**List Of Ascending Integers**](#2-3-3)
-        - [**Power**](#2-3-4) -->
+        <!-- - [**Power**](#2-3-4) -->
 
 ---
 
@@ -293,7 +293,7 @@ return result to wherever factorial(3) was called
 
 <a id="2"></a>
 
-<!-- ## Asymptotic Analysis for Recursive Functions
+## Asymptotic Analysis for Recursive Functions
 
 And now, for the question that you probably saw coming: how do we measure asymptotic behaviour for recursive operations? Life was relatively simple with loops. After all, we could look at each line of code and, as long as we knew exactly what that particular line was doing and how long it took to do it, we could add up all those steps to get our final answer. The problem with recursive algorithms is that some of the lines in them are calls to itself—and if we're not done figuring out the runtime of the algorithm in the first place, we're going to be stuck in circles. Right?
 
@@ -465,7 +465,7 @@ def pos_ints_list(n):
 
 <sub>**Figure 11**: Again, running Θ(1) `n` times results in `n` * Θ(1) = **Θ(`n`)**.</sub>
 
-<a id="2-3-4"></a>
+<!-- <a id="2-3-4"></a>
 
 #### Power
 
@@ -600,7 +600,7 @@ By reusing `a`<sup>`n` / 2</sup>, we avoid all this unnecessary work and reduce 
 
 Thus, we get the following definition:
 
-![power-def-3](power-def-3.png)
+![power-def-3](assets/power-def-3.png)
 
 <sub>**Figure 15**: The complete definition of the power function along with its base case.</sub>
 
