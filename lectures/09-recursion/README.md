@@ -1,4 +1,4 @@
-<h2 align=center>Week 06</h2>
+<h2 align=center>Week VI</h2>
 
 <h1 align=center>Recursion</h1>
 
@@ -21,7 +21,7 @@
         - [**Factorial**](#2-3-1)
         - [**Counting The Occurrences Of A Number In A List**](#2-3-2)
         - [**List Of Ascending Integers**](#2-3-3)
-        <!-- - [**Power**](#2-3-4) -->
+        - [**Power**](#2-3-4)
 
 ---
 
@@ -465,7 +465,7 @@ def pos_ints_list(n):
 
 <sub>**Figure 11**: Again, running Θ(1) `n` times results in `n` * Θ(1) = **Θ(`n`)**.</sub>
 
-<!-- <a id="2-3-4"></a>
+<a id="2-3-4"></a>
 
 #### Power
 
@@ -640,4 +640,4 @@ Since the depth of recursion is **log₂(`n`)**, the total runtime is **O(log(`n
 
 ![power-runtime-analysis](assets/power-runtime-analysis.png)
 
-<sub>**Figure 16**: The best improvement a programmer could ask for, believe me.</sub> -->
+<sub>**Figure 16**: The best improvement a programmer could ask for, believe me.</sub>
