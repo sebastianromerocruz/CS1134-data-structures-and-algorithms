@@ -12,7 +12,7 @@
 2. [**Selection Sort**](#2)
     1. [**Implementation**](#2-1)
     2. [**Time Complexity**](#2-2)
-<!-- 3. [**Bubble Sort**](#3)
+3. [**Bubble Sort**](#3)
     1. [**Implementation**](#3-1)
     2. [**Time Complexity**](#3-2)
 4. [**Insertion Sort**](#4)
@@ -21,9 +21,7 @@
 5. [**Correctness & Loop Invariants**](#5)
 6. [**Merge Sort**](#6)
     1. [**Implementation**](#6-1)
-    2. [**Time Complexity**](#6-2) -->
-
-<!-- <p align=center><strong><em><a href="assets/Sorting Algorithms.pdf">Handwritten Class Notes</a></em></strong></p> -->
+    2. [**Time Complexity**](#6-2)
 
 ---
 
@@ -117,8 +115,6 @@ def selection_sort(lst):
 - **Average Case:** Θ(`n`²)
 
 The accursed quadratic runtime; life can't always be easy. Selection Sort simple to understand and even works well for small lists, but is incredibly inefficient for large datasets.
-
-<!-- <br>
 
 <a id="3"></a>
 
@@ -609,7 +605,7 @@ Insertion Sort is still not quite it. It _is_ efficient for small datasets and n
 
 Remember when we started looking at asymptotic analysis the first thing we did was [**prove the correctness of checking for primality**](https://github.com/sebastianromerocruz/CS1134-data-structures-and-algorithms/tree/main/lectures/03-asymptotic-analysis#testing-for-prime-numbers)? Now, I did mention that this class doesn't so much focus on the correctness of the algorithms that we look at as much as their runtime—something more readily applicable. However, there is this one concept when it comes to the correctness of algorithms that does fit pretty nicely when it comes with sorting, and that is of the _loop invariant_.
 
-A **loop invariant** is a condition that is always true **before and after every iteration** of a loop. Through it, It we can prove that an algorithm works correctly in a structures way. The way it works is as follows. When reasoning about any given algorithm, we need to show that:
+A **loop invariant** is a condition that is always true **before and after every iteration** of a loop. Through it, It we can prove that an algorithm works correctly in a structured way. The way it works is as follows. When reasoning about any given algorithm, we need to show that:
 
 1. **Initialisation**: The invariant is true **before the loop starts**.
 2. **Maintenance**: If the invariant is true before an iteration, it **remains true** after the iteration.
@@ -850,4 +846,4 @@ Now, a common optimization strategy in in this class is to avoid list slicing, r
     - Merging still takes Θ(`n`) at each level, and
     - Recursive calls still go down log₂(`n`) levels.
 
-Thus, while reducing slicing can reduce constant factors, the overall complexity remains Θ(`n` log`n`). -->
+Thus, while reducing slicing can reduce constant factors, the overall complexity remains Θ(`n` log`n`).

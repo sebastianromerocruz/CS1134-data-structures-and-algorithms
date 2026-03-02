@@ -405,7 +405,7 @@ def count_occurrences_v2(lst, val):
             # recursive case
             # assume that that this count will do its job by calling it
             # on a smaller range
-            count_head = count_appearances_helper(lst, low + 1, high, val)
+            count_rest = count_appearances_helper(lst, low + 1, high, val)
 
             # after that count is done
             # check if the low element is the target value
