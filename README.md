@@ -14,6 +14,8 @@ resource, send me an [**email**](mailto:sebastian.romerocruz@nyu.edu) about it w
 
 <sub>To be released every Monday and Wednesday before lecture.</sub>
 
+### Algorithms
+
 1. [**Python In Memoriam: _Lists and Strings_**](lectures/01-memory-lst-str) ([**Intro Slideshow**](lectures/01-memory-lst-str/assets/intro.pdf))
 2. [**Python In Memoriam: _Copying_**](lectures/02-memory-copy-ops) ([**Zoom Lecture Notes**](lectures/02-memory-copy-ops/assets/memory-maps.pdf))
 3. [**Iterators and Generators**](lectures/03-iterators-generators)
@@ -25,8 +27,11 @@ resource, send me an [**email**](mailto:sebastian.romerocruz@nyu.edu) about it w
 9. [**Recursion**](lectures/09-recursion)
 10. [**Sorting Algorithms**](lectures/10-sorting-algos)
 
+### Data Structures
+
+11. [**Stacks**](lectures/11-stacks)
+
 <!--
-8. [**Stacks**](lectures/08-stacks)
 9. [**Queues**](lectures/09-queues)
 10. [**Linked Lists**](lectures/10-linked-lists)
 11. [**Trees**](lectures/11-trees) 
@@ -36,7 +41,7 @@ resource, send me an [**email**](mailto:sebastian.romerocruz@nyu.edu) about it w
 14. [**Hash Tables**](lectures/14-hash-tables)
 15. [**Priority Queues (Heaps)**](lectures/15-priority-queues) -->
 
-## Exercises
+<!-- ## Exercises -->
 
 <!-- 1. [**Runtime Complexity Analysis**](exercises/runtime-analysis-1)
 2. [**Amortised Analysis**](exercises/amortised-analysis)
