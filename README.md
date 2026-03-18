@@ -30,9 +30,9 @@ resource, send me an [**email**](mailto:sebastian.romerocruz@nyu.edu) about it w
 ### Data Structures
 
 11. [**Stacks**](lectures/11-stacks)
+9. [**Queues**](lectures/12-queues)
 
 <!--
-9. [**Queues**](lectures/09-queues)
 10. [**Linked Lists**](lectures/10-linked-lists)
 11. [**Trees**](lectures/11-trees) 
 12. [**Maps**](lectures/12-maps)
