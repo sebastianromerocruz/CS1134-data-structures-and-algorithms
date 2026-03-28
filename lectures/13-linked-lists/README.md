@@ -21,7 +21,7 @@
     - [**Doubly-Linked List Implementation Basics**](#4-2)
     - [**Inserting A New Node**](#4-3)
     - [**Deleting A Node**](#4-4)
-    - [**Traversal**](#4-5)
+    - [**Traversal, Iteration, And Representation**](#4-5)
     - [**Complete Implementation**](#4-6)
 
 ---
@@ -321,6 +321,19 @@ class DoublyLinkedList:
         self.n = 0
 ```
 
+Before we get into insertions and deletions, two utility methods worth establishing first—since the delete methods will rely on them:
+
+```python
+class DoublyLinkedList:
+    def __len__(self):
+        return self.n
+
+    def is_empty(self):
+        return len(self) == 0
+```
+
+`__len__` simply returns `self.n`, the running count we maintain in `__init__`. `is_empty` delegates to it. Both are O(1), and `is_empty` is what the delete methods will use to guard against operating on an empty list.
+
 Alrighty, let's get into the three most common DLL operations.
 
 <a id="4-3"></a>
@@ -446,7 +459,7 @@ class DoublyLinkedList:
 
 <a id="4-5"></a>
 
-### Traversal
+### Traversal, Iteration, And Representation
 
 Traversal works much the same way as it does for [**singly-linked lists**](#2-3):
 
@@ -478,6 +491,29 @@ class DoublyLinkedList:
             else:
                 cursor = cursor.next
 ```
+
+The same traversal pattern, stripped down to its essence, gives us our iterator:
+
+```python
+class DoublyLinkedList:
+    def __iter__(self):
+        cursor = self.header.next
+        while cursor is not self.trailer:
+            yield cursor.data
+            cursor = cursor.next
+```
+
+`__iter__` starts just past the header sentinel and yields each real node's data until it reaches the trailer. Implementing it as a generator (with `yield`) means we don't materialise the whole list in memory at once—Python will ask for the next value only when it needs it.
+
+With `__iter__` in place, `__repr__` becomes a one-liner that joins every element with the `<-->` arrow notation:
+
+```python
+class DoublyLinkedList:
+    def __repr__(self):
+        return '[' + " <--> ".join([str(elem) for elem in self]) + ']'
+```
+
+The `for elem in self` loop calls `__iter__` implicitly, so `__repr__` depends on it—which is exactly why we implement them in this order.
 
 <a id="4-6"></a>
 
