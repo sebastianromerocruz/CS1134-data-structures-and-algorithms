@@ -281,18 +281,20 @@ Now that the structure is getting a little more complex, we will also create a c
 
 <sub>**Figure 7**: An empty doubly-linked list.</sub>
 
-To add a new node to the head of the list, we must:
+Before diving into insertion and deletion, consider what a “naïve” DLL implementation would look like. To add a new node to the head of the list, for example, we might outline the following steps:
 
 1. Create a DLL `Node` object.
 2. Set the `head` pointer to this new node.
 3. Set the `tail` pointer to this new node as well.
 4. Set the size of the list to 1.
 
-Now, a popular strategy with doubly linked lists is to _add empty header and trailer nodes_ that “guard” the list on both sides. Sometimes, these are known as _sentinel nodes_.
+That’s fine on paper—but notice that step 3 only applies when the list _was already empty_. Once the list has more than one element, `head` and `tail` point to different nodes, so every insertion and deletion method would need a special-case branch to handle an empty list, a single-element list, operating on the very first node, or the very last node. The logic quickly becomes a tangle of `if node is None` guards, each one a potential bug.
 
-This design choice means the "real data" nodes always lie between these two end nodes, so we never end up with `None` pointers when dealing with the first or last element. Instead, the header and trailer are always there—they don’t store meaningful data, but they ensure that every _insertion_, _removal_, or _traversal_ can follow the same set of steps, without separate rules for an empty list or a one-element list. 
+In other words, **without any anchor at the boundaries, the list’s `head` and `tail` can be `None`, and every operation has to defend against that**.
 
-Essentially, these “placeholder” end nodes simplify the code and make edge cases a lot less troublesome:
+The standard fix is to introduce two permanent, data-free **sentinel nodes**—one called the `header` and one called the `trailer`—that permanently bookend the list. They hold no real data; their only job is to always be there, so that `header.next` is always a valid node (either the first real node or `trailer` itself), and `trailer.prev` is always a valid node (either the last real node or `header` itself).
+
+With sentinels in place, every real data node always has a live predecessor _and_ a live successor. That means every _insertion_, _removal_, and _traversal_ can follow the exact same steps regardless of whether the list is empty, has one element, or has a thousand—no special cases needed:
 
 ![dll-empty-list](assets/dll-empty-list.png)
 
