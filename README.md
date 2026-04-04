@@ -32,9 +32,10 @@ resource, send me an [**email**](mailto:sebastian.romerocruz@nyu.edu) about it w
 11. [**Stacks**](lectures/11-stacks)
 12. [**Queues**](lectures/12-queues)
 13. [**Linked Lists**](lectures/13-linked-lists)
+14. [**Trees**](lectures/14-trees) 
 
 <!--
-11. [**Trees**](lectures/11-trees) 
+
 12. [**Maps**](lectures/12-maps)
 13. [**Binary Search Trees**](lectures/13-binary-search-trees)
     - [**_Slides_: AVL Trees**](lectures/13-binary-search-trees/assets/avl-trees.pdf)
