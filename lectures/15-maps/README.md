@@ -298,11 +298,11 @@ Iteration over a map should yield its **keys** (matching how Python's `dict` wor
             yield item.key
 ```
 
-This traverses the full internal array once, yielding one key per `Item` — naturally Θ(`n`). With this in place, the syntax below works exactly as expected:
+This traverses the full internal array once, yielding one key per `Item`—naturally Θ(`n`). With this in place, the syntax below works exactly as expected:
 
 ```python
 red_velvet = UnsortedArrayMap()
-red_velvet["Irene"] = "Leader"
+red_velvet["Irene"] = "Leader" 
 red_velvet["Seulgi"] = "Dancer"
 
 for member in red_velvet:
