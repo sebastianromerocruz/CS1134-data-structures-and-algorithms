@@ -35,6 +35,7 @@ resource, send me an [**email**](mailto:sebastian.romerocruz@nyu.edu) about it w
 14. [**Trees**](lectures/14-trees) 
 15. [**Maps**](lectures/15-maps)
 16. [**Binary Search Trees**](lectures/16-binary-search-trees)
+16. [**AVL Trees**](lectures/17-avl-trees)
 
 <!--
 

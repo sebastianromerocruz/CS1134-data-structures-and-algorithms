@@ -22,8 +22,6 @@
     - [**Deletion**](#4-3)
 5. [**Iteration**](#5)
 
-<p align=center><strong><em><a href="assets/Binary Search Trees.pdf">Handwritten Class Notes</a></em></strong></p>
-
 ---
 
 <a id="1"></a>
