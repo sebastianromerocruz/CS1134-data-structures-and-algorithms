@@ -40,7 +40,7 @@ This is the gap we want to close. Our goal is a binary search tree that **guaran
 | **BinarySearchTreeMap**    | Θ(`n`) / Θ(`h`)  | Θ(`n`) / Θ(`h`)  | Θ(`n`) / Θ(`h`)  |
 | **AVLTreeMap**             | Θ(log `n`)       | Θ(log `n`)       | Θ(log `n`)       |
 
-<sub>**Figure 1**: The AVL tree fills in the gap left by every prior implementation. (Slides 1–4)</sub>
+<sub>**Figure 1**: The AVL tree fills in the gap left by every prior implementation.</sub>
 
 The `AVLTreeMap` achieves this by adding one extra rule on top of everything a BST already requires.
 
@@ -88,7 +88,7 @@ Now compare it against the tree on the right in the next figure:
 
 ![binary-vs-not](assets/avl-3.png)
 
-<sub>**Figure 4**: The tree on the left is an AVL tree. The tree on the right is a valid BST, but it violates the height-balance property at the node with value 3—its left child has height 1, but its right child is absent (height -1), giving a difference of 2. (Slide 19)</sub>
+<sub>**Figure 4**: The tree on the left is an AVL tree. The tree on the right is a valid BST, but it violates the height-balance property at the node with value 3—its left child has height 1, but its right child is absent (height -1), giving a difference of 2.</sub>
 
 What's important here is that the height-balance property is not just a nice-to-have: it _forces_ the tree to remain bushy, which is precisely what bounds the height.
 
