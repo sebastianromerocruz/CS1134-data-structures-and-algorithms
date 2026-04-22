@@ -2,7 +2,7 @@
 
 <h1 align=center>Abstract Data Types: <em>AVL Trees</em></h1>
 
-<p align=center><strong><em>Song of the day</strong></em>: <em><a href="https://youtu.be/WSeNSzJ2-Jw"><strong><u>Self Control</u></strong></a> by Frank Ocean (2016)</em></p>
+<p align=center><strong><em>Song of the day</strong></em>: <em><a href="https://youtu.be/0vBdpLXTDUs?si=Q3aN5BH3xLjLR5V0"><strong><u>Inspiration Comes and Goes, Record It Straight Onto My Phone</u></strong></a> by LambC / 램씨 (2025)</em></p>
 
 ---
 
