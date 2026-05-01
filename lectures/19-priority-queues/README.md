@@ -2,7 +2,7 @@
 
 <h1 align=center>Abstract Data Types: <em>Priority Queues (Heaps)</em></h1>
 
-<p align=center><strong><em>Song of the day</strong></em>: <em><a href="https://youtu.be/fexPzBFOhck?si=kJemvUQobStXynL-"><strong><u>before</u></strong></a> by slenderbodies (2024)</em></p>
+<p align=center><strong><em>Song of the day</strong></em>: <em><a href="https://youtu.be/QslJYDX3o8s?si=52YMEIKKbotoVsRD"><strong><u>Russian Roulette</u></strong></a> by Red Velvet (2016)</em></p>
 
 ---
 

@@ -37,7 +37,7 @@ resource, send me an [**email**](mailto:sebastian.romerocruz@nyu.edu) about it w
 16. [**Binary Search Trees**](lectures/16-binary-search-trees)
 17. [**AVL Trees**](lectures/17-avl-trees)
 18. [**Hash Tables**](lectures/18-hash-tables)
-19. [**Priority Queues (Heaps)**](lectures/15-priority-queues)
+19. [**Priority Queues (Heaps)**](lectures/19-priority-queues)
 
 ---
 
