@@ -38,21 +38,7 @@ resource, send me an [**email**](mailto:sebastian.romerocruz@nyu.edu) about it w
 17. [**AVL Trees**](lectures/17-avl-trees)
 18. [**Hash Tables**](lectures/18-hash-tables)
 
-<!--
-
-
-    - [**_Slides_: AVL Trees**](lectures/13-binary-search-trees/assets/avl-trees.pdf)
-
-15. [**Priority Queues (Heaps)**](lectures/15-priority-queues) -->
-
-<!-- ## Exercises -->
-
-<!-- 1. [**Runtime Complexity Analysis**](exercises/runtime-analysis-1)
-2. [**Amortised Analysis**](exercises/amortised-analysis)
-3. [**Recursion I**](exercises/factorial-recursion)
-4. [**Recursion II**](exercises/power-recursion)
-5. [**Hash Tables**](exercises/exercises/hash-tables)
-6. [**Priority Queues**](exercises/exercises/priority-queues) -->
+<!-- 15. [**Priority Queues (Heaps)**](lectures/15-priority-queues) -->
 
 ---
 

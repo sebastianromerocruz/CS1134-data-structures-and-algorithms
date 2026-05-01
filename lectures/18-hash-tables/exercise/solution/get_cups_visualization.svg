@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="185" font-family="'Courier New', Courier, monospace">
+
+  <rect width="700" height="185" fill="white"/>
+
+  <!-- ── Title ── -->
+  <text x="20" y="22" font-size="13" font-weight="bold" fill="#334155">get_cups("Maria")</text>
+
+  <!-- ── DLL row (top=38, cy=55, bottom=72) ── -->
+
+  <rect x="22" y="38" width="75" height="34" rx="5" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="59" y="55" font-size="12" fill="#475569" text-anchor="middle" dominant-baseline="middle" font-style="italic">header</text>
+
+  <line x1="105" y1="55" x2="127" y2="55" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="97,55 105,51.5 105,58.5" fill="#64748b"/>
+  <polygon points="135,55 127,51.5 127,58.5" fill="#64748b"/>
+
+  <rect x="135" y="38" width="118" height="34" rx="5" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+  <text x="194" y="55" font-size="12" fill="#1e40af" text-anchor="middle" dominant-baseline="middle">("Gloria", 1)</text>
+
+  <line x1="261" y1="55" x2="283" y2="55" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="253,55 261,51.5 261,58.5" fill="#64748b"/>
+  <polygon points="291,55 283,51.5 283,58.5" fill="#64748b"/>
+
+  <!-- Maria node — highlighted (being accessed) -->
+  <rect x="291" y="38" width="118" height="34" rx="5" fill="#fed7aa" stroke="#fb923c" stroke-width="2"/>
+  <text x="350" y="55" font-size="12" fill="#9a3412" text-anchor="middle" dominant-baseline="middle">("Maria", 3)</text>
+
+  <line x1="417" y1="55" x2="439" y2="55" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="409,55 417,51.5 417,58.5" fill="#64748b"/>
+  <polygon points="447,55 439,51.5 439,58.5" fill="#64748b"/>
+
+  <rect x="447" y="38" width="118" height="34" rx="5" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+  <text x="506" y="55" font-size="12" fill="#1e40af" text-anchor="middle" dominant-baseline="middle">("Vincy", 2)</text>
+
+  <line x1="573" y1="55" x2="595" y2="55" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="565,55 573,51.5 573,58.5" fill="#64748b"/>
+  <polygon points="603,55 595,51.5 595,58.5" fill="#64748b"/>
+
+  <rect x="603" y="38" width="75" height="34" rx="5" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="640" y="55" font-size="12" fill="#475569" text-anchor="middle" dominant-baseline="middle" font-style="italic">trailer</text>
+
+  <!-- ── Upward arrows: hash entry → DLL node ── -->
+
+  <!-- Gloria (gray) -->
+  <line x1="194" y1="80" x2="194" y2="106" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="194,72 190,80 198,80" fill="#64748b"/>
+
+  <!-- Maria (orange — active lookup) -->
+  <line x1="350" y1="80" x2="350" y2="106" stroke="#fb923c" stroke-width="1.5"/>
+  <polygon points="350,72 346,80 354,80" fill="#fb923c"/>
+
+  <!-- Vincy (gray) -->
+  <line x1="506" y1="80" x2="506" y2="106" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="506,72 502,80 510,80" fill="#64748b"/>
+
+  <!-- ── Hash entries (top=106, cy=120, bottom=134) ── -->
+  <text x="20" y="120" font-size="11" fill="#64748b" dominant-baseline="middle">hash_table:</text>
+
+  <rect x="139" y="106" width="110" height="28" rx="4" fill="#dcfce7" stroke="#4ade80" stroke-width="1.5"/>
+  <text x="194" y="120" font-size="11" fill="#166534" text-anchor="middle" dominant-baseline="middle">"Gloria"</text>
+
+  <!-- Maria hash entry — highlighted -->
+  <rect x="295" y="106" width="110" height="28" rx="4" fill="#fef9c3" stroke="#eab308" stroke-width="2"/>
+  <text x="350" y="120" font-size="11" fill="#713f12" text-anchor="middle" dominant-baseline="middle">"Maria"</text>
+
+  <rect x="451" y="106" width="110" height="28" rx="4" fill="#dcfce7" stroke="#4ade80" stroke-width="1.5"/>
+  <text x="506" y="120" font-size="11" fill="#166534" text-anchor="middle" dominant-baseline="middle">"Vincy"</text>
+
+  <!-- ── Return value annotation ── -->
+  <line x1="350" y1="134" x2="350" y2="147" stroke="#fb923c" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="350" y="157" font-size="11" fill="#9a3412" text-anchor="middle" dominant-baseline="middle">node.data = ("Maria", 3)   ·   node.data[1] = 3   ← returned</text>
+
+</svg>

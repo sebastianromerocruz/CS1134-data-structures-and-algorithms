@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="370" font-family="'Courier New', Courier, monospace">
+
+  <rect width="700" height="370" fill="white"/>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- Header                                                     -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <text x="20" y="20" font-size="13" font-weight="bold" fill="#334155">serve(2)</text>
+  <text x="20" y="35" font-size="11" fill="#94a3b8" font-style="italic">count = min(2, 3) = 2</text>
+
+  <line x1="0" y1="46" x2="700" y2="46" stroke="#e2e8f0" stroke-width="1"/>
+
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- STATE 1 — Start                                            -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <text x="20" y="63" font-size="11" font-weight="bold" fill="#475569">Start:</text>
+
+  <!-- DLL (y_top=70, cy=87, y_bottom=104) -->
+  <rect x="22"  y="70" width="75"  height="34" rx="5" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="59"  y="87" font-size="12" fill="#475569" text-anchor="middle" dominant-baseline="middle" font-style="italic">header</text>
+
+  <line x1="105" y1="87" x2="127" y2="87" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="97,87 105,83.5 105,90.5" fill="#64748b"/>
+  <polygon points="135,87 127,83.5 127,90.5" fill="#64748b"/>
+
+  <rect x="135" y="70" width="118" height="34" rx="5" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+  <text x="194" y="87" font-size="12" fill="#1e40af" text-anchor="middle" dominant-baseline="middle">("Gloria", 2)</text>
+
+  <line x1="261" y1="87" x2="283" y2="87" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="253,87 261,83.5 261,90.5" fill="#64748b"/>
+  <polygon points="291,87 283,83.5 283,90.5" fill="#64748b"/>
+
+  <rect x="291" y="70" width="118" height="34" rx="5" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+  <text x="350" y="87" font-size="12" fill="#1e40af" text-anchor="middle" dominant-baseline="middle">("Vincy", 2)</text>
+
+  <line x1="417" y1="87" x2="439" y2="87" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="409,87 417,83.5 417,90.5" fill="#64748b"/>
+  <polygon points="447,87 439,83.5 439,90.5" fill="#64748b"/>
+
+  <rect x="447" y="70" width="118" height="34" rx="5" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+  <text x="506" y="87" font-size="12" fill="#1e40af" text-anchor="middle" dominant-baseline="middle">("Maria", 3)</text>
+
+  <line x1="573" y1="87" x2="595" y2="87" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="565,87 573,83.5 573,90.5" fill="#64748b"/>
+  <polygon points="603,87 595,83.5 595,90.5" fill="#64748b"/>
+
+  <rect x="603" y="70" width="75"  height="34" rx="5" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="640" y="87" font-size="12" fill="#475569" text-anchor="middle" dominant-baseline="middle" font-style="italic">trailer</text>
+
+  <text x="20" y="118" font-size="11" fill="#64748b">result = []</text>
+
+  <line x1="0" y1="130" x2="700" y2="130" stroke="#e2e8f0" stroke-width="1"/>
+
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- STATE 2 — After iteration 1                                -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <text x="20" y="148" font-size="11" font-weight="bold" fill="#475569">Iteration 1</text>
+  <text x="20" y="162" font-size="11" fill="#94a3b8" font-style="italic">delete_first() → ("Gloria", 2)   ·   del hash_table["Gloria"]</text>
+
+  <!-- DLL: 4 nodes, centered (header, Vincy, Maria, trailer) -->
+  <!-- header x=100, Vincy x=213, Maria x=369, trailer x=525  (38px gaps) -->
+  <rect x="100" y="174" width="75"  height="34" rx="5" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="137" y="191" font-size="12" fill="#475569" text-anchor="middle" dominant-baseline="middle" font-style="italic">header</text>
+
+  <line x1="183" y1="191" x2="205" y2="191" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="175,191 183,187.5 183,194.5" fill="#64748b"/>
+  <polygon points="213,191 205,187.5 205,194.5" fill="#64748b"/>
+
+  <rect x="213" y="174" width="118" height="34" rx="5" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+  <text x="272" y="191" font-size="12" fill="#1e40af" text-anchor="middle" dominant-baseline="middle">("Vincy", 2)</text>
+
+  <line x1="339" y1="191" x2="361" y2="191" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="331,191 339,187.5 339,194.5" fill="#64748b"/>
+  <polygon points="369,191 361,187.5 361,194.5" fill="#64748b"/>
+
+  <rect x="369" y="174" width="118" height="34" rx="5" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+  <text x="428" y="191" font-size="12" fill="#1e40af" text-anchor="middle" dominant-baseline="middle">("Maria", 3)</text>
+
+  <line x1="495" y1="191" x2="517" y2="191" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="487,191 495,187.5 495,194.5" fill="#64748b"/>
+  <polygon points="525,191 517,187.5 517,194.5" fill="#64748b"/>
+
+  <rect x="525" y="174" width="75"  height="34" rx="5" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="562" y="191" font-size="12" fill="#475569" text-anchor="middle" dominant-baseline="middle" font-style="italic">trailer</text>
+
+  <text x="20" y="222" font-size="11" fill="#64748b">result = [("Gloria", 2)]</text>
+
+  <line x1="0" y1="234" x2="700" y2="234" stroke="#e2e8f0" stroke-width="1"/>
+
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- STATE 3 — After iteration 2                                -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <text x="20" y="252" font-size="11" font-weight="bold" fill="#475569">Iteration 2</text>
+  <text x="20" y="266" font-size="11" fill="#94a3b8" font-style="italic">delete_first() → ("Vincy", 2)   ·   del hash_table["Vincy"]</text>
+
+  <!-- DLL: 3 nodes, centered (header, Maria, trailer) -->
+  <!-- header x=178, Maria x=291, trailer x=447  (38px gaps) -->
+  <rect x="178" y="278" width="75"  height="34" rx="5" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="215" y="295" font-size="12" fill="#475569" text-anchor="middle" dominant-baseline="middle" font-style="italic">header</text>
+
+  <line x1="261" y1="295" x2="283" y2="295" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="253,295 261,291.5 261,298.5" fill="#64748b"/>
+  <polygon points="291,295 283,291.5 283,298.5" fill="#64748b"/>
+
+  <rect x="291" y="278" width="118" height="34" rx="5" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+  <text x="350" y="295" font-size="12" fill="#1e40af" text-anchor="middle" dominant-baseline="middle">("Maria", 3)</text>
+
+  <line x1="417" y1="295" x2="439" y2="295" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="409,295 417,291.5 417,298.5" fill="#64748b"/>
+  <polygon points="447,295 439,291.5 439,298.5" fill="#64748b"/>
+
+  <rect x="447" y="278" width="75"  height="34" rx="5" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="484" y="295" font-size="12" fill="#475569" text-anchor="middle" dominant-baseline="middle" font-style="italic">trailer</text>
+
+  <text x="20" y="327" font-size="11" fill="#64748b">result = [("Gloria", 2), ("Vincy", 2)]</text>
+  <text x="20" y="345" font-size="11" fill="#94a3b8" font-style="italic">← returned</text>
+
+</svg>

@@ -1,0 +1,236 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="585" font-family="'Courier New', Courier, monospace">
+
+  <rect width="700" height="585" fill="white"/>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- SECTION 1 — Start                                          -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <text x="20" y="20" font-size="13" font-weight="bold" fill="#334155">Start: prioritise("Maria", "Vincy")</text>
+
+  <!-- DLL (y_top=35, cy=52, y_bottom=69) -->
+  <rect x="22"  y="35" width="75"  height="34" rx="5" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="59"  y="52" font-size="12" fill="#475569" text-anchor="middle" dominant-baseline="middle" font-style="italic">header</text>
+
+  <line x1="105" y1="52" x2="127" y2="52" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="97,52 105,48.5 105,55.5" fill="#64748b"/>
+  <polygon points="135,52 127,48.5 127,55.5" fill="#64748b"/>
+
+  <rect x="135" y="35" width="118" height="34" rx="5" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+  <text x="194" y="52" font-size="12" fill="#1e40af" text-anchor="middle" dominant-baseline="middle">("Gloria", 2)</text>
+
+  <line x1="261" y1="52" x2="283" y2="52" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="253,52 261,48.5 261,55.5" fill="#64748b"/>
+  <polygon points="291,52 283,48.5 283,55.5" fill="#64748b"/>
+
+  <rect x="291" y="35" width="118" height="34" rx="5" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+  <text x="350" y="52" font-size="12" fill="#1e40af" text-anchor="middle" dominant-baseline="middle">("Maria", 3)</text>
+
+  <line x1="417" y1="52" x2="439" y2="52" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="409,52 417,48.5 417,55.5" fill="#64748b"/>
+  <polygon points="447,52 439,48.5 439,55.5" fill="#64748b"/>
+
+  <rect x="447" y="35" width="118" height="34" rx="5" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+  <text x="506" y="52" font-size="12" fill="#1e40af" text-anchor="middle" dominant-baseline="middle">("Vincy", 2)</text>
+
+  <line x1="573" y1="52" x2="595" y2="52" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="565,52 573,48.5 573,55.5" fill="#64748b"/>
+  <polygon points="603,52 595,48.5 595,55.5" fill="#64748b"/>
+
+  <rect x="603" y="35" width="75"  height="34" rx="5" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="640" y="52" font-size="12" fill="#475569" text-anchor="middle" dominant-baseline="middle" font-style="italic">trailer</text>
+
+  <!-- Upward arrows to DLL nodes -->
+  <line x1="194" y1="77" x2="194" y2="101" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="194,69 190,77 198,77" fill="#64748b"/>
+  <line x1="350" y1="77" x2="350" y2="101" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="350,69 346,77 354,77" fill="#64748b"/>
+  <line x1="506" y1="77" x2="506" y2="101" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="506,69 502,77 510,77" fill="#64748b"/>
+
+  <!-- Hash entries (y_top=101, cy=115) -->
+  <text x="20" y="115" font-size="11" fill="#64748b" dominant-baseline="middle">hash_table:</text>
+  <rect x="139" y="101" width="110" height="28" rx="4" fill="#dcfce7" stroke="#4ade80" stroke-width="1.5"/>
+  <text x="194" y="115" font-size="11" fill="#166534" text-anchor="middle" dominant-baseline="middle">"Gloria"</text>
+  <rect x="295" y="101" width="110" height="28" rx="4" fill="#dcfce7" stroke="#4ade80" stroke-width="1.5"/>
+  <text x="350" y="115" font-size="11" fill="#166534" text-anchor="middle" dominant-baseline="middle">"Maria"</text>
+  <rect x="451" y="101" width="110" height="28" rx="4" fill="#dcfce7" stroke="#4ade80" stroke-width="1.5"/>
+  <text x="506" y="115" font-size="11" fill="#166534" text-anchor="middle" dominant-baseline="middle">"Vincy"</text>
+
+  <line x1="0" y1="140" x2="700" y2="140" stroke="#e2e8f0" stroke-width="1"/>
+
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- SECTION 2 — After delete_node                              -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <text x="20" y="162" font-size="13" font-weight="bold" fill="#334155">After delete_node(hash_table["Maria"])</text>
+  <text x="20" y="176" font-size="11" fill="#94a3b8" font-style="italic">data = ("Maria", 3)  ← returned by delete_node and saved in a local variable</text>
+
+  <!-- DLL (4 nodes, Gloria and Vincy keep their original x positions) -->
+  <!-- y_top=188, cy=205, y_bottom=222 -->
+  <rect x="22"  y="188" width="75"  height="34" rx="5" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="59"  y="205" font-size="12" fill="#475569" text-anchor="middle" dominant-baseline="middle" font-style="italic">header</text>
+
+  <line x1="105" y1="205" x2="127" y2="205" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="97,205 105,201.5 105,208.5" fill="#64748b"/>
+  <polygon points="135,205 127,201.5 127,208.5" fill="#64748b"/>
+
+  <rect x="135" y="188" width="118" height="34" rx="5" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+  <text x="194" y="205" font-size="12" fill="#1e40af" text-anchor="middle" dominant-baseline="middle">("Gloria", 2)</text>
+
+  <!-- Wide direct arrow from Gloria to Vincy (Maria's gap) -->
+  <line x1="261" y1="205" x2="439" y2="205" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="253,205 261,201.5 261,208.5" fill="#64748b"/>
+  <polygon points="447,205 439,201.5 439,208.5" fill="#64748b"/>
+
+  <rect x="447" y="188" width="118" height="34" rx="5" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+  <text x="506" y="205" font-size="12" fill="#1e40af" text-anchor="middle" dominant-baseline="middle">("Vincy", 2)</text>
+
+  <line x1="573" y1="205" x2="595" y2="205" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="565,205 573,201.5 573,208.5" fill="#64748b"/>
+  <polygon points="603,205 595,201.5 595,208.5" fill="#64748b"/>
+
+  <rect x="603" y="188" width="75"  height="34" rx="5" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="640" y="205" font-size="12" fill="#475569" text-anchor="middle" dominant-baseline="middle" font-style="italic">trailer</text>
+
+  <!-- Upward arrows (Gloria and Vincy only) -->
+  <line x1="194" y1="230" x2="194" y2="254" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="194,222 190,230 198,230" fill="#64748b"/>
+  <line x1="506" y1="230" x2="506" y2="254" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="506,222 502,230 510,230" fill="#64748b"/>
+
+  <!-- Maria stale: short dashed red stub pointing into empty space -->
+  <line x1="350" y1="243" x2="350" y2="254" stroke="#fca5a5" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <text x="350" y="238" font-size="11" fill="#ef4444" text-anchor="middle" dominant-baseline="middle">✕</text>
+
+  <!-- Hash entries (y_top=254, cy=268) -->
+  <text x="20" y="268" font-size="11" fill="#64748b" dominant-baseline="middle">hash_table:</text>
+  <rect x="139" y="254" width="110" height="28" rx="4" fill="#dcfce7" stroke="#4ade80" stroke-width="1.5"/>
+  <text x="194" y="268" font-size="11" fill="#166534" text-anchor="middle" dominant-baseline="middle">"Gloria"</text>
+  <rect x="295" y="254" width="110" height="28" rx="4" fill="#fef2f2" stroke="#fca5a5" stroke-width="1.5"/>
+  <text x="350" y="268" font-size="11" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">"Maria"  ← stale</text>
+  <rect x="451" y="254" width="110" height="28" rx="4" fill="#dcfce7" stroke="#4ade80" stroke-width="1.5"/>
+  <text x="506" y="268" font-size="11" fill="#166534" text-anchor="middle" dominant-baseline="middle">"Vincy"</text>
+
+  <line x1="0" y1="293" x2="700" y2="293" stroke="#e2e8f0" stroke-width="1"/>
+
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- SECTION 3 — After add_after                                -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <text x="20" y="315" font-size="13" font-weight="bold" fill="#334155">After add_after(hash_table["Vincy"], data)</text>
+  <text x="20" y="329" font-size="11" fill="#94a3b8" font-style="italic">new_node created and returned; hash_table["Maria"] is still stale</text>
+
+  <!-- DLL (5 nodes, new order: header Gloria Vincy Maria-new trailer) -->
+  <!-- y_top=341, cy=358, y_bottom=375 -->
+  <rect x="22"  y="341" width="75"  height="34" rx="5" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="59"  y="358" font-size="12" fill="#475569" text-anchor="middle" dominant-baseline="middle" font-style="italic">header</text>
+
+  <line x1="105" y1="358" x2="127" y2="358" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="97,358 105,354.5 105,361.5" fill="#64748b"/>
+  <polygon points="135,358 127,354.5 127,361.5" fill="#64748b"/>
+
+  <rect x="135" y="341" width="118" height="34" rx="5" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+  <text x="194" y="358" font-size="12" fill="#1e40af" text-anchor="middle" dominant-baseline="middle">("Gloria", 2)</text>
+
+  <line x1="261" y1="358" x2="283" y2="358" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="253,358 261,354.5 261,361.5" fill="#64748b"/>
+  <polygon points="291,358 283,354.5 283,361.5" fill="#64748b"/>
+
+  <rect x="291" y="341" width="118" height="34" rx="5" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+  <text x="350" y="358" font-size="12" fill="#1e40af" text-anchor="middle" dominant-baseline="middle">("Vincy", 2)</text>
+
+  <line x1="417" y1="358" x2="439" y2="358" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="409,358 417,354.5 417,361.5" fill="#64748b"/>
+  <polygon points="447,358 439,354.5 439,361.5" fill="#64748b"/>
+
+  <!-- Maria NEW node — highlighted green -->
+  <rect x="447" y="341" width="118" height="34" rx="5" fill="#dcfce7" stroke="#22c55e" stroke-width="2"/>
+  <text x="506" y="358" font-size="12" fill="#166534" text-anchor="middle" dominant-baseline="middle">("Maria", 3)</text>
+
+  <line x1="573" y1="358" x2="595" y2="358" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="565,358 573,354.5 573,361.5" fill="#64748b"/>
+  <polygon points="603,358 595,354.5 595,361.5" fill="#64748b"/>
+
+  <rect x="603" y="341" width="75"  height="34" rx="5" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="640" y="358" font-size="12" fill="#475569" text-anchor="middle" dominant-baseline="middle" font-style="italic">trailer</text>
+
+  <!-- new_node label below the new Maria node -->
+  <text x="506" y="388" font-size="10" fill="#166534" text-anchor="middle" font-style="italic">↑ new_node</text>
+
+  <!-- Upward arrows (Gloria cx=194, Vincy cx=350 only) -->
+  <line x1="194" y1="384" x2="194" y2="407" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="194,376 190,384 198,384" fill="#64748b"/>
+  <line x1="350" y1="384" x2="350" y2="407" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="350,376 346,384 354,384" fill="#64748b"/>
+
+  <!-- Maria stale (cx=506): dashed red stub -->
+  <line x1="506" y1="398" x2="506" y2="407" stroke="#fca5a5" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <text x="506" y="394" font-size="11" fill="#ef4444" text-anchor="middle" dominant-baseline="middle">✕</text>
+
+  <!-- Hash entries (y_top=407, cy=421) -->
+  <text x="20" y="421" font-size="11" fill="#64748b" dominant-baseline="middle">hash_table:</text>
+  <rect x="139" y="407" width="110" height="28" rx="4" fill="#dcfce7" stroke="#4ade80" stroke-width="1.5"/>
+  <text x="194" y="421" font-size="11" fill="#166534" text-anchor="middle" dominant-baseline="middle">"Gloria"</text>
+  <rect x="295" y="407" width="110" height="28" rx="4" fill="#dcfce7" stroke="#4ade80" stroke-width="1.5"/>
+  <text x="350" y="421" font-size="11" fill="#166534" text-anchor="middle" dominant-baseline="middle">"Vincy"</text>
+  <rect x="451" y="407" width="110" height="28" rx="4" fill="#fef2f2" stroke="#fca5a5" stroke-width="1.5"/>
+  <text x="506" y="421" font-size="11" fill="#dc2626" text-anchor="middle" dominant-baseline="middle">"Maria"  ← stale</text>
+
+  <line x1="0" y1="446" x2="700" y2="446" stroke="#e2e8f0" stroke-width="1"/>
+
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- SECTION 4 — After hash_table["Maria"] = new_node           -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <text x="20" y="468" font-size="13" font-weight="bold" fill="#334155">After hash_table["Maria"] = new_node</text>
+
+  <!-- DLL: same as section 3, all regular (y_top=482, cy=499, y_bottom=516) -->
+  <rect x="22"  y="482" width="75"  height="34" rx="5" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="59"  y="499" font-size="12" fill="#475569" text-anchor="middle" dominant-baseline="middle" font-style="italic">header</text>
+
+  <line x1="105" y1="499" x2="127" y2="499" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="97,499 105,495.5 105,502.5" fill="#64748b"/>
+  <polygon points="135,499 127,495.5 127,502.5" fill="#64748b"/>
+
+  <rect x="135" y="482" width="118" height="34" rx="5" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+  <text x="194" y="499" font-size="12" fill="#1e40af" text-anchor="middle" dominant-baseline="middle">("Gloria", 2)</text>
+
+  <line x1="261" y1="499" x2="283" y2="499" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="253,499 261,495.5 261,502.5" fill="#64748b"/>
+  <polygon points="291,499 283,495.5 283,502.5" fill="#64748b"/>
+
+  <rect x="291" y="482" width="118" height="34" rx="5" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+  <text x="350" y="499" font-size="12" fill="#1e40af" text-anchor="middle" dominant-baseline="middle">("Vincy", 2)</text>
+
+  <line x1="417" y1="499" x2="439" y2="499" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="409,499 417,495.5 417,502.5" fill="#64748b"/>
+  <polygon points="447,499 439,495.5 439,502.5" fill="#64748b"/>
+
+  <rect x="447" y="482" width="118" height="34" rx="5" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5"/>
+  <text x="506" y="499" font-size="12" fill="#1e40af" text-anchor="middle" dominant-baseline="middle">("Maria", 3)</text>
+
+  <line x1="573" y1="499" x2="595" y2="499" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="565,499 573,495.5 573,502.5" fill="#64748b"/>
+  <polygon points="603,499 595,495.5 595,502.5" fill="#64748b"/>
+
+  <rect x="603" y="482" width="75"  height="34" rx="5" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="640" y="499" font-size="12" fill="#475569" text-anchor="middle" dominant-baseline="middle" font-style="italic">trailer</text>
+
+  <!-- Upward arrows — all three correct -->
+  <line x1="194" y1="524" x2="194" y2="548" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="194,516 190,524 198,524" fill="#64748b"/>
+  <line x1="350" y1="524" x2="350" y2="548" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="350,516 346,524 354,524" fill="#64748b"/>
+  <line x1="506" y1="524" x2="506" y2="548" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="506,516 502,524 510,524" fill="#64748b"/>
+
+  <!-- Hash entries (y_top=548, cy=562) -->
+  <text x="20" y="562" font-size="11" fill="#64748b" dominant-baseline="middle">hash_table:</text>
+  <rect x="139" y="548" width="110" height="28" rx="4" fill="#dcfce7" stroke="#4ade80" stroke-width="1.5"/>
+  <text x="194" y="562" font-size="11" fill="#166534" text-anchor="middle" dominant-baseline="middle">"Gloria"</text>
+  <rect x="295" y="548" width="110" height="28" rx="4" fill="#dcfce7" stroke="#4ade80" stroke-width="1.5"/>
+  <text x="350" y="562" font-size="11" fill="#166534" text-anchor="middle" dominant-baseline="middle">"Vincy"</text>
+  <rect x="451" y="548" width="110" height="28" rx="4" fill="#dcfce7" stroke="#4ade80" stroke-width="1.5"/>
+  <text x="506" y="562" font-size="11" fill="#166534" text-anchor="middle" dominant-baseline="middle">"Maria"</text>
+
+</svg>
