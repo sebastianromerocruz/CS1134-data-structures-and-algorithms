@@ -132,13 +132,14 @@ def add(self, name, cups):
 The first line, `name in self.hash_table`, calls [**`ChainingHashTableMap.__contains__`**](https://github.com/sebastianromerocruz/CS1134-data-structures-and-algorithms/tree/main/lectures/18-hash-tables#6-7), which in turn calls [**`__getitem__`**](https://github.com/sebastianromerocruz/CS1134-data-structures-and-algorithms/tree/main/lectures/18-hash-tables#lookup) (`val = self[key]`) internally and returns `True` if no `KeyError` is raised. This is Θ(1) amortised average.
 
 Our two cases are thus:
-- **Returning customer.** The spec says we should update the cup count _without changing position_. Because the hash table already holds the node, we retrieve it in Θ(1) and overwrite `node.data` directly. No list surgery happens at all (`node.prev` and `node.next` are completely untouched) so the customer stays exactly where they were in the queue. The last section of the diagram below shows this: only the highlighted node changes colour (its data changed); everything else—the list structure, the hash table entry, the node object itself—is identical.
 
 - **New customer.** We call [**`self.dll.add_last((name, cups))`**](https://github.com/sebastianromerocruz/CS1134-data-structures-and-algorithms/tree/main/lectures/13-linked-lists#inserting-a-new-node). Under the hood, `add_last` calls `add_after(self.trailer.prev, val)`, which creates a new `Node` object, wires it between the current last real node and the trailer sentinel, increments `self.dll.n`, and **_returns the new node_**. 
     
     We store that returned node reference in the hash table under `name` by calling `self.hash_table[name] = node`, which is `ChainingHashTableMap.__setitem__`. That method hashes the key, finds the right bucket, and delegates to [**`UnsortedArrayMap.__setitem__`**](https://github.com/sebastianromerocruz/CS1134-data-structures-and-algorithms/tree/main/lectures/15-maps#2-1-1)—which either updates an existing entry or appends a new `Item` to the bucket's `ArrayList`.
 
     ![add() visualization](add_visualization.svg)
+- **Returning customer.** The spec says we should update the cup count _without changing position_. Because the hash table already holds the node, we retrieve it in Θ(1) and overwrite `node.data` directly. No list surgery happens at all (`node.prev` and `node.next` are completely untouched) so the customer stays exactly where they were in the queue. The last section of the diagram above shows this: only the highlighted node changes colour (its data changed); everything else—the list structure, the hash table entry, the node object itself—is identical.
+
 
 Both branches run in Θ(1) amortised average time.
 
