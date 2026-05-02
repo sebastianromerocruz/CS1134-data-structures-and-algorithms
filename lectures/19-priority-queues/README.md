@@ -26,16 +26,11 @@
 
 ## Motivation and Priority Queues
 
-Imagine a line at the airport. It's not simply a first-come-first-serve scenario: passengers with different boarding classes and status levels can jump the line based on priority. In computing, the equivalent to this idea is the **priority queue**.
+Imagine a busy airport line where not everyone is served in the exact order they arrived. Passengers with first-class tickets or special status can move ahead because their priority is higher. In computing, that idea is captured by a **priority queue**. It is a data structure where each item has a value and a priority, and the item with the best priority is removed first.
 
-> A **priority queue** is an abstract data type where each element has a value and a priority. The item with the **highest** priority is served before others.
+In a min-heap, the smallest priority is considered best. In a max-heap, the largest priority is considered best. The important part is that removals always return the current best item.
 
-More specifically:
-
-- **Insertions** are made freely.
-- **Removals** always return the item with the **smallest** or **largest** priority, depending on whether it's a min or max priority queue.
-
-You'll run into these constantly—Dijkstra's shortest path algorithm, operating system schedulers, simulation event queues. The challenge is that we need something that accepts insertions freely but can also retrieve the minimum in better than linear time.
+This structure shows up in many places: Dijkstra’s shortest-path algorithm, operating system schedulers, simulation event queues, and more. The challenge is to support frequent insertions while still finding the best item much faster than scanning the whole list.
 
 <br>
 
@@ -43,19 +38,13 @@ You'll run into these constantly—Dijkstra's shortest path algorithm, operating
 
 ## Heap Fundamentals
 
-The most common implementation of a priority queue is a **binary heap**. It's a binary tree that satisfies two conditions:
+The easiest way to build a priority queue is with a **binary heap**. Think of it as a binary tree with two simple rules:
 
-1. **Heap-order property**:
+1. **Heap-order property**: In a _min-heap_, every parent is _no larger than_ its children. That’s why the smallest item always lives at the top.
 
-   - In a **min-heap**, each node is **less than or equal to** its children.
-   - This ensures that the smallest element is always at the root.
+2. **Complete binary tree**: The tree fills up level by level, left to right, and only the last level may be incomplete. That keeps the tree’s height down to about `Θ(log n)`.
 
-2. **Complete binary tree**:
-
-   - All levels are fully filled **except possibly the last**, which is filled **left to right**.
-   - This means the height is **logarithmic** in the number of nodes: `h = Θ(log n)`.
-
-Here's what a valid **min-heap** looks like:
+Here’s an example of a valid min-heap:
 
 ```
         2
@@ -81,7 +70,11 @@ The `3` is smaller than the root `7`, which breaks the heap property.
 
 ## Heap Implementation
 
-While we can use nodes and pointers to build trees, heaps are almost always implemented using **arrays**. In other words, the following tree:
+Although heaps can be represented as trees with nodes and pointers, the usual implementation uses **arrays** instead.
+
+A complete binary tree can be stored compactly in a single array, and the parent/child relationships become simple index calculations. That avoids the extra memory overhead and bookkeeping of pointer-based trees while still letting us treat the structure like a tree.
+
+In other words, the following tree:
 
 ```
         2
@@ -97,7 +90,7 @@ Would correspond to the following array:
 [None, 2, 4, 3, 10, 5]
 ```
 
-That `None` at index 0 is a placeholder—it makes the index arithmetic for parent/child navigation work out cleanly. **Real heap elements start at index 1.**
+That `None` at index 0 is a placeholder—it makes the index arithmetic for parent/child navigation work out cleanly; **the actual heap elements start at index 1.**
 
 With this 1-based layout, for any node at index `j`:
 
@@ -117,7 +110,7 @@ With this 1-based layout, for any node at index `j`:
 		return j // 2
 	```
 
-Pretty cool, right? Making something into an array that one can simply index in constant time is super efficient—no need for pointers, and everything stays tight in memory.
+This means we can access tree nodes in constant time by index, without pointer chasing, and the array stays compact.
 
 We can also use these ancillary methods to check whether or not any given node has a left and/or right child:
 
@@ -135,7 +128,7 @@ Both methods compute the candidate child index and check whether it falls within
 
 ### Heap Items
 
-Remember that each item in a priority queue has both a value and a priority, and our implementation will reflect that. We will be using a regular old `list` for our array (though our `ArrayList` would also be totally fine), and since we're building a min-heap, we need a way to check if other items have a lesser priority:
+Remember that each item in a priority queue has both a value and a priority, and our implementation will reflect that. We will be using a plain Python `list` for our array, and since we're building a min-heap, we need a way to check if other items have a lesser priority:
 
 ```Python
 class Item:
@@ -240,14 +233,14 @@ Index:     0    1   2   3   4   5   6   7
 Data:   [None,  1,  5,  2, 10, 15, 12,  8]
 
 Tree:
-            1         ← good! amazing! incredible!
+            1
           /   \
         5       2
        / \     / \
      10  15  12   8
 ```
 
-Now `curr_ind = 1`, which is the root, so we stop (`curr_ind > 1` is `False`). **Each level we move up**, we compare with the parent and possibly swap. The height of the tree is O(log `n`), so `fix_up` performs at most log `n` swaps; the heap property is restored.
+Now `curr_ind = 1`, which is the root, so we stop (`curr_ind > 1` is `False`). **Each level we move up**, we compare with the parent and possibly swap. The height of the tree is O(log `n`), so `fix_up` performs at most log `n` swaps and restores the heap property.
 
 ```Python
 def fix_up(self, j):
@@ -293,7 +286,7 @@ def min(self):
 	return self.data[1]
 ```
 
-We don't need to search at all. Since every parent is ≤ its children, whatever sits at index `1` must be smaller than everything else in the heap. We just return it directly. Note that this is a **peek**—it returns the minimum without removing it.
+We don't need to search at all. Since every parent is ≤ its children, whatever sits at index `1` must be smaller than everything else in the heap. We just return it directly. Note that this is a non-destructive **peek**—it returns the minimum without removing it.
 
 ---
 
@@ -402,7 +395,7 @@ Tree:
 Heap is now valid!
 
 ```
-            2         ← good! amazing! incredible!
+            2
           /   \
         5       8
        / \     /
@@ -474,7 +467,7 @@ def __init__(self, priorities_lst=None, values_lst=None):
 ```
 
 ```Python
-self.data = [None]
+	self.data = [None]
 ```
 
 This initialises the heap. `self.data` starts with `[None]` so that real elements begin at index 1, giving us the clean `2j` / `2j+1` / `j//2` formulas above. If no lists are passed in, the heap is simply empty—`self.data` holds only the sentinel and we're done.
@@ -524,15 +517,17 @@ If we had instead called `insert()` `n` times, each insert does a `fix_up` that 
 
 ## Runtime Analysis and Comparisons
 
-The reason heaps perform so well is that the **height of a complete binary tree** is Θ(log `n`). A complete tree of height `h` holds at most:
+Heaps are fast because a complete binary tree stays short even as `n` grows. In a complete tree, each level has twice as many nodes as the level above it, so a tree of height `h` contains at most:
 
 > 1 + 2 + 4 + ... + 2<sup>`h`</sup> = 2<sup>`h` + 1</sup> - 1 ≈ `n`
 
-Solving for `h`:
+Solving for `h` gives us:
 
 > `h` ≈ log₂(`n`)
 
-So every `insert` or `delete_min` only touches O(log `n`) nodes—one per level on the way up or down. Compare this to simpler alternatives:
+That means operations like `insert` and `delete_min` only move through a small number of levels, so they touch O(log `n`) nodes in the worst case. The result is a good balance between fast insertion and fast removal.
+
+Compare this to simpler alternatives:
 
 | Implementation | Insert | Find Min | Remove Min |
 |:--------------:|:------:|:--------:|:----------:|
