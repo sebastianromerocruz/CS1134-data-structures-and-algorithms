@@ -79,7 +79,7 @@ Index | Chain
  12   | 12
 ```
 
-The prime table size spreads the keys much more evenly — 9 of the 13 buckets are occupied, and only 2 have collisions.
+The prime table size spreads the keys much more evenly—9 of the 13 buckets are occupied, and only 2 have collisions.
 
 ---
 
@@ -116,4 +116,4 @@ Index | Chain
   9   | 56
 ```
 
-Even with a non-prime table size, the MAD compression function distributes the keys well — 9 of 10 buckets are occupied, with only 2 collisions. The multiplicative scrambling prevents the clustering seen in part (a).
+Even with a non-prime table size, the MAD compression function distributes the keys well—9 of 10 buckets are occupied, with only 2 collisions. The multiplicative scrambling prevents the clustering seen in part (a).
