@@ -2,7 +2,7 @@
 
 <h1 align=center>Abstract Data Types: <em>Priority Queues (Heaps)</em></h1>
 
-<p align=center><strong><em>Song of the day</strong></em>: <em><a href="https://youtu.be/QslJYDX3o8s?si=52YMEIKKbotoVsRD"><strong><u>Russian Roulette</u></strong></a> by Red Velvet (2016)</em></p>
+<p align=center><strong><em>Song of the day</strong></em>: <em><a href="https://youtu.be/a_426RiwST8?si=FjOzqQ_iESqBGV1q"><strong><u>Lonely Boy</u></strong></a> by The Black Keys (2011)</em></p>
 
 ---
 
