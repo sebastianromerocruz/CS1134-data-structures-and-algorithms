@@ -17,7 +17,7 @@ def simulated_range(start, stop, step=1):
     while current < stop:
         result.append(current)
         current += step
-    
+
     return result
 
 

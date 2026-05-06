@@ -16,31 +16,30 @@ if __name__ == "__main__":
         key = "Wendy"
         wendy = red_velvet[key]
         print(f"{key} exists!")
-        
+
         key = "Taeyeon"
         taeyeon = red_velvet[key]
         print(f"{key} exists!")
     except KeyError:
         print(f"{key} does not exist!")
-        
+
     # removing
     try:
         key = "Wendy"
         del red_velvet[key]
         print(f"{key} removed!")
-        
+
         key = "Taeyeon"
         del red_velvet[key]
         print(f"{key} removed!")
     except KeyError:
         print(f"{key} does not exist!")
-        
+
     # getting size of map
     print(len(red_velvet))
-    
+
     # iterating over keys
     red_velvet["Wendy"] = "Singer"
-    
+
     for member in red_velvet:
         print(f"Member {member}.\tRole: {red_velvet[member]}")
-    

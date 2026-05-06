@@ -4,6 +4,7 @@ import ctypes  # provides low-level arrays
 def make_array(n):
     return (n * ctypes.py_object)()
 
+
 class ArrayList:
     def __init__(self):
         self.data_arr = make_array(1)
@@ -18,28 +19,28 @@ class ArrayList:
         self.capacity = new_size
 
     def append(self, val):
-        if (self.n == self.capacity):
+        if self.n == self.capacity:
             self.resize(2 * self.capacity)
         self.data_arr[self.n] = val
         self.n += 1
-        
+
     def extend(self, iter_collection):
         for elem in iter_collection:
             self.append(elem)
-            
+
     def __len__(self):
         return self.n
 
     def __getitem__(self, ind):
-        if (not (0 <= ind <= self.n - 1)):
-            raise IndexError('invalid index')
+        if not (0 <= ind <= self.n - 1):
+            raise IndexError("invalid index")
         return self.data_arr[ind]
 
     def __setitem__(self, ind, val):
-        if (not (0 <= ind <= self.n - 1)):
-            raise IndexError('invalid index')
+        if not (0 <= ind <= self.n - 1):
+            raise IndexError("invalid index")
         self.data_arr[ind] = val
 
     def __iter__(self):
         for i in range(len(self)):
-            yield self.data_arr[i]  #could also yield self[i]
+            yield self.data_arr[i]  # could also yield self[i]

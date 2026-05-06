@@ -12,17 +12,17 @@ def selection_sort(lst):
             if lst[j] < lst[min_idx]:
                 min_idx = j
         swap(lst, curr, min_idx)
-        
-        # These print statements are, of course, 
+
+        # These print statements are, of course,
         # not part of the implementation
         print(lst)
-        
+
         print("Curr:", curr)
         print("Min idx:", min_idx, end="\n\n")
 
 
 if __name__ == "__main__":
     lst = [5, 8, 12, 7, 8, 10]
-    
+
     selection_sort(lst)
     print(lst)

@@ -1,7 +1,7 @@
 def linear_search(lst: list, val: int) -> int:
     """
     Checks the elements of a list for a specified value, returning the index
-    location of that value if found in the list, or None otherwise. 
+    location of that value if found in the list, or None otherwise.
 
     Args:
         lst (list): A list of integers
@@ -13,9 +13,9 @@ def linear_search(lst: list, val: int) -> int:
     # Θ(n)
     for i in range(len(lst)):
         # Θ(1)
-        if (lst[i] == val):
+        if lst[i] == val:
             return i  # Θ(1)
-    
+
     return None  # Θ(1)
 
 

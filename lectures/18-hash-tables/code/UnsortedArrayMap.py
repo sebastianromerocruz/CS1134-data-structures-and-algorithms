@@ -20,7 +20,7 @@ class UnsortedArrayMap:
         for item in self.table:
             if key == item.key:
                 return item.value
-            
+
         raise KeyError("Key Error: " + str(key))
 
     def __setitem__(self, key, value):
@@ -28,7 +28,7 @@ class UnsortedArrayMap:
             if key == item.key:
                 item.value = value
                 return
-            
+
         self.table.append(UnsortedArrayMap.Item(key, value))
 
     def __delitem__(self, key):
@@ -36,7 +36,7 @@ class UnsortedArrayMap:
             if key == self.table[j].key:
                 self.table.pop(j)
                 return
-            
+
         raise KeyError("Key Error: " + str(key))
 
     def __iter__(self):

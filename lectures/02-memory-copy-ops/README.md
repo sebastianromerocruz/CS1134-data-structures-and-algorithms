@@ -288,4 +288,3 @@ print(c)
 ...would print a value of **`2`**. Keep this in mind as we go on.
 
 <a id="3-1"></a>
-

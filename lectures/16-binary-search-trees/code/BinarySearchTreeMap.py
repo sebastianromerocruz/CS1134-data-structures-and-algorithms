@@ -4,7 +4,6 @@ class BinarySearchTreeMap:
             self.key = key
             self.value = value
 
-
     class Node:
         def __init__(self, item):
             self.item = item
@@ -26,7 +25,6 @@ class BinarySearchTreeMap:
             self.left = None
             self.right = None
 
-
     def __init__(self):
         self.root = None
         self.n = 0
@@ -35,8 +33,7 @@ class BinarySearchTreeMap:
         return self.n
 
     def is_empty(self):
-        return (len(self) == 0)
-
+        return len(self) == 0
 
     # returns value, or raises exception if not found
     def __getitem__(self, key):
@@ -49,22 +46,21 @@ class BinarySearchTreeMap:
     # return node with key, or None if not found
     def find_node(self, key):
         cursor = self.root
-        
+
         while cursor is not None:
             if cursor.item.key == key:
                 return cursor
             elif cursor.item.key > key:
                 cursor = cursor.left
-            else: # (cursor.item.key < key
+            else:  # (cursor.item.key < key
                 cursor = cursor.right
-                
-        return None
 
+        return None
 
     # updates value if key already exists
     def __setitem__(self, key, value):
         node = self.find_node(key)
-        
+
         if node is not None:
             node.item.value = value
         else:
@@ -74,34 +70,33 @@ class BinarySearchTreeMap:
     def insert(self, key, value):
         new_item = BinarySearchTreeMap.Item(key, value)
         new_node = BinarySearchTreeMap.Node(new_item)
-        
+
         if self.is_empty() == True:
             self.root = new_node
             self.n = 1
         else:
             parent = None
             cursor = self.root
-            
+
             while cursor is not None:
                 parent = cursor
-                if(key < cursor.item.key):
+                if key < cursor.item.key:
                     cursor = cursor.left
                 else:
                     cursor = cursor.right
-                    
+
             if key < parent.item.key:
                 parent.left = new_node
             else:
                 parent.right = new_node
-                
+
             new_node.parent = parent
             self.n += 1
-
 
     # raises an exceprion if ket not in the tree
     def __delitem__(self, key):
         node = self.find_node(key)
-        
+
         if node is None:
             raise KeyError(str(key) + " not found")
         else:
@@ -123,7 +118,7 @@ class BinarySearchTreeMap:
                     self.root = self.root.left
                 else:
                     self.root = self.root.right
-                    
+
                 self.root.parent = None
                 node_to_delete.disconnect()
                 self.n -= 1
@@ -133,9 +128,9 @@ class BinarySearchTreeMap:
                 node_to_delete.item = max_of_left.item
                 self.delete_node(max_of_left)
         else:
-            if(num_children == 0):
+            if num_children == 0:
                 parent = node_to_delete.parent
-                
+
                 if node_to_delete is parent.left:
                     parent.left = None
                 else:
@@ -160,7 +155,7 @@ class BinarySearchTreeMap:
                 node_to_delete.disconnect()
                 self.n -= 1
 
-            else: #(num_children == 2)
+            else:  # (num_children == 2)
                 max_in_left = self.subtree_max(node_to_delete.left)
                 node_to_delete.item = max_in_left.item
                 self.delete_node(max_in_left)
@@ -169,15 +164,15 @@ class BinarySearchTreeMap:
 
     def subtree_max(self, subtree_root):
         cursor = subtree_root
-        
+
         while cursor.right is not None:
             cursor = cursor.right
-            
+
         return cursor
 
     def inorder(self):
         def subtree_inorder(root):
-            if (root is None):
+            if root is None:
                 return
             else:
                 yield from subtree_inorder(root.left)

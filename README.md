@@ -4,7 +4,7 @@
 
 ## Description
 
-This repository contains Prof. [**Sebastián Romero Cruz**](#https://github.com/sebastianromerocruz)'s CS 1134 lecture notes and practice problems.
+This repository contains Prof. [**Sebastián Romero Cruz**](https://github.com/sebastianromerocruz)'s CS 1134 lecture notes and practice problems.
 
 **Note**: Use and/or distribution of this material outside of this class is legally restricted by [**university
 policy**](https://guides.nyu.edu/copyright/nyupermissions). If you want to use it for any reason other than as a study

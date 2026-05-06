@@ -7,18 +7,17 @@ class ArrayMinHeap:
         def __le__(self, other):
             return self.priority <= other.priority
 
-
     def __init__(self, priorities_lst=None, values_lst=None):
         self.data = [None]
         # add later
-        
+
         if priorities_lst is not None:
             for i in range(len(priorities_lst)):
                 new_item = ArrayMinHeap.Item(priorities_lst[i], values_lst[i])
                 self.data.append(new_item)
-                
+
             first_non_leaf_ind = self.parent(len(self.data) - 1)
-            
+
             for i in range(first_non_leaf_ind, 0, -1):
                 self.fix_down(i)
 
@@ -44,7 +43,7 @@ class ArrayMinHeap:
         return len(self) == 0
 
     def min(self):
-        if (self.is_empty()):
+        if self.is_empty():
             raise Exception("Priority queue is empty.")
         item = self.data[1]
         return item
@@ -52,15 +51,15 @@ class ArrayMinHeap:
     def insert(self, priority, value=None):
         new_item = ArrayMinHeap.Item(priority, value)
         self.data.append(new_item)
-        
+
         self.fix_up(len(self.data) - 1)
 
     def delete_min(self):
-        if (self.is_empty()):
+        if self.is_empty():
             raise Exception("Priority queue is empty.")
         self.swap(1, len(self.data) - 1)
         item = self.data.pop()
-        if (not self.is_empty()):
+        if not self.is_empty():
             self.fix_down(1)
         return item
 
@@ -70,9 +69,9 @@ class ArrayMinHeap:
     def fix_up(self, j):
         curr_ind = j
         keep_going = True
-        while ((keep_going == True) and (curr_ind > 1)):
+        while (keep_going == True) and (curr_ind > 1):
             parent_ind = self.parent(curr_ind)
-            if (self.data[parent_ind] <= self.data[curr_ind]):
+            if self.data[parent_ind] <= self.data[curr_ind]:
                 keep_going = False
             else:
                 self.swap(curr_ind, parent_ind)
@@ -81,12 +80,12 @@ class ArrayMinHeap:
     def fix_down(self, j):
         curr_ind = j
         keep_going = True
-        
+
         while keep_going == True and self.has_left(curr_ind) == True:
             if self.has_right(curr_ind) == True:
                 left_ind = self.left(curr_ind)
                 right_ind = self.right(curr_ind)
-                
+
                 if self.data[right_ind] <= self.data[left_ind]:
                     small_child_ind = right_ind
                 else:

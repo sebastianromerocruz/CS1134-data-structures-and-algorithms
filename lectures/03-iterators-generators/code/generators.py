@@ -38,7 +38,7 @@ def simulated_range(start, stop, step=1):
 
         # and when execution is picked back up, increase the value of current
         current += step
-    
+
     # no need to return!
 
 

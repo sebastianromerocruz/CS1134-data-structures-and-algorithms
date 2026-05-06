@@ -1,5 +1,6 @@
-from random import randrange
 from ctypes import py_object  # provides low-level arrays
+from random import randrange
+
 from UnsortedArrayMap import UnsortedArrayMap
 
 
@@ -20,10 +21,10 @@ class ChainingHashTableMap:
 
     def __init__(self, N=64):
         self.table = make_array(N)
-        
+
         for i in range(N):
             self.table[i] = UnsortedArrayMap()
-            
+
         self.n = 0
         self.h = ChainingHashTableMap.MADHashFunction(N)
 
@@ -36,7 +37,7 @@ class ChainingHashTableMap:
     def __getitem__(self, key):
         i = self.h(key)
         curr_bucket = self.table[i]
-        
+
         return curr_bucket[key]
 
     def __setitem__(self, key, value):
@@ -45,21 +46,21 @@ class ChainingHashTableMap:
         old_size = len(curr_bucket)
         curr_bucket[key] = value
         new_size = len(curr_bucket)
-        
+
         if new_size > old_size:
             self.n += 1
-            
+
         if self.n > len(self.table):
             self.rehash(2 * len(self.table))
 
     def __delitem__(self, key):
         i = self.h(key)
         curr_bucket = self.table[i]
-        
+
         del curr_bucket[key]
         self.n -= 1
-        
-        if (self.n < len(self.table) // 4):
+
+        if self.n < len(self.table) // 4:
             self.rehash(len(self.table) // 2)
 
     def __contains__(self, key):
@@ -77,6 +78,6 @@ class ChainingHashTableMap:
     def rehash(self, new_size):
         old = [(key, self[key]) for key in self]
         self.__init__(new_size)
-        
-        for (key, val) in old:
+
+        for key, val in old:
             self[key] = val

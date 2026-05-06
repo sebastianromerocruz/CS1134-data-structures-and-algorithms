@@ -15,30 +15,30 @@ class ArrayList:
         new_array = make_array(new_size)
         for i in range(self.n):
             new_array[i] = self.data_arr[i]
-            
+
         self.data_arr = new_array
         self.capacity = new_size
 
     def append(self, val):
         if self.n == self.capacity:
             self.resize(2 * self.capacity)
-            
+
         self.data_arr[self.n] = val
         self.n += 1
-        
+
     def extend(self, iter_collection):
         for elem in iter_collection:
             self.append(elem)
-            
+
     def pop(self, index=None):
         if len(self) == 0:
-            raise Exception('list is empty')
+            raise Exception("list is empty")
 
         if index is None:
             index = self.n - 1
 
         if not (0 <= index <= self.n - 1):
-            raise IndexError('invalid index')
+            raise IndexError("invalid index")
 
         val = self.data_arr[index]
 
@@ -51,22 +51,22 @@ class ArrayList:
             self.resize(self.capacity // 2)
 
         return val
-            
+
     def __len__(self):
         return self.n
 
     def __getitem__(self, ind):
         if not (0 <= ind <= self.n - 1):
-            raise IndexError('invalid index')
-        
+            raise IndexError("invalid index")
+
         return self.data_arr[ind]
 
     def __setitem__(self, ind, val):
         if not (0 <= ind <= self.n - 1):
-            raise IndexError('invalid index')
-        
+            raise IndexError("invalid index")
+
         self.data_arr[ind] = val
 
     def __iter__(self):
         for i in range(len(self)):
-            yield self.data_arr[i]  #could also yield self[i]
+            yield self.data_arr[i]  # could also yield self[i]

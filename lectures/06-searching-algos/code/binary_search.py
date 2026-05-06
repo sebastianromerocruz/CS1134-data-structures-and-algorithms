@@ -10,7 +10,7 @@ def binary_search(sorted_list: list, val: int) -> int:
     Returns:
         int: The index of the target value, None if not found
     """
-    start = 0                    # Θ(1)
+    start = 0  # Θ(1)
     stop = len(sorted_list) - 1  # Θ(1)
 
     # Θ(number of iterations, k)
@@ -24,8 +24,9 @@ def binary_search(sorted_list: list, val: int) -> int:
             stop = med_idx - 1
         else:
             start = med_idx + 1
-        
+
     return None  # Θ(1)
+
 
 def main():
     lst = [1, 2, 3, 4, 5, 6]

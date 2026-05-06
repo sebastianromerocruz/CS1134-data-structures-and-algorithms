@@ -6,6 +6,7 @@ string = "abc"
 for char in string:
     print(char)
 """
+
 string = "abc"
 str_iterator = iter(string)
 is_done = False  # flag to stop loop

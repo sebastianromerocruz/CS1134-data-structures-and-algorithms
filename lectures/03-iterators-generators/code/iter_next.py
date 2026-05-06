@@ -14,4 +14,4 @@ print(f"The {iterator} object is of type {type(iterator)}")
 print(next(iterator))
 print(next(iterator))
 print(next(iterator))
-print(next(iterator)) # error
+print(next(iterator))  # error
