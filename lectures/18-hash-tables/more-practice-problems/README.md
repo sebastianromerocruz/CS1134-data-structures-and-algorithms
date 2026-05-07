@@ -53,7 +53,7 @@ write a function that takes two lists of integers and returns a list of elements
 For example:
 
 ```python
-intersection_list([3, 9, 2, 7, 1], [4, 1, 8, 2]) → [2, 1]
+intersection_list([3, 9, 2, 7, 1], [4, 1, 8, 2]) → [1, 2]
 ```
 
 ### a) Write an implementation with the **best worst-case runtime**.

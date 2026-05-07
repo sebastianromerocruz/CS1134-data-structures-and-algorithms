@@ -27,7 +27,7 @@ for key in [3, 6, 9, 12, 15]:
     bst.insert(key, None)
 ```
 
-Because each new value is larger than the last, every node goes into the right child of the previous one. The result is a tree that is really just a linked list in disguise—height `h = n`, giving us the worst-case **Θ(`n`)** for every operation.
+Because each new value is larger than the last, every node goes into the right child of the previous one. The result is a tree that is really just a linked list in disguise—height `h = n - 1`, giving us the worst-case **Θ(`n`)** for every operation.
 
 This is the gap we want to close. Our goal is a binary search tree that **guarantees** its height stays in Θ(log `n`)—no matter what order keys arrive in.
 

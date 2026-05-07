@@ -332,7 +332,7 @@ Note the comments above, denoting that `divisor_count` takes a constant runtime 
 
 For our `num / 2` algorithm, the runtime formula would instead be:
 
-> T<sub>half</sub>(n) = 4 + (Σ(`i` = 1 to `n` / 1) 5) + = 5(n / 2) + 6 = **5n / 2 + 6**
+> T<sub>half</sub>(n) = 4 + (Σ(`i` = 1 to `n` / 2) 5) + 2 = 5(n / 2) + 6 = **5n / 2 + 6**
 
 And for our `√num` algorithm, the runtime formula would be:
 
@@ -340,11 +340,11 @@ And for our `√num` algorithm, the runtime formula would be:
 
 Make sense? So, for asymptotic analysis, we're interested in finding how the runtime (`T(n)`) grows as `n` gets really really large. Say that `n`, for example, equalled 1,000, 1,000,000, and 1,000,000,000:
 
-> T<sub>naïve</sub>(n) = 5,000 + 6 = **5,006**
+> T<sub>naïve</sub>(n) = 5(1,000,000) + 6 = **5,000,006**
 >
-> T<sub>half</sub>(n) = 5,000,000 + 6 = **5,000,006**
+> T<sub>half</sub>(n) = 5(1,000,000) / 2 + 6 = **2,500,006**
 >
-> T<sub>sqrt</sub>(n) = 5,000,000,000 + 6 = **5,000,000,006**
+> T<sub>sqrt</sub>(n) = 5(√1,000,000) + 6 = 5(1,000) + 6 = **5,006**
 
 As `n` grows larger and larger, the value of the constant stops mattering at all. So, in asymptotic analysis, we always drop the low-order terms. Morover, we also ignore the leading constants of the highest-order term:
 

@@ -236,7 +236,7 @@ We've already found the value of `n`<sub>0</sub> (any value ≥ 4), so now it's 
 
 We've now proven that for any `n`<sub>0</sub> ≥ 4, the following inequality holds:
 
-> **9`n`² ≤ f(`n`) ≤ 9`n`²**
+> **2`n`² ≤ f(`n`) ≤ 9`n`²**
 
 Which is the exact definition of big-theta (Θ). We've thus proven that **Θ(f(`n`)) = Θ(`n`²)**.
 
@@ -248,11 +248,11 @@ Which is the exact definition of big-theta (Θ). We've thus proven that **Θ(f(`
 
 ### In Summary
 
-<p align=center><strong>O</strong>: f(<code>n</code>) ≥ <code>c</code> * g(<code>n</code>), for all <code>n</code> ≥ <code>n</code><sub>0</sub></p>
+<p align=center><strong>O</strong>: f(<code>n</code>) ≤ <code>c</code> * g(<code>n</code>), for all <code>n</code> ≥ <code>n</code><sub>0</sub></p>
 
 > |f| is bounded above by g (up to a constant factor) asymptotically.
 
-<p align=center><strong>Ω</strong>: f(<code>n</code>) ≤ <code>c</code> * g(<code>n</code>), for all <code>n</code> ≥ <code>n</code><sub>0</sub></p>
+<p align=center><strong>Ω</strong>: f(<code>n</code>) ≥ <code>c</code> * g(<code>n</code>), for all <code>n</code> ≥ <code>n</code><sub>0</sub></p>
 
 > f is bounded below by g asymptotically.
 
@@ -411,7 +411,7 @@ def prefix_avg(lst):
     for i in range(n):
         curr_sum = sum(lst[0:i + 1])    # Θ(i), which we established is Θ(n)
         curr_avg = curr_sum / (i + 1)   # Θ(1)
-        result[i] = curr_avg            # Θ(i)
+        result[i] = curr_avg            # Θ(1)
     
     return result  # Θ(1)
 
@@ -470,7 +470,7 @@ i = n-1 →  sum(lst[0:n])   →  Θ(n)
 The total work done across all iterations is:
 ```
 Θ(1) + Θ(2) + Θ(3) + ... + Θ(n) = 1 + 2 + 3 + ... + n 
-                                = 2(n + 1) / 2
+                                = n(n + 1) / 2
                                 = Θ(n²)
 ```
 

@@ -154,7 +154,7 @@ Now, while there are many ways to implement trees, the ones that we'll focus on 
 More specifically:
 
 - **Full (Proper) Binary Tree**: A binary tree, `T`, is a _full binary tree_, if the number of children of each node in `T` is either 0 or 2.
-- **Complete Binary Tree**: A binary tree, `T`, is a _complete binary tree_, if all the levels of `T` contain all possible nodes (i.e. 2).
+- **Complete Binary Tree**: A binary tree, `T`, is a _complete binary tree_, if every level of `T`, except possibly the last, is fully filled, and all nodes in the last level are as far left as possible.
 
 ![full-binary-tree](assets/full-binary-tree.png)
 ![complete-binary-tree](assets/complete-binary-tree.png)
@@ -183,7 +183,7 @@ For each **<a style="color:blue">node</a>**, then, our work is constant. The wor
 >
 > **T(`n`)** = **<a style="color:blue">number of blue nodes</a>** + **<a style="color:red">number of red nodes</a>**
 
-Now, in a binary tree, we know that the number of leaf nodes per level is bounded by 2 (that is, there can only be 0, 1, or 2). For that reason, we can say that:
+Now, in a binary tree, we know that the number of children per node is bounded by 2 (that is, each node can have 0, 1, or 2 children). For that reason, we can say that:
 
 > **T(`n`)** = **<a style="color:blue">number of blue nodes</a>** + **<a style="color:red">number of red nodes</a>**
 >

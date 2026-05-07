@@ -87,7 +87,7 @@ def selection_sort(lst):
     for curr in range(n):
         min_idx = curr                 # Θ(1)
 
-        # Θ(curr) === Θ(n)
+        # Θ(n - curr) === Θ(n)
         for j in range(curr + 1, n):
             if lst[j] < lst[min_idx]:  # Θ(1)
                 min_idx = j            # Θ(1)
@@ -301,7 +301,7 @@ def bubble_sort(lst):
     # Θ(n)
     for i in range(n - 1):
 
-        # Θ(i) === Θ(n)
+        # Θ(n - i) === Θ(n)
         for j in range(n - i - 1):
             if lst[j] > lst[j + 1]:  # Θ(1)
                 # swap

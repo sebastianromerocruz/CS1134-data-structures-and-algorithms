@@ -113,7 +113,7 @@ Note here in this implementation:
 
 1. 
 
-> 1 + 2 + 3 + 4 + 5 + ... + `n` = `n`(`n` - 1) / 2 = **Θ(`n`<sup>2</sup>)**
+> 1 + 2 + 3 + 4 + 5 + ... + `n` = `n`(`n` + 1) / 2 = **Θ(`n`<sup>2</sup>)**
 
 2.
 
@@ -125,7 +125,7 @@ Note here in this implementation:
 
 4.
 
-> 1 + 2 + 4 + 8 + 16 + ... + 2<sup>`n`</sup> = 2<sup>`n` - 1</sup> - 1 = **Θ(2<sup>`n`</sup>)**
+> 1 + 2 + 4 + 8 + 16 + ... + 2<sup>`n`</sup> = 2<sup>`n` + 1</sup> - 1 = **Θ(2<sup>`n`</sup>)**
 
 5.
 
